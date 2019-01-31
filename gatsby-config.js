@@ -53,29 +53,21 @@ module.exports = {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
-    `gatsby-plugin-feed`,
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: `gatsby-plugin-feed`,
       options: {
-        name: `@Beautifwhale`,
-        short_name: `@Beautifwhale`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `content/assets/profile-pic.jpg`,
         query: `
-      {
-        site {
-          siteMetadata {
-            title
-            description
-            siteUrl
-            site_url: siteUrl
+        {
+          site {
+            siteMetadata {
+              title
+              description
+              siteUrl
+              site_url: siteUrl
+            }
           }
         }
-      }
-    `,
+      `,
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
@@ -83,9 +75,10 @@ module.exports = {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + edge.node.frontmatter.path,
-                  guid: site.siteMetadata.siteUrl + edge.node.frontmatter.path,
+                  url: site.siteMetadata.siteUrl + edge.node.frontmatter.date,
+                  guid: site.siteMetadata.siteUrl + edge.node.frontmatter.date,
                   custom_elements: [{ 'content:encoded': edge.node.html }],
+                  categories: [edge.node.frontmatter.category],
                 })
               })
             },
@@ -100,8 +93,8 @@ module.exports = {
                   excerpt
                   html
                   frontmatter {
-                    date
-                    path
+                    date                                   
+                    category
                   }
                 }
               }
@@ -112,6 +105,18 @@ module.exports = {
             title: 'RSS Feed',
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `@Beautifwhale`,
+        short_name: `@Beautifwhale`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `content/assets/profile-pic.jpg`,
       },
     },
     `gatsby-plugin-offline`,

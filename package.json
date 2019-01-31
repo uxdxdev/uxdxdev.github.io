@@ -33,7 +33,8 @@
     "typeface-merriweather": "0.0.43",
     "typeface-montserrat": "0.0.43",
     "typography": "^0.16.17",
-    "typography-theme-wordpress-2016": "^0.15.10"
+    "typography-theme-wordpress-2016": "^0.15.10",
+    "gh-pages": "^2.0.1"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
@@ -58,7 +59,9 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "build": "gatsby build",
-    "serve": "gatsby serve",
-    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
+    "serve": "npm run build && gatsby serve",
+    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js",
+    "publish": "gatsby build && npm run commit && gh-pages -d public -b master",
+    "commit": "git add . && git commit -am \"blog updates\" && git push"
   }
 }
