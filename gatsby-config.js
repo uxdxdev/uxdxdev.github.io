@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `@Beautifwhale`,
-    author: `David Morton`,
+    author: `Daithí 🐋 `,
     description: `Software Witchcraft & Wizardry`,
     siteUrl: `https://beautifwhale.github.io/`,
     social: {

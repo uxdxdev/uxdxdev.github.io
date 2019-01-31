@@ -2,7 +2,6 @@
 date: '2019-01-30'
 title: 'Java Object equals() and hashcode() methods'
 category: coding, java
-draft: true
 ---
 
 I was recently asked this question in an interview:
