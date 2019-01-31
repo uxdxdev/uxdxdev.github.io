@@ -61,7 +61,7 @@
     "build": "gatsby build",
     "serve": "npm run build && gatsby serve",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js",
-    "publish": "gatsby build && npm run commit && gh-pages -d public -b master",
+    "publish": "gatsby build && gh-pages -d public -b master",
     "commit": "git add . && git commit -am \"blog updates\" && git push"
   }
 }
