@@ -73,6 +73,7 @@ module.exports = {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
+                  title: edge.node.frontmatter.title,
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.frontmatter.date,
@@ -93,6 +94,7 @@ module.exports = {
                   excerpt
                   html
                   frontmatter {
+                    title
                     date                                   
                     category
                   }
