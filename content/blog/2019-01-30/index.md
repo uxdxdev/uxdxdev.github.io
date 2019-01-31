@@ -1,7 +1,8 @@
 ---
 date: '2019-01-30'
 title: 'Java Object equals() and hashcode() methods'
-category: Java, Code, Collections
+category: coding, java
+draft: true
 ---
 
 I was recently asked this question in an interview:
@@ -55,7 +56,7 @@ setStudents.forEach(student -> System.out.println(student));
 Would be something like (remember to override the `toString()` method to control
 your print output):
 
-```
+```text
 Student 111 Donald donaldtrump@gmail.com 60
 Student 111 Donald donaldtrump@gmail.com 60
 Student 888 Peter peterpan@gmail.com 12
