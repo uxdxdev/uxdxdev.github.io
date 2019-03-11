@@ -1,67 +1,75 @@
 ---
 date: '2019-01-30'
-title: 'Java Object equals() and hashcode() methods'
+title: 'Hashtables, HashSets, and HashMaps in Java'
 category: coding, java
 ---
 
-I was recently asked this question in an interview:
+> Why is overriding the Object.equals() and Object.hashcode() methods important when using Hashtables, HashSets, and HashMaps in Java?
 
-> Why is overriding the equals() and hashcode() methods on your class important when using Collections?
+When using `Hashtable`, `Hashset`, or `HashMap` in Java `equals()` and/or
+`hashcode()` are called during a comparison depending on the context and data structure used.
 
-At first I didn't really understand the question, I was thinking more along the
-lines of how it might be done as opposed to why you would actually do it. I
-struggled to find the answer they were looking for. I continued to ask more
-questions hoping to narrow down what the interviewer was looking for exactly. I
-didn't provide a solid answer to the question but I talked through what I was
-thinking and came close, I think.
-
-In hindsight, and with some additional Googling, I can see
-that the question was very simple, it was my lack of experience with the
-context that was the problem. Curious to know the answer to the question I did
-some searching.
-
-So it turns out the reason why you would override the `equals()` and
-`hashCode()` methods in your class is when using the Java Collections API for
-things like `Hashtable`, `Hashset`, or `HashMap`. Both of
-these methods are called depending on the context and data structure used.
-
-# Hashtables, HashSets, and HashMaps
-
-To understand why its critical to override these methods its important to
-understand how these collections work at a high level. For example using Set to
-store `Student` objects. We want to leverage the functionality of a Set to only allow unique objects to be stored, no duplicates.
+For example using a `Hashset` to store students. We want to leverage the functionality of a `Hashset` to only allow unique objects to be stored, no duplicates.
 
 ```java
-Student student1 = new Student("111", "Donald", "donaldtrump@gmail.com", 60);
-Student student2 = new Student("111", "Donald", "donaldtrump@gmail.com", 60);
-Student student3 = new Student("888", "Peter", "peterpan@gmail.com", 12);
+import java.util.HashSet;
 
-Set<Student> setStudents = new HashSet<Student>();
+class Student {
+  private String id;
+  private String name;
+  private String email;
+  private int age;
 
-setStudents.add(student1);
-setStudents.add(student2);
-setStudents.add(student3);
+  public Student(String id, String name, String email, int age){
+    this.id = id;
+    this.name = name;
+    this.email = email;
+    this.age = age;
+  }
+
+  @Override
+  public String toString() {
+    return "HashCode " + this.hashCode() + " Student{" +
+        "id='" + id + '\'' +
+        ", name='" + name + '\'' +
+        ", email='" + email + '\'' +
+        ", age=" + age +
+        '}';
+  }
+}
+
+public class Main {
+  public static void main(String args[]) {
+    Student student1 = new Student("111", "Donald", "donaldtrump@gmail.com", 60);
+    Student student2 = new Student("111", "Donald", "donaldtrump@gmail.com", 60);
+    Student student3 = new Student("888", "Peter", "peterpan@gmail.com", 12);
+
+    HashSet<Student> setStudents = new HashSet<Student>();
+
+    setStudents.add(student1);
+    setStudents.add(student2);
+    setStudents.add(student3);
+
+    setStudents.forEach(student -> System.out.println(student));
+  }
+}
 ```
 
-We can see here that we have two identical `Student` objects in terms of there
+We can see here that we have two identical `Student` objects, Donald, in terms of their
 contents. We do not want to store both of these objects, only one is required.
-Using the example as it is without overriding `equals()` or `hashCode()` in the
-`Student` the results of a print:
+But if we print out the contents of the set.
 
-```java
-setStudents.forEach(student -> System.out.println(student));
-```
-
-Would be something like (remember to override the `toString()` method to control
-your print output):
+The output to the console is:
 
 ```text
-Student 111 Donald donaldtrump@gmail.com 60
-Student 111 Donald donaldtrump@gmail.com 60
-Student 888 Peter peterpan@gmail.com 12
+HashCode 1580066828 Student{id='111', name='Donald', email='donaldtrump@gmail.com', age=60}
+HashCode 1625635731 Student{id='111', name='Donald', email='donaldtrump@gmail.com', age=60}
+HashCode 491044090 Student{id='888', name='Peter', email='peterpan@gmail.com', age=12}
 ```
 
-Wait what? why is there two entries for Donald? I'm using a HashSet only one Object should have been stored.
+You can see that Donald was added to the set twice even though they have exactly
+the same contents. The reason this happens is because a `HashSet` stores objects
+into buckets.
 
 ...
 

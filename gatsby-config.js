@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `@Beautifwhale`,
-    author: `Daithí 🐋 `,
+    title: `@Beautifwhale 🐋`,
+    author: `Daithí`,
     description: `Software Witchcraft & Wizardry`,
     siteUrl: `https://beautifwhale.github.io/`,
     social: {

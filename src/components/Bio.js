@@ -31,11 +31,11 @@ function Bio() {
               }}
             />
             <p>
-              Written by <strong>{author}</strong> who lives and works in
-              Ireland building useful things.
+              Written by <strong>{author}</strong>, that's me! living and
+              working in Ireland building things.
               {` `}
               <a href={`https://twitter.com/${social.twitter}`}>
-                You should follow him on Twitter
+                You should follow me on Twitter
               </a>
             </p>
           </div>
