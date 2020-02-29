@@ -63,9 +63,25 @@ class Layout extends React.Component {
         {header}
         {children}
         <footer>
-          © {new Date().getFullYear()}
-          {` `}
-          <a href="https://twitter.com/Beautifwhale">@Beautifwhale</a>
+          <a href="/">home</a> •{' '}
+          <a href="https://twitter.com/Beautifwhale" target="_blank">
+            twitter
+          </a>{' '}
+          •{' '}
+          <a href="https://github.com/beautifwhale" target="_blank">
+            github
+          </a>{' '}
+          •{' '}
+          <a
+            href="https://stackoverflow.com/users/2600522/david-morton"
+            target="_blank"
+          >
+            stackoverflow
+          </a>{' '}
+          •{' '}
+          <a href="/rss.xml" target="_blank">
+            rss
+          </a>
         </footer>
       </div>
     )

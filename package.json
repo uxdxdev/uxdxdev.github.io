@@ -1,9 +1,9 @@
 {
   "name": "beautifwhale.githib.io",
   "private": true,
-  "description": "Software Witchcraft & Wizardry",
+  "description": "Let's talk about that.",
   "version": "0.0.1",
-  "author": "@Beautifwhale",
+  "author": "David Morton",
   "bugs": {
     "url": "https://github.com/beautifwhale/beautifwhale.github.io/issues"
   },
@@ -52,12 +52,10 @@
     "url": "git+https://github.com/beautifwhale/beautifwhale.github.io.git"
   },
   "scripts": {
-    "dev": "gatsby develop",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
-    "develop": "gatsby develop",
-    "start": "npm run develop",
+    "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "npm run build && gatsby serve",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js",

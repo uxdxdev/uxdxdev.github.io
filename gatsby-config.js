@@ -1,12 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `@Beautifwhale 🐋`,
-    author: `Daithí`,
-    description: `Software Witchcraft & Wizardry`,
+    title: `beautifwhale.io 🐋`,
+    author: `David Morton`,
+    description: `Let's talk about that.`,
     siteUrl: `https://beautifwhale.github.io/`,
-    social: {
-      twitter: `Beautifwhale`,
-    },
   },
   plugins: [
     {
@@ -114,13 +111,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `@Beautifwhale`,
-        short_name: `@Beautifwhale`,
+        name: `beautifwhale.io`,
+        short_name: `beautifwhale.io`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/profile-pic.jpg`,
+        icon: `content/assets/profile_cropped.png`,
       },
     },
     `gatsby-plugin-offline`,
