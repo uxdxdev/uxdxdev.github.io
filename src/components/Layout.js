@@ -52,7 +52,7 @@ class Layout extends React.Component {
         {header}
         {children}
         <footer>
-          <a href="/">home</a> •{' '}
+          <Link to="/">home</Link> •{' '}
           <a href="https://twitter.com/Beautifwhale" target="_blank">
             twitter
           </a>{' '}
