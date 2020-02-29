@@ -16,6 +16,7 @@ const Bio = () => {
             style={{
               display: 'flex',
               alignItems: 'center',
+              marginBottom: rhythm(1),
             }}
           >
             <Image
@@ -33,7 +34,11 @@ const Bio = () => {
             />
 
             <div>
-              Personal blog by <strong>{author}</strong>.
+              Personal blog by{' '}
+              <a href="https://twitter.com/Beautifwhale" target="_blank">
+                {author}
+              </a>
+              .
             </div>
           </div>
         )
