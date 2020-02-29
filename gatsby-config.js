@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `beautifwhale.io 🐋`,
+    title: `beautifwhale.github.io 🐋`,
     author: `David Morton`,
     description: `Let's talk about that.`,
     siteUrl: `https://beautifwhale.github.io/`,
@@ -111,8 +111,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `beautifwhale.io`,
-        short_name: `beautifwhale.io`,
+        name: `beautifwhale.github.io`,
+        short_name: `beautifwhale.github.io`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,

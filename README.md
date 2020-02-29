@@ -1,4 +1,4 @@
-# @Beautifwhale.github.io
+# beautifwhale.github.io
 
 ## Stack
 
