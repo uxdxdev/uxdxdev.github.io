@@ -1,8 +1,9 @@
 import Typography from 'typography'
 
 const typography = new Typography({
+  baseFontSize: '20px',
   headerFontFamily: ['IBM Plex Sans'],
-  bodyFontFamily: ['Montserrat'],
+  bodyFontFamily: ['IBM Plex Sans'],
   googleFonts: [
     {
       name: 'Montserrat',
