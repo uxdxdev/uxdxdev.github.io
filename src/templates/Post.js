@@ -14,13 +14,24 @@ class BlogPostTemplate extends React.Component {
     const { previous, next } = this.props.pageContext
     const { banner } = this.props.data
 
+    // banner image for social media sharing
     const bannerSrc = banner && banner.childImageSharp.fluid.src
+    let origin = ''
+    if (typeof window !== 'undefined') {
+      origin = window.location.origin
+    }
+    const imageSrc = origin + bannerSrc
+
+    const keywords = post.frontmatter.keywords.split(`,`)
+    console.log(keywords)
+
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
           title={post.frontmatter.title}
           description={post.excerpt}
-          image={bannerSrc}
+          keywords={keywords}
+          image={imageSrc}
         />
         <div
           style={{
@@ -117,6 +128,7 @@ export const pageQuery = graphql`
         date(formatString: "DD MMMM YYYY")
         bannerCredit
         imageAltText
+        keywords
       }
       fields {
         readingTime {

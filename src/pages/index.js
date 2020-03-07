@@ -4,18 +4,38 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import { rhythm } from '../utils/typography'
-
+import bannerSrc from '../../content/assets/blogBanner.jpg'
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
 
+    // banner image for social media sharing
+    let origin = ''
+    if (typeof window !== 'undefined') {
+      origin = window.location.origin
+    }
+    const imageSrc = origin + bannerSrc
+
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
           title="All posts"
-          keywords={[`blog`, `software`, `javascript`, `react`]}
+          keywords={[
+            `blog`,
+            `software`,
+            `javascript`,
+            `react`,
+            `ux`,
+            `dx`,
+            `design`,
+            `user experience`,
+            `developer experience`,
+            `tutorials`,
+            `learning`,
+          ]}
+          image={imageSrc}
         />
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug

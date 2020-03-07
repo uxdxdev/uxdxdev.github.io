@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `daithimorton.github.io 🐋`,
-    author: `daithimorton`,
+    author: `David Morton`,
+    twitter: `daithimorton`,
     description: `Let's talk about that.`,
     siteUrl: `https://daithimorton.github.io/`,
   },

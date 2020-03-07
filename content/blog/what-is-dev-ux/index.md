@@ -5,6 +5,7 @@ category: ui,ux,developer,design
 banner: './images/banner.jpg'
 imageAltText: 'white tiger lying down'
 bannerCredit: 'Photo by Smit Patel'
+keywords: 'ui,ux,developer,design,usability'
 ---
 
 > Developer UX is the user experience from a developers perspective when using a product. 
