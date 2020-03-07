@@ -118,7 +118,7 @@ module.exports = {
         short_name: `daithimorton.github.io`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#03A9F4`,
         display: `minimal-ui`,
         icon: `content/assets/profile_cropped.png`,
       },
