@@ -40,8 +40,7 @@ const Header = () => {
                 color: 'inherit',
               }}
             >
-              <strong>{author}</strong> is a Software Engineer, interested in
-              UI/UX, Developer UX, Product Development, and Storytelling.
+              {author}
             </Link>
           </div>
         )

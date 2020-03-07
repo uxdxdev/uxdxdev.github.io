@@ -1,4 +1,4 @@
-# beautifwhale.github.io
+# daithimorton.github.io
 
 ## Stack
 

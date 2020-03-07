@@ -15,7 +15,7 @@ const typography = new Typography({
       fontStyle: 'italic',
       paddingLeft: rhythm(1),
       marginLeft: rhythm(0),
-      borderLeft: `${rhythm(1 / 4)} solid black`,
+      borderLeft: `${rhythm(1 / 4)} solid hsla(0,0%,0%,0.8)`,
     },
   }),
 })

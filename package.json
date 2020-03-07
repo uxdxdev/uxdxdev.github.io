@@ -1,11 +1,11 @@
 {
-  "name": "beautifwhale.github.io",
+  "name": "daithimorton.github.io",
   "private": true,
   "description": "Let's talk about that.",
   "version": "0.0.1",
   "author": "David Morton",
   "bugs": {
-    "url": "https://github.com/beautifwhale/beautifwhale.github.io/issues"
+    "url": "https://github.com/daithimorton/daithimorton.github.io/issues"
   },
   "dependencies": {
     "gatsby": "^2.0.105",
@@ -38,7 +38,7 @@
     "eslint-plugin-react": "^7.11.1",
     "prettier": "^1.14.2"
   },
-  "homepage": "https://github.com/beautifwhale/beautifwhale.github.io#readme",
+  "homepage": "https://github.com/daithimorton/daithimorton.github.io#readme",
   "keywords": [
     "gatsby"
   ],
@@ -46,7 +46,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/beautifwhale/beautifwhale.github.io.git"
+    "url": "git+https://github.com/daithimorton/daithimorton.github.io.git"
   },
   "scripts": {
     "lint": "eslint --ext .js,.jsx --ignore-pattern public .",

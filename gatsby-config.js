@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `beautifwhale.github.io 🐋`,
+    title: `daithimorton.github.io 🐋`,
     author: `David Morton`,
     description: `Let's talk about that.`,
-    siteUrl: `https://beautifwhale.github.io/`,
+    siteUrl: `https://daithimorton.github.io/`,
   },
   plugins: [
     {
@@ -94,8 +94,7 @@ module.exports = {
                   html
                   frontmatter {
                     title
-                    date                                   
-                    category
+                    date                    
                   }
                 }
               }
@@ -111,8 +110,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `beautifwhale.github.io`,
-        short_name: `beautifwhale.github.io`,
+        name: `daithimorton.github.io`,
+        short_name: `daithimorton.github.io`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import Image from 'gatsby-image'
 
 import Bio from '../components/Bio'
 import Layout from '../components/Layout'
@@ -11,25 +12,46 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
+    const { banner } = this.props.data
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title={post.frontmatter.title} description={post.excerpt} />
-        <h1>{post.frontmatter.title}</h1>
-        <p
+        <div
           style={{
-            ...scale(-1 / 5),
-            display: `block`,
-            marginBottom: rhythm(1),
-            marginTop: rhythm(-1),
+            textAlign: 'center',
           }}
         >
-          {post.frontmatter.date} / {post.frontmatter.category}
-        </p>
+          <h1>{post.frontmatter.title}</h1>
+          <p
+            style={{
+              ...scale(-1 / 5),
+              display: `block`,
+              marginBottom: rhythm(1),
+              marginTop: rhythm(-1),
+            }}
+          >
+            {post.frontmatter.date}
+          </p>
+        </div>
+
+        {banner && (
+          <div>
+            <Image
+              fluid={banner.childImageSharp.fluid}
+              alt={post.frontmatter.imageAltText}
+            />
+            {post.frontmatter.bannerCredit}
+          </div>
+        )}
+
+        <br />
+
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{
             marginBottom: rhythm(1),
+            marginTop: rhythm(1),
           }}
         />
         <Bio />
@@ -66,21 +88,30 @@ class BlogPostTemplate extends React.Component {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query($slug: String!) {
     site {
       siteMetadata {
         title
         author
       }
     }
+    banner: file(absolutePath: { regex: "/banner.jpg/" }) {
+      childImageSharp {
+        fluid(maxWidth: 720, quality: 100) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
-      excerpt(pruneLength: 160)
+      excerpt(pruneLength: 250)
       html
       frontmatter {
         title
         category
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "DD MMMM YYYY")
+        bannerCredit
+        imageAltText
       }
     }
   }
