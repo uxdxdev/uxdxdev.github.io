@@ -4,7 +4,7 @@ module.exports = {
     author: `David Morton`,
     twitter: `daithimorton`,
     description: `Let's talk about that.`,
-    siteUrl: `https://daithimorton.github.io/`,
+    siteUrl: `https://daithimorton.github.io`,
   },
   plugins: [
     {

@@ -11,17 +11,13 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
+    const siteUrl = this.props.data.site.siteMetadata.siteUrl
     const { previous, next } = this.props.pageContext
     const { banner } = this.props.data
 
     // banner image for social media sharing
     const bannerSrc = banner && banner.childImageSharp.fluid.src
-    let origin = ''
-    if (typeof window !== 'undefined') {
-      origin = window.location.origin
-    }
-    const imageSrc = origin + bannerSrc
-
+    const imageSrc = siteUrl + bannerSrc
     const keywords = post.frontmatter.keywords.split(`,`)
 
     return (
@@ -108,6 +104,7 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        siteUrl
       }
     }
     banner: file(absolutePath: { regex: "/banner.jpg/" }) {

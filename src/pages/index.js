@@ -9,14 +9,9 @@ class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
+    const siteUrl = data.site.siteMetadata.siteUrl
     const posts = data.allMarkdownRemark.edges
-
-    // banner image for social media sharing
-    let origin = ''
-    if (typeof window !== 'undefined') {
-      origin = window.location.origin
-    }
-    const imageSrc = origin + bannerSrc
+    const imageSrc = siteUrl + bannerSrc
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -76,6 +71,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
