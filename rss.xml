@@ -1,18 +1,179 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[Let's talk about that.]]></description><link>https://daithimorton.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 07 Mar 2020 09:59:22 GMT</lastBuildDate><item><title><![CDATA[What is Developer UX?]]></title><description><![CDATA[Why is overriding the Object.equals() and Object.hashcode() methods important when using Hashtables, HashSets, and HashMaps in Java? This is…]]></description><link>https://daithimorton.github.io2020-03-04</link><guid isPermaLink="false">https://daithimorton.github.io2020-03-04</guid><pubDate>Wed, 04 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
-&lt;p&gt;Why is overriding the Object.equals() and Object.hashcode() methods important when using Hashtables, HashSets, and HashMaps in Java?&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[Let's talk about that.]]></description><link>https://daithimorton.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 07 Mar 2020 18:16:22 GMT</lastBuildDate><item><title><![CDATA[What is Developer UX?]]></title><description><![CDATA[Developer UX is the user experience from a developers perspective when using a product.  I’m sure you’ve heard of UX (User Experience) and…]]></description><link>https://daithimorton.github.io2020-03-04</link><guid isPermaLink="false">https://daithimorton.github.io2020-03-04</guid><pubDate>Wed, 04 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;Developer UX is the user experience from a developers perspective when using a product. &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;This is a beautiful iframe:&lt;/p&gt;
-&lt;p&gt;One thing I think is pretty neat and want to call out specifically is the concept of “local” DevTools. So, there could be things (functions, automations, etc.) that you’d like to have on your own machine, but nobody else wants those things or maybe you’re in the middle of working on them. Whatever the case may be, having a script you can have run for you and you alone in your app can be really helpful. So in the App DevTools script we have something like this:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// load local dev tools if it&apos;s there&lt;/span&gt;
-&lt;span class=&quot;token comment&quot;&gt;// NOTE: this is using some webpack-sepecific features.&lt;/span&gt;
-&lt;span class=&quot;token comment&quot;&gt;// if you&apos;re not using webpack, you might consider using&lt;/span&gt;
-&lt;span class=&quot;token comment&quot;&gt;// https://npm.im/preval.macro or https://npm.im/codegen.macro&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; requireDevToolsLocal &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; require&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
-  &lt;span class=&quot;token string&quot;&gt;&apos;./&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token regex&quot;&gt;/dev-tools\.local\.js/&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; local &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; requireDevToolsLocal&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;keys&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;local&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token function&quot;&gt;requireDevToolsLocal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;local&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;default
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;I’m sure you’ve heard of UX (User Experience) and from what I have seen and read online it mostly relates to the user experience of end-users when using a product or service. &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;But what about the developers building the products or services?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In this post I’m going to talk about the UX from a developers perspective when using software libraries, UI components, and other developer tools. I’ll cover different developers types with some good and bad examples of developer UX. And I’ve listed Jakob Nielson’s 10 usability heuristics below because I believe they can used alot more to improve developer UX. &lt;/p&gt;
+&lt;h2&gt;Developer Types&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1280px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 54.94912118408881%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABHklEQVQoz62STU+DQBCG+StKqRphd6FuQIO1JALS8lVtiKYnPy4e9P/fXmcXlvRgTIg9vJnZZ4Z3mQFLCIFjyhKcg1MyRb89Y9ifhlMuGw3NQTCXIuvzIfY1ypnXy9TNiKZ2YGop4EZL2O0HnPUe8+JZR09eE7+FU7xg/tDhLNtprphwL3GRlHA2e83ZQmrzfmRGiYxw2n3BqV91nJE59wPdONt9wmnecNJ9D9yHd3Onc7t9h03952Q6jszIMEkS5GWNvGqRNU/I6y3iOEYYhrhfl0g3NdJqi4zqEbHlivqbRzo3WBUV0rKBlBLKy+Lk7NOti2CQL7QUU7sJBB+Z4UpXQa+ARlVc71HvcEimig06ZPo/5Idf7Z8a3/CY+gEETGFFF7KTfwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Developer types&quot;
+        title=&quot;Developer types&quot;
+        src=&quot;/static/529824d5bfc23dd5d2f0082c20900fc4/21b4d/devtypes.png&quot;
+        srcset=&quot;/static/529824d5bfc23dd5d2f0082c20900fc4/72799/devtypes.png 320w,
+/static/529824d5bfc23dd5d2f0082c20900fc4/6af66/devtypes.png 640w,
+/static/529824d5bfc23dd5d2f0082c20900fc4/21b4d/devtypes.png 1280w,
+/static/529824d5bfc23dd5d2f0082c20900fc4/29114/devtypes.png 1920w,
+/static/529824d5bfc23dd5d2f0082c20900fc4/9c62f/devtypes.png 2162w&quot;
+        sizes=&quot;(max-width: 1280px) 100vw, 1280px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;As an example, I’ve highlighted three different types of developers. Application developers, framework developers, and library developers. Each type of developer might have specific tools that they use as they work. &lt;/p&gt;
+&lt;p&gt;Let’s say that an application developer uses UI components to build web applications, framework developers use testing libraries while building UI components, and library developers use command line tools to build testing libraries. Each of these developers will experience a variety of pain points.&lt;/p&gt;
+&lt;h2&gt;Bad UX / Good UX&lt;/h2&gt;
+&lt;p&gt;So what’s the difference between a good developer experience and a bad developer experience? These examples are contrived.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Bad UX for an application developer&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;Panel isNotBordered&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// confusing alignment props&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;PanelTitle isNotAlignedToSide&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;right&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Panel Title&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;PanelTitle&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// default pink background &amp;amp; not visible&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;PanelContent showPinkBackgroud&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; isNotVisible&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;This is the panel content.&quot;&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;PanelContent&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;Panel&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is an example of a bad user experience for an application developer. The UI components they have to use to build their web application have badly defined props and terrible defaults. Using components like these would be very hard to reason about and maintain.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Good UX for an application developer&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// easy to use props&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;Panel bordered&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; titleCentered&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; title&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Panel Title&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// sensible defaults&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;PanelContent&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;This is the panel content.&quot;&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;PanelContent&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;Panel&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This example is a better user experience for an application developer. The UI components have clear well defined props and sensible defaults. I think developers would prefer to use and maintain this type of UI component.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Bad UX for a framework developer&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// bad function naming&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;test1st&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;verifies that the panel class is set to the root element&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;  
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; panel &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;createFakeComponentWithSomeExtraStuffToMakeItWork&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;Panel&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+      &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;PanelBody&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Panel content&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;PanelBody&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;Panel&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// multiple stages to get component ready for testing&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; componentReadyForTesting &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;prepItemForTest&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;panel&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  
+  &lt;span class=&quot;token function&quot;&gt;expectToFindDiv3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;componentReadyForTesting
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;div&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;hasClass&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;root&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toBeTruthy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In this example a framework developer is building some UI components that need to be tested. The testing library they are using provides terrible function names. It also requires that the components be passed through some setup steps, and finally the expectation functions are not great.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Good UX for a framework developer&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token function&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;verifies that the panel class is set to the root element&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; panel &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mount&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;Panel&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+      &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;PanelBody&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Panel content&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;PanelBody&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;Panel&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;panel&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;div&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;hasClass&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;root&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toBeTruthy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Compared to the example above this testing library provides a much better UX for a developer. Easy to understand testing function with minimal steps. The expectation is straight forward and generic enough to be used in many different context.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Bad UX for a library developer&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1280px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 22.086720867208673%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsSAAALEgHS3X78AAAAjElEQVQY05WNSw6CQBBEZ88NxMSRjwqKGmYkGfk5CzeeDxJuCqzamk5cg4uX6lQqr0UqjRf7DxVttDpsC3XePxU6xt2LSOw5jQaeQFnmp9esUzvfj80E0YTuLyAckQRhKSCwVf6h4vKma9hQBn65jpq5RS1BbJ0wyMKqw4c+2RmXHTrG3YtI7DnNAIIvRp9dVp2yKcoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Bad terminal output&quot;
+        title=&quot;Bad terminal output&quot;
+        src=&quot;/static/bc7202188b82afe7c0067dcbbab29540/21b4d/badterminaloutput.png&quot;
+        srcset=&quot;/static/bc7202188b82afe7c0067dcbbab29540/72799/badterminaloutput.png 320w,
+/static/bc7202188b82afe7c0067dcbbab29540/6af66/badterminaloutput.png 640w,
+/static/bc7202188b82afe7c0067dcbbab29540/21b4d/badterminaloutput.png 1280w,
+/static/bc7202188b82afe7c0067dcbbab29540/29114/badterminaloutput.png 1920w,
+/static/bc7202188b82afe7c0067dcbbab29540/c2d13/badterminaloutput.png 2560w,
+/static/bc7202188b82afe7c0067dcbbab29540/6366e/badterminaloutput.png 2952w&quot;
+        sizes=&quot;(max-width: 1280px) 100vw, 1280px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;A developer building a library wants to run some tests on the command line. They run &lt;code class=&quot;language-text&quot;&gt;npm test&lt;/code&gt; and see this output. No feedback to the developer that tests are running, no indication of the number of tests being run, or if any have passed or failed. This would be a bad user experience for a developer.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Good UX for a library developer&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1280px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 43.37194337194338%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABPElEQVQoz5VSW27CQAxciRuQT0ClQF4kJA0hG/IOr/b+Nyhco8TuZEmRUKmqfIzstdej8eyKxSiS+mgjzUksnVkql9NEOq9pH0RADPiYHYjQrjm0d+QbZWO/bAkNQqMPrphhxDPiUOTOjjMgAHHkHjjx33lt1ezOMgVvkau4mj8Heo23KBhkFwjSRGiULO2KIqtuQqumzXJPW+9E8epIsXekNPigwKzI10t6M57iGph1S342xlIThV3xyd1xbha0BjlIlFIQKrUY4G6lv9A4U9W/4J4mMqvkallRYhYN/CSQUOTsSboHpXA1z/t4qInEqjiFyg3IsKpSJ1uFyLE+Vsn/QefhrPPQ04vWh6Z9ZRX1W36PXf3hzmPtCx63xJ/mWA4F/l8GMzMc0i7+nG+YPObG71o7l0NdiB8x+AbHO++Rbuc2QQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Good terminal output&quot;
+        title=&quot;Good terminal output&quot;
+        src=&quot;/static/12ae0f5cbe404be509925ddd201f4617/21b4d/goodterminaloutput.png&quot;
+        srcset=&quot;/static/12ae0f5cbe404be509925ddd201f4617/72799/goodterminaloutput.png 320w,
+/static/12ae0f5cbe404be509925ddd201f4617/6af66/goodterminaloutput.png 640w,
+/static/12ae0f5cbe404be509925ddd201f4617/21b4d/goodterminaloutput.png 1280w,
+/static/12ae0f5cbe404be509925ddd201f4617/29114/goodterminaloutput.png 1920w,
+/static/12ae0f5cbe404be509925ddd201f4617/c2d13/goodterminaloutput.png 2560w,
+/static/12ae0f5cbe404be509925ddd201f4617/ad989/goodterminaloutput.png 3108w&quot;
+        sizes=&quot;(max-width: 1280px) 100vw, 1280px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Now compare this console output to the bad UX above. A developer runs the tests, and the result shows the number of tests and a coverage summary. Of coarse this could be improved but it is a much better user experience for the developer.&lt;/p&gt;
+&lt;p&gt;The examples here highlight the differences in user experience from a developers perspective in a few scenarios. This is very different to the UX that an end-user would have using a web application or website.&lt;/p&gt;
+&lt;h2&gt;10 Usability heuristics for user interface design&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Jakob Nielsen’s 10 general principles for interaction design. They are called “heuristics” because they are broad rules of thumb and not specific usability guidelines. — &lt;cite&gt;&lt;a href=&quot;https://www.nngroup.com/articles/ten-usability-heuristics/&quot;&gt;https://www.nngroup.com/articles/ten-usability-heuristics/&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Jakob Nielsen’s user interaction design heuristics can help when it comes to designing a good user experience for developers. Not all of the heuristics may be easily applied to UI components, library APIs, or command line output, but they could provide some guidance.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Visibility of system status&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The system should always keep users informed about what is going on, through appropriate feedback within reasonable time.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Match between system and the real world&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The system should speak the users’ language, with words, phrases and concepts familiar to the user, rather than system-oriented terms. Follow real-world conventions, making information appear in a natural and logical order.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;User control and freedom&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Users often choose system functions by mistake and will need a clearly marked “emergency exit” to leave the unwanted state without having to go through an extended dialogue. Support undo and redo.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Consistency and standards&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Users should not have to wonder whether different words, situations, or actions mean the same thing. Follow platform conventions.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Error prevention&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Even better than good error messages is a careful design which prevents a problem from occurring in the first place. Either eliminate error-prone conditions or check for them and present users with a confirmation option before they commit to the action.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Recognition rather than recall&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Minimize the user’s memory load by making objects, actions, and options visible. The user should not have to remember information from one part of the dialogue to another. Instructions for use of the system should be visible or easily retrievable whenever appropriate.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Flexibility and efficiency of use&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Accelerators — unseen by the novice user — may often speed up the interaction for the expert user such that the system can cater to both inexperienced and experienced users. Allow users to tailor frequent actions.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Aesthetic and minimalist design&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Dialogues should not contain information which is irrelevant or rarely needed. Every extra unit of information in a dialogue competes with the relevant units of information and diminishes their relative visibility.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Help users recognize, diagnose, and recover from errors&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Error messages should be expressed in plain language (no codes), precisely indicate the problem, and constructively suggest a solution.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Help and documentation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Even though it is better if the system can be used without documentation, it may be necessary to provide help and documentation. Any such information should be easy to search, focused on the user’s task, list concrete steps to be carried out, and not be too large.&lt;/p&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;In this post I talked about the user experience from a developers perspective. I’ve highlighted three different types of developers, application developer, framework developer, and library developer. A developer could be all three types in their role as a software engineer and I’ve used them to categorize the examples of good and bad user experiences they may encounter. I’ve also listed Jakob Nielson’s 10 usability heuristics for interaction design at the end. &lt;/p&gt;
+&lt;p&gt;I believe that Jakob Neilson’s heuristics are already being applied to software libraries and tools to improve the user experience for developers, but it seems that only sometimes it is a conscious effort by the creators. By following the heuristics more closely we can greatly improve the usability of the things we build, and hopefully make developers like me a little happier. Thanks for reading!.&lt;/p&gt;</content:encoded></item></channel></rss>
