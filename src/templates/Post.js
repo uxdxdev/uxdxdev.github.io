@@ -12,7 +12,8 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
-    const { banner } = this.props.data
+    const { banner, fields } = this.props.data
+    console.log(this.props.data)
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -31,7 +32,7 @@ class BlogPostTemplate extends React.Component {
               marginTop: rhythm(-1),
             }}
           >
-            {post.frontmatter.date}
+            {post.frontmatter.date} ☕ {post.fields.readingTime.text}
           </p>
         </div>
 
@@ -112,6 +113,11 @@ export const pageQuery = graphql`
         date(formatString: "DD MMMM YYYY")
         bannerCredit
         imageAltText
+      }
+      fields {        
+        readingTime {
+          text
+        }
       }
     }
   }

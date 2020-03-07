@@ -42,6 +42,7 @@ module.exports = {
             resolve: `gatsby-remark-prismjs`,
             options: {},
           },
+          `gatsby-remark-reading-time`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],

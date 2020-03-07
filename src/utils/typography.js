@@ -2,12 +2,12 @@ import Typography from 'typography'
 
 const typography = new Typography({
   baseFontSize: '20px',
-  headerFontFamily: ['IBM Plex Sans'],
-  bodyFontFamily: ['IBM Plex Sans'],
+  headerFontFamily: ['Inter'],
+  bodyFontFamily: ['Inter'],
   googleFonts: [
     {
-      name: 'Montserrat',
-      styles: ['Regular'],
+      name: 'Inter',
+      styles: ['Regular', 'Bold'],
     },
   ],
   overrideStyles: ({ rhythm }) => ({

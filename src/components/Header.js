@@ -1,7 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import Image from 'gatsby-image'
-
 import { rhythm } from '../utils/typography'
 
 const Header = () => {
@@ -40,7 +39,7 @@ const Header = () => {
                 color: 'inherit',
               }}
             >
-              {author}
+              <strong>{author}</strong>
             </Link>
           </div>
         )
