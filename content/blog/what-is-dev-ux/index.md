@@ -20,7 +20,7 @@ In this post I'm going to talk about the UX from a developers perspective when u
 
 ![Developer types](./images/devtypes.png)
 
-As an example, I've highlighted three different types of developers. Application developers, framework developers, and library developers. Each type of developer might have specific tools that they use as they work. 
+As an example, I've highlighted three different types of developers, application developers, framework developers, and library developers. Each type of developer might have specific tools that they use as they work. 
 
 Let's say that an application developer uses UI components to build web applications, framework developers use testing libraries while building UI components, and library developers use command line tools to build testing libraries. Each of these developers will experience a variety of pain points.
 
