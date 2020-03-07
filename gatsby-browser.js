@@ -1,5 +1,2 @@
-// styling applied to code snippets and other elements in blog posts
-
-// require('prismjs/themes/prism-solarizedlight.css')
-require('prismjs/themes/prism-tomorrow.css')
-// require('prismjs/themes/prism.css')
+require('./src/styles/prism-synthwave84.css')
+require('./src/styles/global.css')
