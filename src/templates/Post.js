@@ -23,7 +23,6 @@ class BlogPostTemplate extends React.Component {
     const imageSrc = origin + bannerSrc
 
     const keywords = post.frontmatter.keywords.split(`,`)
-    console.log(keywords)
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
