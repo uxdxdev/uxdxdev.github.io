@@ -12,11 +12,16 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
-    const { banner, fields } = this.props.data
+    const { banner } = this.props.data
 
+    const bannerSrc = banner && banner.childImageSharp.fluid.src
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title={post.frontmatter.title} description={post.excerpt} />
+        <SEO
+          title={post.frontmatter.title}
+          description={post.excerpt}
+          image={bannerSrc}
+        />
         <div
           style={{
             textAlign: 'center',
@@ -113,7 +118,7 @@ export const pageQuery = graphql`
         bannerCredit
         imageAltText
       }
-      fields {        
+      fields {
         readingTime {
           text
         }
