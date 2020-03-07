@@ -19,7 +19,6 @@ class BlogIndex extends React.Component {
         />
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
-          console.log(node.fields.readingTime.text)
           return (
             <div key={node.fields.slug}>
               <h3
