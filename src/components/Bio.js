@@ -41,7 +41,7 @@ const Header = () => {
               }}
             >
               <strong>{author}</strong> is a Software Engineer, interested in
-              UI/UX, Developer UX, Product Development, and Storytelling.
+              UX/DX, Product Development, and Storytelling.
             </Link>
           </div>
         )
