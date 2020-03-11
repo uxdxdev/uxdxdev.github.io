@@ -1,6 +1,6 @@
 ---
 date: '2020-03-04'
-title: 'What is Developer UX?'
+title: 'What is DX?'
 category: ui,ux,developer,design
 banner: './images/banner.jpg'
 imageAltText: 'white tiger lying down'
@@ -14,21 +14,21 @@ I'm sure you've heard of UX (User Experience) and from what I have seen and read
 
 **But what about the developers building the products or services?**
 
-In this post I'm going to talk about the UX from a developers perspective when using software libraries, UI components, and other developer tools. I'll cover different developers types with some good and bad examples of developer UX. And I've listed Jakob Nielson's 10 usability heuristics below because I believe they can used alot more to improve developer UX. 
+In this post I'm going to talk about the UX from a developers perspective when using software libraries, UI components, and other developer tools. I'll cover different developers types with some good and bad examples of DX. And I've listed Jakob Nielson's 10 usability heuristics below because I believe they can used alot more to improve DX. Developers may also interact with APIs and documentation heavily which is extremely important when designing a good user experience for developers. I will not go into API design and documentation in this post.
 
 ## Developer Types
 
 ![Developer types](./images/devtypes.png)
 
-As an example, I've highlighted three different types of developers, application developers, framework developers, and library developers. Each type of developer might have specific tools that they use as they work. 
+As an example, I've highlighted three different types of developers, application developers, framework developers, and library developers. Each type of developer might have specific tools that they use as they work. This is not an exhaustive list of developer types, I'm using these to talk about some good and bad scenarios that might occur.
 
 Let's say that an application developer uses UI components to build web applications, framework developers use testing libraries while building UI components, and library developers use command line tools to build testing libraries. Each of these developers will experience a variety of pain points.
 
-## Bad UX / Good UX
+## Bad DX / Good DX
 
 So what's the difference between a good developer experience and a bad developer experience? These examples are contrived.
 
-**Bad UX for an application developer**
+**Bad DX for an application developer**
 ```javascript
 <Panel isNotBordered={true}>
   // confusing alignment props
@@ -41,7 +41,7 @@ So what's the difference between a good developer experience and a bad developer
 ```
 This is an example of a bad user experience for an application developer. The UI components they have to use to build their web application have badly defined props and terrible defaults. Using components like these would be very hard to reason about and maintain.
 
-**Good UX for an application developer**
+**Good DX for an application developer**
 ```javascript
 // easy to use props
 <Panel bordered={true} titleCentered={true} title="Panel Title">
@@ -53,7 +53,7 @@ This is an example of a bad user experience for an application developer. The UI
 ```
 This example is a better user experience for an application developer. The UI components have clear well defined props and sensible defaults. I think developers would prefer to use and maintain this type of UI component.
 
-**Bad UX for a framework developer**
+**Bad DX for a framework developer**
 ```javascript
 // bad function naming
 test1st('verifies that the panel class is set to the root element', () => {  
@@ -71,7 +71,7 @@ test1st('verifies that the panel class is set to the root element', () => {
 ```
 In this example a framework developer is building some UI components that need to be tested. The testing library they are using provides terrible function names. It also requires that the components be passed through some setup steps, and finally the expectation functions are not great.
 
-**Good UX for a framework developer**
+**Good DX for a framework developer**
 
 ```javascript
 test('verifies that the panel class is set to the root element', () => {
@@ -86,17 +86,17 @@ test('verifies that the panel class is set to the root element', () => {
 
 Compared to the example above this testing library provides a much better UX for a developer. Easy to understand testing function with minimal steps. The expectation is straight forward and generic enough to be used in many different context.
 
-**Bad UX for a library developer**
+**Bad DX for a library developer**
 
 ![Bad terminal output](../what-is-dev-ux/images/badterminaloutput.png)
 
 A developer building a library wants to run some tests on the command line. They run `npm test` and see this output. No feedback to the developer that tests are running, no indication of the number of tests being run, or if any have passed or failed. This would be a bad user experience for a developer.
 
-**Good UX for a library developer**
+**Good DX for a library developer**
 
 ![Good terminal output](../what-is-dev-ux/images/goodterminaloutput.png)
 
-Now compare this console output to the bad UX above. A developer runs the tests, and the result shows the number of tests and a coverage summary. Of coarse this could be improved but it is a much better user experience for the developer.
+Now compare this console output to the bad DX above. A developer runs the tests, and the result shows the number of tests and a coverage summary. Of coarse this could be improved but it is a much better user experience for the developer.
 
 The examples here highlight the differences in user experience from a developers perspective in a few scenarios. This is very different to the UX that an end-user would have using a web application or website.
 
@@ -104,7 +104,7 @@ The examples here highlight the differences in user experience from a developers
 
 > Jakob Nielsen's 10 general principles for interaction design. They are called "heuristics" because they are broad rules of thumb and not specific usability guidelines. -- <cite>https://www.nngroup.com/articles/ten-usability-heuristics/</cite>
 
-Jakob Nielsen's user interaction design heuristics can help when it comes to designing a good user experience for developers. Not all of the heuristics may be easily applied to UI components, library APIs, or command line output, but they could provide some guidance.
+Jakob Nielsen's user interaction design heuristics can help when it comes to designing a good developer experience. Not all of the heuristics may be easily applied to UI components, library APIs, or command line output, but they could provide some guidance.
 
 - Visibility of system status
 
@@ -148,6 +148,8 @@ Even though it is better if the system can be used without documentation, it may
 
 ## Conclusion
 
-In this post I talked about the user experience from a developers perspective. I've highlighted three different types of developers, application developer, framework developer, and library developer. A developer could be all three types in their role as a software engineer and I've used them to categorize the examples of good and bad user experiences they may encounter. I've also listed Jakob Nielson's 10 usability heuristics for interaction design at the end. 
+In this post I talked about the user experience from a developers perspective. I've highlighted three different types of developers, application developer, framework developer, and library developer. A developer could be all three types in their role as a software engineer and I've used them to categorize the examples of good and bad experiences they may encounter. I've also listed Jakob Nielson's 10 usability heuristics for interaction design at the end. 
 
-I believe that Jakob Neilson's heuristics are already being applied to software libraries and tools to improve the user experience for developers, but it seems that only sometimes it is a conscious effort by the creators. By following the heuristics more closely we can greatly improve the usability of the things we build, and hopefully make developers like me a little happier. Thanks for reading!.
+I believe that Jakob Neilson's heuristics are already being applied to software libraries and tools to improve the user experience for developers, but it seems that only sometimes it is a conscious effort by the creators. By following the heuristics more closely we can greatly improve the usability of the things we build. Developers may also interact heavily with APIs and documentation making them extremely important when designing good DX. Don't forget about the docs!. So remember if your building a product or service, devs might be users too.
+
+Thanks for reading!.
