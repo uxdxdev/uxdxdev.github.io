@@ -1,22 +1,29 @@
-version: 2.1
-orbs:
-  node: circleci/node@1.1.6
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
 jobs:
-  publish:
-    executor:
-      name: node/default
+  build:
+    branches:
+      only:
+        - develop
+    docker:
+      - image: circleci/node:10.16.3
+
+    working_directory: ~/repo
+
     steps:
       - checkout
-      - node/with-cache:
-          steps:
-            - run: npm run publish
-workflows:
-  publish:
-    jobs:
-      - publish
-  main:
-    jobs:
-      - publish:
-          filters:
-            branches:
-              only: develop
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
+      - run:
+          name: install
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: publish
+          command: npm run publish
