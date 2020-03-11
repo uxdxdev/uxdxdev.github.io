@@ -14,3 +14,9 @@ workflows:
   publish:
     jobs:
       - publish
+  main:
+    jobs:
+      - publish:
+          filters:
+            branches:
+              only: develop

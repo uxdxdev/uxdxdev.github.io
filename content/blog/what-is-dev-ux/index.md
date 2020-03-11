@@ -8,7 +8,7 @@ bannerCredit: 'Photo by Smit Patel'
 keywords: 'ui,ux,developer,design,usability'
 ---
 
-> Developer UX is the user experience from a developers perspective when using a product. 
+> DX is the user experience from a developers perspective when using a product. 
 
 I'm sure you've heard of UX (User Experience) and from what I have seen and read online it mostly relates to the user experience of end-users when using a product or service. 
 
