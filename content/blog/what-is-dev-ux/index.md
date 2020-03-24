@@ -72,10 +72,7 @@ test1st('verifies that the panel class is set to the root element', () => {
   const componentReadyForTesting = prepItemForTest(panel)
 
   expectToFindDiv3(
-    componentReadyForTesting
-      .find('div')
-      .first()
-      .hasClass('root')
+    componentReadyForTesting.find('div').first().hasClass('root')
   ).toBeTruthy()
 })
 ```
@@ -91,12 +88,7 @@ test('verifies that the panel class is set to the root element', () => {
       <PanelBody>"Panel content"</PanelBody>
     </Panel>
   )
-  expect(
-    panel
-      .find('div')
-      .first()
-      .hasClass('root')
-  ).toBeTruthy()
+  expect(panel.find('div').first().hasClass('root')).toBeTruthy()
 })
 ```
 

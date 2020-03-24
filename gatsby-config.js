@@ -38,24 +38,15 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          // CSS styling applied to content
           {
             resolve: `gatsby-remark-prismjs`,
             options: {},
           },
-          // add attributes to links generated from markdown
           {
-            resolve: `gatsby-transformer-remark`,
+            resolve: `gatsby-remark-external-links`,
             options: {
-              plugins: [
-                {
-                  resolve: 'gatsby-remark-external-links',
-                  options: {
-                    target: '_blank',
-                    rel: 'noreferrer noopener',
-                  },
-                },
-              ],
+              target: '_blank',
+              rel: 'noreferrer noopener',
             },
           },
           `gatsby-remark-reading-time`,
@@ -90,7 +81,7 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
+              return allMarkdownRemark.edges.map((edge) => {
                 return Object.assign({}, edge.node.frontmatter, {
                   title: edge.node.frontmatter.title,
                   description: edge.node.excerpt,
