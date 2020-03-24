@@ -179,8 +179,6 @@ I believe that Jakob Neilson's heuristics are already being applied to software 
 
 So remember if your building a product or service, devs might be users too.
 
-# References
+## References
 
 - 10 Usability Heuristics for User Interface Design https://www.nngroup.com/articles/ten-usability-heuristics/
-
-Thanks for reading!.

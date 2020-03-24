@@ -7,6 +7,20 @@ import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import { rhythm, scale } from '../utils/typography'
 import ExternalLink from '../components/ExternalLink'
+import {
+  EmailShareButton,
+  EmailIcon,
+  FacebookShareButton,
+  FacebookIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+  RedditShareButton,
+  RedditIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
+} from 'react-share'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -20,6 +34,11 @@ class BlogPostTemplate extends React.Component {
     const bannerSrc = banner && banner.childImageSharp.fluid.src
     const imageSrc = siteUrl + bannerSrc
     const keywords = post.frontmatter.keywords.split(`,`)
+
+    const shareUrl = siteUrl + post.fields.slug
+    const postTitle = post.frontmatter.title
+
+    const sharingIconSize = 48
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -62,6 +81,27 @@ class BlogPostTemplate extends React.Component {
         <br />
 
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <h2>Share this article</h2>
+        <div>
+          <EmailShareButton url={shareUrl} subject={postTitle}>
+            <EmailIcon size={sharingIconSize} round />
+          </EmailShareButton>
+          <RedditShareButton url={shareUrl} title={postTitle}>
+            <RedditIcon size={sharingIconSize} round />
+          </RedditShareButton>
+          <LinkedinShareButton url={shareUrl} title={postTitle}>
+            <LinkedinIcon size={sharingIconSize} round />
+          </LinkedinShareButton>
+          <TwitterShareButton url={shareUrl} title={postTitle}>
+            <TwitterIcon size={sharingIconSize} round />
+          </TwitterShareButton>
+          <FacebookShareButton url={shareUrl} quote={postTitle}>
+            <FacebookIcon size={sharingIconSize} round />
+          </FacebookShareButton>
+          <WhatsappShareButton url={shareUrl} title={postTitle} separator=":: ">
+            <WhatsappIcon size={sharingIconSize} round />
+          </WhatsappShareButton>
+        </div>
         <hr
           style={{
             marginBottom: rhythm(1),
@@ -119,7 +159,7 @@ export const pageQuery = graphql`
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
-      excerpt(pruneLength: 250)
+      excerpt(pruneLength: 160)
       html
       frontmatter {
         title
@@ -131,6 +171,7 @@ export const pageQuery = graphql`
         keywords
       }
       fields {
+        slug
         readingTime {
           text
         }
