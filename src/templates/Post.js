@@ -98,7 +98,12 @@ class BlogPostTemplate extends React.Component {
           <FacebookShareButton url={shareUrl} quote={postTitle}>
             <FacebookIcon size={sharingIconSize} round />
           </FacebookShareButton>
-          <WhatsappShareButton url={shareUrl} title={postTitle} separator=":: ">
+          <WhatsappShareButton
+            url={shareUrl}
+            title={postTitle}
+            windowWidth={660}
+            windowHeight={460}
+          >
             <WhatsappIcon size={sharingIconSize} round />
           </WhatsappShareButton>
         </div>
