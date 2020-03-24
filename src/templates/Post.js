@@ -6,6 +6,7 @@ import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import { rhythm, scale } from '../utils/typography'
+import ExternalLink from '../components/ExternalLink'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -52,7 +53,9 @@ class BlogPostTemplate extends React.Component {
               fluid={banner.childImageSharp.fluid}
               alt={post.frontmatter.imageAltText}
             />
-            {post.frontmatter.bannerCredit}
+            <ExternalLink href={post.frontmatter.bannerLink}>
+              {post.frontmatter.bannerCredit}
+            </ExternalLink>
           </div>
         )}
 
@@ -123,6 +126,7 @@ export const pageQuery = graphql`
         category
         date(formatString: "DD MMMM YYYY")
         bannerCredit
+        bannerLink
         imageAltText
         keywords
       }

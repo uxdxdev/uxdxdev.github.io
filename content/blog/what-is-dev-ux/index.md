@@ -5,6 +5,7 @@ category: ui,ux,developer,design
 banner: './images/banner.jpg'
 imageAltText: 'white tiger lying down'
 bannerCredit: 'Photo by Smit Patel'
+bannerLink: 'https://unsplash.com/photos/dGMcpbzcq1I'
 keywords: 'ui,ux,developer,design,usability'
 ---
 
@@ -185,5 +186,9 @@ In this post I talked about the user experience from a developers perspective. I
 I believe that Jakob Neilson's heuristics are already being applied to software libraries and tools to improve the user experience for developers, but it seems that only sometimes it is a conscious effort by the creators. By following the heuristics more closely we can greatly improve the usability of the things we build. Developers may also interact heavily with APIs and documentation making them extremely important when designing good DX. You can improve DX by focusing on a few small improvements at a time. The benefits of improving your DX is worth it.
 
 So remember if your building a product or service, devs might be users too.
+
+# References
+
+- 10 Usability Heuristics for User Interface Design https://www.nngroup.com/articles/ten-usability-heuristics/
 
 Thanks for reading!.

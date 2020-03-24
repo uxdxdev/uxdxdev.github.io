@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import ExternalLink from './ExternalLink'
 import Header from './Header'
 import { rhythm, scale } from '../utils/typography'
 
@@ -20,24 +20,18 @@ class Layout extends React.Component {
         <Header />
         {children}
         <footer>
-          <a href="https://twitter.com/daithimorton" target="_blank">
+          <ExternalLink href="https://twitter.com/daithimorton">
             twitter
-          </a>{' '}
+          </ExternalLink>{' '}
           •{' '}
-          <a href="https://github.com/daithimorton" target="_blank">
+          <ExternalLink href="https://github.com/daithimorton">
             github
-          </a>{' '}
+          </ExternalLink>{' '}
           •{' '}
-          <a
-            href="https://stackoverflow.com/users/2600522/david-morton"
-            target="_blank"
-          >
+          <ExternalLink href="https://stackoverflow.com/users/2600522/david-morton">
             stackoverflow
-          </a>{' '}
-          •{' '}
-          <a href="/rss.xml" target="_blank">
-            rss
-          </a>
+          </ExternalLink>{' '}
+          • <ExternalLink href="/rss.xml">rss</ExternalLink>
         </footer>
       </div>
     )
