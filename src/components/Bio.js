@@ -4,11 +4,11 @@ import Image from 'gatsby-image'
 
 import { rhythm } from '../utils/typography'
 
-const Header = () => {
+const Bio = () => {
   return (
     <StaticQuery
       query={bioQuery}
-      render={data => {
+      render={(data) => {
         const { author } = data.site.siteMetadata
 
         return (
@@ -25,7 +25,7 @@ const Header = () => {
               style={{
                 marginRight: rhythm(1 / 2),
                 marginBottom: 0,
-                minWidth: 50,
+                minWidth: 80,
                 borderRadius: `100%`,
               }}
               imgStyle={{
@@ -40,8 +40,8 @@ const Header = () => {
                 color: 'inherit',
               }}
             >
-              <strong>{author}</strong> is a Software Engineer, interested in
-              UX/DX, Product Development, and Storytelling.
+              <strong>{author}</strong> is a JavaScript software engineer
+              interested in UX/DX, product development, and teaching.
             </Link>
           </div>
         )
@@ -54,7 +54,7 @@ const bioQuery = graphql`
   query {
     avatar: file(absolutePath: { regex: "/profile_cropped.png/" }) {
       childImageSharp {
-        fixed(width: 50, height: 50) {
+        fixed(width: 80, height: 80) {
           ...GatsbyImageSharpFixed
         }
       }
@@ -67,4 +67,4 @@ const bioQuery = graphql`
   }
 `
 
-export default Header
+export default Bio

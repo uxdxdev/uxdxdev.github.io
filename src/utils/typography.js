@@ -7,10 +7,19 @@ const typography = new Typography({
   googleFonts: [
     {
       name: 'Inter',
-      styles: ['Regular', 'Bold'],
+      styles: ['400', '500', '700'],
     },
   ],
-  overrideStyles: ({ rhythm }) => ({
+  overrideStyles: ({ rhythm, adjustFontSizeTo }) => ({
+    h1: {
+      ...adjustFontSizeTo('36px'),
+    },
+    h2: {
+      ...adjustFontSizeTo('28px'),
+    },
+    h3: {
+      ...adjustFontSizeTo('22px'),
+    },
     blockquote: {
       fontStyle: 'italic',
       paddingLeft: rhythm(1),

@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <StaticQuery
       query={bioQuery}
-      render={data => {
+      render={(data) => {
         const { author } = data.site.siteMetadata
 
         return (
@@ -31,7 +31,7 @@ const Header = () => {
                 borderRadius: `50%`,
               }}
             />
-
+            {/* <h1 style={{ marginBottom: 0 }}> */}
             <Link
               to="/"
               style={{
@@ -39,8 +39,9 @@ const Header = () => {
                 color: 'inherit',
               }}
             >
-              <strong>{author}</strong>
+              <span style={{ fontWeight: 500 }}>{author}</span>
             </Link>
+            {/* </h1> */}
           </div>
         )
       }}

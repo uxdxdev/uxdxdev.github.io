@@ -24,6 +24,7 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
+        excerpt_separator: `<!-- end -->`,
         plugins: [
           {
             resolve: `gatsby-remark-images`,
@@ -85,9 +86,8 @@ module.exports = {
                 return Object.assign({}, edge.node.frontmatter, {
                   title: edge.node.frontmatter.title,
                   description: edge.node.excerpt,
-                  date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + edge.node.frontmatter.date,
-                  guid: site.siteMetadata.siteUrl + edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   custom_elements: [{ 'content:encoded': edge.node.html }],
                   keywords: edge.node.frontmatter.keywords.split(','),
                 })
@@ -95,17 +95,14 @@ module.exports = {
             },
             query: `
           {
-            allMarkdownRemark(
-              limit: 1000,
-              sort: { order: DESC, fields: [frontmatter___date] }
-            ) {
+            allMarkdownRemark {
               edges {
                 node {
                   excerpt
                   html
                   frontmatter {
-                    title
-                    date                    
+                    title                    
+                    keywords                  
                   }
                 }
               }
