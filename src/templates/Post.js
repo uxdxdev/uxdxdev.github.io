@@ -28,22 +28,23 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const siteUrl = this.props.data.site.siteMetadata.siteUrl
     const { previous, next } = this.props.pageContext
-    const { banner } = this.props.data
+    const { frontmatter } = post
+    const { banner } = frontmatter
 
     // banner image for social media sharing
     const bannerSrc = banner && banner.childImageSharp.fluid.src
     const imageSrc = siteUrl + bannerSrc
-    const keywords = post.frontmatter.keywords.split(`,`)
+    const keywords = frontmatter.keywords.split(`,`)
 
     const shareUrl = siteUrl + post.fields.slug
-    const postTitle = post.frontmatter.title
+    const postTitle = frontmatter.title
 
     const sharingIconSize = 48
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
-          title={post.frontmatter.title}
+          title={frontmatter.title}
           description={post.excerpt}
           keywords={keywords}
           image={imageSrc}
@@ -53,7 +54,7 @@ class BlogPostTemplate extends React.Component {
             textAlign: 'center',
           }}
         >
-          <h1>{post.frontmatter.title}</h1>
+          <h1>{frontmatter.title}</h1>
           <p
             style={{
               ...scale(-1 / 5),
@@ -62,7 +63,7 @@ class BlogPostTemplate extends React.Component {
               marginTop: rhythm(-1),
             }}
           >
-            {post.frontmatter.date} ☕ {post.fields.readingTime.text}
+            ☕ {post.fields.readingTime.text}
           </p>
         </div>
 
@@ -70,10 +71,10 @@ class BlogPostTemplate extends React.Component {
           <div>
             <Image
               fluid={banner.childImageSharp.fluid}
-              alt={post.frontmatter.imageAltText}
+              alt={frontmatter.imageAltText}
             />
-            <ExternalLink href={post.frontmatter.bannerLink}>
-              {post.frontmatter.bannerCredit}
+            <ExternalLink href={frontmatter.bannerLink}>
+              {frontmatter.bannerCredit}
             </ExternalLink>
           </div>
         )}
@@ -126,14 +127,14 @@ class BlogPostTemplate extends React.Component {
         >
           <li>
             {previous && (
-              <Link to={previous.fields.slug} rel="prev">
+              <Link to={`/blog${previous.fields.slug}`} rel="prev">
                 ← {previous.frontmatter.title}
               </Link>
             )}
           </li>
           <li>
             {next && (
-              <Link to={next.fields.slug} rel="next">
+              <Link to={`/blog${next.fields.slug}`} rel="next">
                 {next.frontmatter.title} →
               </Link>
             )}
@@ -151,15 +152,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        author
         siteUrl
-      }
-    }
-    banner: file(absolutePath: { regex: "/banner.jpg/" }) {
-      childImageSharp {
-        fluid(maxWidth: 720, quality: 100) {
-          ...GatsbyImageSharpFluid
-        }
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -168,12 +161,17 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        category
-        date(formatString: "DD MMMM YYYY")
         bannerCredit
         bannerLink
         imageAltText
         keywords
+        banner {
+          childImageSharp {
+            fluid(maxWidth: 720, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
       fields {
         slug

@@ -89,7 +89,7 @@ module.exports = {
                   url: site.siteMetadata.siteUrl + edge.node.frontmatter.date,
                   guid: site.siteMetadata.siteUrl + edge.node.frontmatter.date,
                   custom_elements: [{ 'content:encoded': edge.node.html }],
-                  categories: [edge.node.frontmatter.category],
+                  keywords: edge.node.frontmatter.keywords.split(','),
                 })
               })
             },

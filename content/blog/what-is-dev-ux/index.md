@@ -1,12 +1,10 @@
 ---
-date: '2020-03-04'
 title: 'What is DX?'
-category: ui,ux,developer,design
 banner: './images/banner.jpg'
 imageAltText: 'white tiger lying down'
 bannerCredit: 'Photo by Smit Patel'
 bannerLink: 'https://unsplash.com/photos/dGMcpbzcq1I'
-keywords: 'ui,ux,developer,design,usability'
+keywords: ui,ux,developer,design,usability
 ---
 
 > DX is the user experience from a developers perspective when using a product or service such as client libraries, APIs, SDKs, frameworks, or other developer tools.

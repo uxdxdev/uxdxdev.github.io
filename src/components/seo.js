@@ -7,7 +7,7 @@ function SEO({ description, lang, meta, keywords, title, image }) {
   return (
     <StaticQuery
       query={detailsQuery}
-      render={data => {
+      render={(data) => {
         const metaDescription =
           description || data.site.siteMetadata.description
         return (
@@ -59,7 +59,7 @@ function SEO({ description, lang, meta, keywords, title, image }) {
                 keywords.length > 0
                   ? {
                       name: `keywords`,
-                      content: keywords.join(`, `),
+                      content: keywords,
                     }
                   : []
               )
