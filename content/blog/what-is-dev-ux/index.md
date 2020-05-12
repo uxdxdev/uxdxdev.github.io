@@ -1,4 +1,5 @@
 ---
+date: '2020-01-01'
 title: 'What is DX?'
 banner: './images/banner.jpg'
 imageAltText: 'white tiger lying down'

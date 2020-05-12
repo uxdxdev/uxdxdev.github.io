@@ -72,7 +72,7 @@ export const pageQuery = graphql`
         siteUrl
       }
     }
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           excerpt

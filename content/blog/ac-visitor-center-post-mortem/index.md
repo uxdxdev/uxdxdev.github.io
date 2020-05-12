@@ -1,4 +1,5 @@
 ---
+date: '2020-02-01'
 title: 'AC Visitor Center'
 banner: './images/banner.jpg'
 imageAltText: 'baby skunk standing on table'
