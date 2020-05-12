@@ -21,14 +21,15 @@ class BlogIndex extends React.Component {
             `blog`,
             `software`,
             `javascript`,
-            `react`,
             `ux`,
             `dx`,
             `design`,
             `user experience`,
             `developer experience`,
+            `product development`,
             `tutorials`,
             `learning`,
+            `teaching`,
           ]}
           image={imageSrc}
         />

@@ -5,7 +5,8 @@ banner: './images/banner.jpg'
 imageAltText: 'baby skunk standing on table'
 bannerCredit: 'Photo by Bryan Padron'
 bannerLink: 'https://unsplash.com/photos/Tm-EWw4403w'
-keywords: saas,firebase,nodejs,reactjs,ui,uxdesign,usability
+# see src/pages/index.js for default keywords
+keywords: nodejs,react,firebase,videogames,saas
 ---
 
 > AC Visitor Center is a queue manager using ReactJS and Firebase created to solve a problem I had in a video game. It allows for a secret code to be securely exposed to the first person in the queue.
