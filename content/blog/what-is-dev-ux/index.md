@@ -171,15 +171,13 @@ Here are a few things you can focus on right now to improve the DX your creating
 - Create documentation for getting set up, building solutions, and using client libraries. This documentation needs to be aesthetically pleasing, developers like well designed documentation.
 - Provide code examples and solutions to common problems that you customers might encounter. For example, if your platform provides authentication put an example of how a developer can integrate their solution in multiple languages.
 - Your API should be well designed, use industry standards, and be consistent. This enables developers to build momentum when interacting with your API.
-- Create release notes and change logs for every new release. Developers like to see what has changes between versions, we're curious so help us out a bit.
+- Create release notes and change logs for every new release. Developers like to see what has changed between versions, we're curious so help us out a bit.
 
 ## Conclusion
 
 In this post I talked about the user experience from a developers perspective. I've highlighted three different types of developers, application developer, framework developer, and library developer. A developer could be all three types in their role as a software engineer and I've used them to categorize the examples of good and bad experiences they may encounter. I've also listed Jakob Nielson's 10 usability heuristics for interaction design at the end. I listed the benefits of improving DX and how you might do this right now for you products and services.
 
-I believe that Jakob Neilson's heuristics are already being applied to software libraries and tools to improve the user experience for developers, but it seems that only sometimes it is a conscious effort by the creators. By following the heuristics more closely we can greatly improve the usability of the things we build. Developers may also interact heavily with APIs and documentation making them extremely important when designing good DX. You can improve DX by focusing on a few small improvements at a time. The benefits of improving your DX is worth it.
-
-So remember if your building a product or service, devs might be users too.
+I believe that Jakob Neilson's heuristics are already being applied to software libraries and tools to improve the user experience for developers, but it seems that only sometimes it is a conscious effort by the creators. By following the heuristics more closely we can greatly improve the user experience our products provide. Developers may also interact heavily with APIs and documentation making them extremely important when designing good DX. You can improve DX by focusing on a few small improvements at a time. The benefits of improving your DX is worth it.
 
 ## References
 

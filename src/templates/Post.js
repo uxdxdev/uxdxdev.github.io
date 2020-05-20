@@ -36,8 +36,8 @@ class BlogPostTemplate extends React.Component {
     const imageSrc = siteUrl + bannerSrc
     const keywords = frontmatter.keywords.split(`,`)
 
-    const shareUrl = siteUrl + post.fields.slug
-    const postTitle = frontmatter.title
+    const shareUrl = `${siteUrl}/blog${post.fields.slug}`
+    const postTitle = `I've published a new article! "${frontmatter.title}" read it here`
 
     const sharingIconSize = 48
 
