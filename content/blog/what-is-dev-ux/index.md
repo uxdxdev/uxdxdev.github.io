@@ -156,14 +156,14 @@ Error messages should be expressed in plain language (no codes), precisely indic
 
 Even though it is better if the system can be used without documentation, it may be necessary to provide help and documentation. Any such information should be easy to search, focused on the user's task, list concrete steps to be carried out, and not be too large.
 
-# Why improve DX?
+## Why improve DX?
 
 Improving DX has a number of benefits for any product or service.
 
 - Developers will be less stressed trying to reason about the tools they are trying to use which leads to better solutions. They will also be more productive if your documentation is easy to read and follow.
 - We talk about the tools we use everyday, if your product or service provides a bad DX, our friends will hear it. Developers become advocates for your product or services when it provides a good DX.
 
-# First steps to improving DX
+## First steps to improving DX
 
 Here are a few things you can focus on right now to improve the DX your creating:
 
@@ -179,6 +179,13 @@ In this post I talked about the user experience from a developers perspective. I
 
 I believe that Jakob Neilson's heuristics are already being applied to software libraries and tools to improve the user experience for developers, but it seems that only sometimes it is a conscious effort by the creators. By following the heuristics more closely we can greatly improve the user experience our products provide. Developers may also interact heavily with APIs and documentation making them extremely important when designing good DX. You can improve DX by focusing on a few small improvements at a time. The benefits of improving your DX is worth it.
 
+### Examples of good DX in the wild
+
+- [Stripe API documentation](https://stripe.com/docs/api)
+- [Firebase CLI](https://firebase.google.com/docs/cli)
+- [ReactJS](https://reactjs.org/docs/getting-started.html)
+- [VS Code release notes](https://code.visualstudio.com/updates)
+
 ## References
 
-- 10 Usability Heuristics for User Interface Design https://www.nngroup.com/articles/ten-usability-heuristics/
+- [10 Usability Heuristics for User Interface Design](https://www.nngroup.com/articles/ten-usability-heuristics/)

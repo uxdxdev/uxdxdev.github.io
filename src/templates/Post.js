@@ -82,7 +82,7 @@ class BlogPostTemplate extends React.Component {
         <br />
 
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <h2>Share this article</h2>
+        <h2>Share this post</h2>
         <div>
           <EmailShareButton url={shareUrl} subject={postTitle}>
             <EmailIcon size={sharingIconSize} round />
