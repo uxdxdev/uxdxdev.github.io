@@ -1,6 +1,177 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[Let's talk about that.]]></description><link>https://daithimorton.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 24 Mar 2020 15:22:06 GMT</lastBuildDate><item><title><![CDATA[What is DX?]]></title><description><![CDATA[DX is the user experience from a developers perspective when using a product or service such as client libraries, APIs, SDKs, frameworks, or…]]></description><link>https://daithimorton.github.io2020-03-04</link><guid isPermaLink="false">https://daithimorton.github.io2020-03-04</guid><pubDate>Wed, 04 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[Let's talk about that.]]></description><link>https://daithimorton.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 22 May 2020 16:55:32 GMT</lastBuildDate><item><title><![CDATA[Side project: AC Visitor Center]]></title><description><![CDATA[AC Visitor Center is a queue manager using ReactJS and Firebase created to solve a problem I had in a video game. It allows for a secret code to be securely exposed to the first person in a queue.]]></description><link>https://daithimorton.github.io/ac-visitor-center-post-mortem/</link><guid isPermaLink="false">https://daithimorton.github.io/ac-visitor-center-post-mortem/</guid><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;AC Visitor Center is a queue manager using ReactJS and Firebase created to solve a problem I had in a video game. It allows for a secret code to be securely exposed to the first person in a queue.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;!-- end --&gt;
+&lt;p&gt;In this post I’m going to describe a small side project I worked on &lt;a href=&quot;https://acvisitorcenter.firebaseapp.com/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;AC Visitor Center&lt;/a&gt;. The idea for this little side project came from playing a video game, I won’t mention the game here but it involves islands, turnips, and traders. I will talk about the UI/UX design and the features of Google’s Firebase platform that I used which include hosting, real-time database, firestore database, and analytics. I’ll also talk about some interesting problems I had to solve along the way.&lt;/p&gt;
+&lt;h2&gt;Mechanics&lt;/h2&gt;
+&lt;p&gt;Your island in the video game has a shop where turnips can be sold at a different price each day, excluding Sundays when you can only buy turnips. Owners of an island can allow remote players to visit their island using a secret code where they can then sell their turnips. Each island has a limit of 8 live connections from visitors which means a total of 9 people on an island, 8 visitors and the owner.&lt;/p&gt;
+&lt;p&gt;As visitors arrive and leave the island there is a delay of ~60 seconds each time to watch a cut scene of their arrival progress. This can become very frustrating for players when there are alot of visitors trying to arrive and leave the island constantly. Even with a limit of 8 visitors this means alot of delay for all players involved.&lt;/p&gt;
+&lt;p&gt;How can we reduce this delay caused by cut scenes so that we can get on with selling our turnips!?&lt;/p&gt;
+&lt;h2&gt;Queues&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1280px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.5625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUBAgME/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHG3bNylG4f/8QAGRABAAMBAQAAAAAAAAAAAAAAAQACEQMS/9oACAEBAAEFAjN87WPEwog8aM//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAcEAACAgIDAAAAAAAAAAAAAAAAAREhAhASQZH/2gAIAQEABj8Cy6hDt+aqiObgs//EABoQAAMBAAMAAAAAAAAAAAAAAAABESExYYH/2gAIAQEAAT8hltgXFG076sMcUQ7D+TG/pENKlZ//2gAMAwEAAgADAAAAEMQv/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQIBAT8QiP/EABsQAQEAAwADAAAAAAAAAAAAAAERACExYXHB/9oACAEBAAE/EAUssJQ8T3jgrcKjvmrOYUNCY9YUOTcbhkmEA/C5flOtS5//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;people queuing at an ice-cream truck&quot;
+        title=&quot;people queuing at an ice-cream truck&quot;
+        src=&quot;/static/4e77fda34ee6417b08fed893eab9defc/eea4a/queue.jpg&quot;
+        srcset=&quot;/static/4e77fda34ee6417b08fed893eab9defc/cb69c/queue.jpg 320w,
+/static/4e77fda34ee6417b08fed893eab9defc/c08c5/queue.jpg 640w,
+/static/4e77fda34ee6417b08fed893eab9defc/eea4a/queue.jpg 1280w,
+/static/4e77fda34ee6417b08fed893eab9defc/0f98f/queue.jpg 1920w&quot;
+        sizes=&quot;(max-width: 1280px) 100vw, 1280px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;
+&lt;a href=&quot;https://unsplash.com/photos/mixpzw_FlcA&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Photo by Florencia Viadana&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Using a queue gives the owner the power to limit the number of people on their island, and also to control the number of visitors arriving. Reducing the number of interruptions from visitors arriving and leaving improves the gameplay experience for all players involved. There are some other issues with this video game mechanic that cannot be solved with a simple queue, but I won’t go into those.&lt;/p&gt;
+&lt;p&gt;The type of queue we need to use here is a FIFO (First In First Out) queue, if I joined the queue first I’ll be the first to get my ice-cream.&lt;/p&gt;
+&lt;h2&gt;Planning&lt;/h2&gt;
+&lt;p&gt;The web application will function similar to a visitor center, a place for people to arrive and relax while they wait to visit an island. The visitor center has two types of users, the &lt;strong&gt;owner&lt;/strong&gt; of the visitor center, and the &lt;strong&gt;visitor&lt;/strong&gt; trying to get to the island. Each user type has different requirements of the visitor center and the waiting queue inside.&lt;/p&gt;
+&lt;p&gt;The visitor center must be running in a browser to operate correctly, by fetching real-time data for status updates. It also has a status of open or closed to signify when the owner is online or offline. The waiting queue may be locked or unlocked by the owner to control the flow of visitors. And the visitor center must also provide a code so user can successfully create a connection to visit an island.&lt;/p&gt;
+&lt;p&gt;Each user type has different requirements of the visitor center, some of which are listed below as user stories.&lt;/p&gt;
+&lt;p&gt;As a &lt;strong&gt;visitor&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I want to know more about the island before I join the queue so that I’m not wasting my time (required)&lt;/li&gt;
+&lt;li&gt;I want to join the queue so that I can get the secret code (required)&lt;/li&gt;
+&lt;li&gt;I want to get the latest code when it is updated so that I can visit the island successfully (required)&lt;/li&gt;
+&lt;li&gt;I want to leave the queue so that other visitors can get the secret code more quickly (nice to have)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As an &lt;strong&gt;owner&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I want to provide information to users about the island so that they don’t waste their time waiting in the queue (required)&lt;/li&gt;
+&lt;li&gt;I want to remove the first visitor in the queue so that the next visitor can get the secret code (required)&lt;/li&gt;
+&lt;li&gt;I want to remove all visitors in the queue so that the waiting list can be cleared (required)&lt;/li&gt;
+&lt;li&gt;I want to lock the queue so that visitors can’t join the queue unless I allow it (required)&lt;/li&gt;
+&lt;li&gt;I want to display the secret code to only the first visitor in the queue so that I can control who connects to my island to visit (required)&lt;/li&gt;
+&lt;li&gt;I want to send a message to users in the queue so that I can update them with useful information (nice to have)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Design&lt;/h2&gt;
+&lt;p&gt;Using the user stories outlined above I roughly sketched the UI for each user type. The dotted line is the mobile devices visible screen area. On the left is what the owner of the visitor center will see. On the right is what the visitor will see, on the far right is the dialog popup that displays the secret code.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1280px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 89.375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsSAAALEgHS3X78AAACnUlEQVQ4y31Ua3PTMBDs//9jMAPDUJo2gbbTpinOw47ltx5OWXYlJyTQ4cONLN3dam/v5CvvPcZxhDEGeZ6jbVvoLIRwMk9TjHxlWcb13H9uV8fkosgxXyyw227heOacuzDFFUWB1WqFLMtgrX035kofwTs0/oCNA1wYufcxwVqHQ/BYdx5b2oEsxTSyZkysjv4wETgBKqnoPT7nHnuuv8YANzF44/dTE/CtDClR5zTlCLhzkyQRlICWSXkf8Nod8NoGsgnYcl/1lubwvQpYNn/O28Ghpm24v69D9D9yFaHIsLcey8ricVchON5MRpVlQGexbl28pOb+bfTxPO8cy3cwQ8BP+lY0fS/rEyADmLjct/hhPHqWIMsJuGPinsGzMpUslhvGGjJvbLpYoL0fWUXSMQEy8bHyuN4HDD7A+gQoNtKoIKhkidYlwIzgjnECqesGz2ZIDC2FfDE97rcVMt4uFrKaGjZD0lcspNMNWa4ahyGSCFGOBxJZ5B1eaxubFru8mZpiWIJKlLUDm0LAZzbk1qROv7TSlmMWJyMNsirSqMUxUsli+MymPJU9SpbC6MjAkGHWWNzsPT5sPR5M0nTX2tg8zWicvck0t7FkzdCm7rHKTezqUS+Jru7dbSrMtzVm6wp3eR+reQv+NNjndnp6OwYtqhFfioCPO4956TGQeeCrmC0zzAl0XTh8LXyU5RAB/33H6aXQoSFV16q2Q9fUWJuWgNJnxKesxW1hqd8Y2Rd9mMDeZ3mV3moSXaZSyyGJ3XDoZ1VqlmKUoEF2J8C0XvxtdHCc+NamYM2eXofA79hhlW8mn56hvQD86/clp8bk2AwBHZvSujSD8WkRSCOkefT/A5RDepkJUKue3jGhsX8u1Dqc+S5/xOn7Ny2fbTpgH09fAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;sketch of ui design&quot;
+        title=&quot;sketch of ui design&quot;
+        src=&quot;/static/0a3bdb5cf773dd839bc28a5eaf7225ae/21b4d/ui_01.png&quot;
+        srcset=&quot;/static/0a3bdb5cf773dd839bc28a5eaf7225ae/72799/ui_01.png 320w,
+/static/0a3bdb5cf773dd839bc28a5eaf7225ae/6af66/ui_01.png 640w,
+/static/0a3bdb5cf773dd839bc28a5eaf7225ae/21b4d/ui_01.png 1280w,
+/static/0a3bdb5cf773dd839bc28a5eaf7225ae/f663d/ui_01.png 1511w&quot;
+        sizes=&quot;(max-width: 1280px) 100vw, 1280px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;
+&lt;em&gt;Sketches of the visitor center mobile UI design for both user types owner and visitor.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;On the left is the owners view. Owners can edit the title and summary of the visitor center. They can also edit the secret code that will be displayed to visitors in a popup dialog. The waiting list is also immediately displayed for owners which provides functionality to clear the entire list, or lock it to prevent more visitors joining.&lt;/p&gt;
+&lt;p&gt;On the right is the visitors view. The title and summary of the visitor center is visible at the top of the page, but not editable. Below this is an input for the visitors username in order to join the queue. They can also leave the queue if they no longer want to wait. Once a user has joined the queue the waiting list is displayed which will update in real-time. When a visitor is first in the queue a dialog popup will be displayed with the secret code. This dialog can be dismissed by the visitor by clicking the close button.&lt;/p&gt;
+&lt;p&gt;Not shown here is the UI design of the messaging feature listed in the user stories. The initial version of the project does not have this feature, I’ll wait until I’m asked by enough users to add it before reviewing.&lt;/p&gt;
+&lt;h2&gt;Implementation&lt;/h2&gt;
+&lt;p&gt;Implementing this project was surprisingly challenging. At first it seemed very straight forward using ReactJS and Google Firebase but as the project progressed there were a few considerations that forced me to make some design changes along the way. I’ll cover some of the more interesting problems and solutions of the project here.&lt;/p&gt;
+&lt;h3&gt;Database read requests&lt;/h3&gt;
+&lt;p&gt;After releasing the project to beta users to get feedback and weed out some of the bugs I noticed something interesting in the Firebase analytics dashboard. The number of read requests being made to the Firestore database was growing very quickly for the number of currently active users. Each read request is charged in Firebase to it was worth investigating.&lt;/p&gt;
+&lt;p&gt;Listeners are used to watch for real-time changes to the queue data stored in Firestore, the waiting list in the UI sketches above uses this queue data. For the queue to operate correctly the client application needs to be open in both the owner and visitors browser. When a visitor joins or leaves the queue all users will see the updated queue. With Firebase each change to the data being listened to in a Firestore database causes a new read request, websockets are used to provide these real-time updates.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 782px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 38.4375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsSAAALEgHS3X78AAAAkklEQVQoz6WR4Q6DIAyEef+3dXMq9NqubVTQ4fwhyRdKoMcdJBHRDdX/+Bnmer5HIiIrOBaZuMucWccFOkzQQrwK8y7S1olKieI1sb5nb/zFBV3Y3ancOAQV/ViTE9F60aUK9SIfHZrgYO4Ajo0nhOCSyWLVR3+CjwRTptUdmtsA7PO5viIcXt22RWjjnH+2F/kLt955oTFhwc8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;spike in firestore read requests&quot;
+        title=&quot;spike in firestore read requests&quot;
+        src=&quot;/static/0b120fa874b25d139d107bb0051c6a36/2e195/firestore_read_spikes.png&quot;
+        srcset=&quot;/static/0b120fa874b25d139d107bb0051c6a36/72799/firestore_read_spikes.png 320w,
+/static/0b120fa874b25d139d107bb0051c6a36/6af66/firestore_read_spikes.png 640w,
+/static/0b120fa874b25d139d107bb0051c6a36/2e195/firestore_read_spikes.png 782w&quot;
+        sizes=&quot;(max-width: 782px) 100vw, 782px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;
+&lt;em&gt;Firestore database read requests, days along the X axis, number of read requests on the Y axis.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The first iteration of the project allowed all users that opened the app to see the queue. This meant that every instance of the client application loaded in a browser would result in firstly a read to get the full list of visitors currently waiting and then a read each time the queue was updated in some way. This meant a huge number of read requests per user as the queue was being updated in real-time. You can see on days 1 to 3 the number of requests is increasing rapidly.&lt;/p&gt;
+&lt;p&gt;To fix this issue, on day 3 I updated the design so that the waiting list was only visible to visitors when they joined the queue, owners would still see the queue at all times, and visitors that were not in the queue would not see the queue which meant no real-time updates.&lt;/p&gt;
+&lt;p&gt;This small change resulted in a remarkable reduction in read requests with minimal impact to the user experience. Instead of seeing the full waiting list, a visitor would only see the number of people waiting in the queue at that time, a snapshot, which only required a single read. Notice on days 4 and 5 the number of read requests changes to a linear trend.&lt;/p&gt;
+&lt;h3&gt;Keeping the secret code secret&lt;/h3&gt;
+&lt;p&gt;When visitors join the queue they must wait until they are at the front of the queue to receive the secret code. This code is used to connect to the owners island. It is important that only the visitor in 1st position of the queue can see the code. If anyone else in the queue could see the code the queue would be redundant, so we must keep it secret.&lt;/p&gt;
+&lt;p&gt;The data for this web application is stored in Firestore database which controls access to data using security rules. Firestore is a NoSQL database which means data is stored in documents which are similar to JSON objects with attributes and links to other objects. Data is structured as a tree and for this project there are two main roots.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;users/{userId}&lt;/li&gt;
+&lt;li&gt;centers/{centerId}&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There are many rules used to secure the data for this project, I will only talk about the rules used to secure the secret code here. I won’t talk about the other rules for securing data in &lt;code class=&quot;language-text&quot;&gt;centers/&lt;/code&gt;, they are mostly for data validation.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;match &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;users&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;userId&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+    allow &lt;span class=&quot;token keyword&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;auth &lt;span class=&quot;token operator&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;auth&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;uid &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; userId &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt;
+        request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;auth&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;uid &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; resource&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;next&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+
+    allow update&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;auth &lt;span class=&quot;token operator&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;auth&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;uid &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; userId &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+        request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;resource&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;keys&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;hasOnly&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;secret&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;next&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Example rules to check user authentication and to secure the secret code.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;All users are authenticated anonymously when they open the application in their browser using Firebase authentication. To prevent public access to the data the authentication status for every incoming request is checked.&lt;/p&gt;
+&lt;p&gt;You can see from the code snippet above that I’m also checking if the request is coming from the owner of the data, or from a user with an Id matching the value stored in &lt;code class=&quot;language-text&quot;&gt;data.next&lt;/code&gt;. This is the main mechanism for allowing access to the secret code.&lt;/p&gt;
+&lt;p&gt;If we have restricted access to the secret code to only the owner and the user Id stored in &lt;code class=&quot;language-text&quot;&gt;data.next&lt;/code&gt;, then the only other thing to secure is updating this data. With the above rules we restrict updating the data to only the owner of the data, and it must have the correct format.&lt;/p&gt;
+&lt;p&gt;The rules shown above will secure reading the secret code and updating what user is allowed to read the code. This helps to keep the secret code secret.&lt;/p&gt;
+&lt;h3&gt;User presence&lt;/h3&gt;
+&lt;p&gt;The visitor center will only operate correctly when the owner has the web application running in their browser. Data is updated in real-time as visitors join and leave the waiting queue. Users need to know if the visitor center is actively running before they join the queue, or they will be waiting until the owner comes back online for the queue to be updated.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;firebase
+  &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;database&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;ref&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;.info/connected&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;value&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;snapshot&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;snapshot&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    userStatusDatabaseRef
+      &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;onDisconnect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;isOfflineData&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        userStatusDatabaseRef&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;isOnlineData&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;// error occurred updating real-time database&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Listen for changes in the users online status and update the database accordingly&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Keeping track of when a user is online or offline is known as user presence, we can do this using the Firebase real-time database. The Firestore database does not provide this feature right now, maybe it will in the future. We use the online/offline status of the owner of the visitor center to let other users know if the visitor center is open or closed.&lt;/p&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;In this post I talked about a side project I recently worked on, AC Visitor Center. The tech stack used during implementation was ReactJS, Material UI, and the Google Firebase platform. I gave a quick overview of the planning and design I did before starting. I also discussed some interesting problems and solutions I had to solve during implementation.&lt;/p&gt;
+&lt;p&gt;This little project only took a few days to design and build. It was fun learning more about Google’s Firebase platform and I’m a big fan of learning through doing. Working on this project has thought me to be more conscious of my design choices especially when using real-time data. Another thing I loved about this project was getting feedback as soon as possible using analytics and getting it in the hands of users.&lt;/p&gt;
+&lt;p&gt;If you made it this far thank you for reading. I encourage you to &lt;a href=&quot;https://www.ted.com/talks/simone_giertz_why_you_should_make_useless_things?language=en&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;build useless things&lt;/a&gt; you never know what you’ll learn and re-enforcing the fundamentals is never a bad idea.&lt;/p&gt;
+&lt;h2&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://acvisitorcenter.firebaseapp.com/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;AC Visitor Center&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://firebase.google.com/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Firebase&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://reactjs.org/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;ReactJS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://material-ui.com/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Material UI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://create-react-app.dev/docs/getting-started/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Create React App&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[What is DX?]]></title><description><![CDATA[DX is the user experience from a developers perspective when using a product or service such as client libraries, APIs, SDKs, frameworks, or other developer tools.]]></description><link>https://daithimorton.github.io/what-is-dev-ux/</link><guid isPermaLink="false">https://daithimorton.github.io/what-is-dev-ux/</guid><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;DX is the user experience from a developers perspective when using a product or service such as client libraries, APIs, SDKs, frameworks, or other developer tools.&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;!-- end --&gt;
 &lt;p&gt;I’m sure you’ve heard of UX (User Experience) and from what I have seen and read online it mostly relates to the user experience of end-users when using a product or service.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;But what about the developers building those products and services?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;In this post I’m going to talk about the UX from a developers perspective when using software libraries, UI components, and other developer tools. I’ll cover different developers types with some good and bad examples of DX. And I’ve listed Jakob Nielson’s 10 usability heuristics below because I believe they can be used alot more to improve DX.&lt;/p&gt;
@@ -174,26 +345,32 @@
 &lt;li&gt;Help and documentation&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Even though it is better if the system can be used without documentation, it may be necessary to provide help and documentation. Any such information should be easy to search, focused on the user’s task, list concrete steps to be carried out, and not be too large.&lt;/p&gt;
-&lt;h1&gt;Why improve DX?&lt;/h1&gt;
+&lt;h2&gt;Why improve DX?&lt;/h2&gt;
 &lt;p&gt;Improving DX has a number of benefits for any product or service.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Developers will be less stressed trying to reason about the tools they are trying to use which leads to better solutions. They will also be more productive if your documentation is easy to read and follow.&lt;/li&gt;
 &lt;li&gt;We talk about the tools we use everyday, if your product or service provides a bad DX, our friends will hear it. Developers become advocates for your product or services when it provides a good DX.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1&gt;First steps to improving DX&lt;/h1&gt;
+&lt;h2&gt;First steps to improving DX&lt;/h2&gt;
 &lt;p&gt;Here are a few things you can focus on right now to improve the DX your creating:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Create client libraries in multiple languages to make integration with you product or service easier for developers.&lt;/li&gt;
 &lt;li&gt;Create documentation for getting set up, building solutions, and using client libraries. This documentation needs to be aesthetically pleasing, developers like well designed documentation.&lt;/li&gt;
 &lt;li&gt;Provide code examples and solutions to common problems that you customers might encounter. For example, if your platform provides authentication put an example of how a developer can integrate their solution in multiple languages.&lt;/li&gt;
 &lt;li&gt;Your API should be well designed, use industry standards, and be consistent. This enables developers to build momentum when interacting with your API.&lt;/li&gt;
-&lt;li&gt;Create release notes and change logs for every new release. Developers like to see what has changes between versions, we’re curious so help us out a bit.&lt;/li&gt;
+&lt;li&gt;Create release notes and change logs for every new release. Developers like to see what has changed between versions, we’re curious so help us out a bit.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;In this post I talked about the user experience from a developers perspective. I’ve highlighted three different types of developers, application developer, framework developer, and library developer. A developer could be all three types in their role as a software engineer and I’ve used them to categorize the examples of good and bad experiences they may encounter. I’ve also listed Jakob Nielson’s 10 usability heuristics for interaction design at the end. I listed the benefits of improving DX and how you might do this right now for you products and services.&lt;/p&gt;
-&lt;p&gt;I believe that Jakob Neilson’s heuristics are already being applied to software libraries and tools to improve the user experience for developers, but it seems that only sometimes it is a conscious effort by the creators. By following the heuristics more closely we can greatly improve the usability of the things we build. Developers may also interact heavily with APIs and documentation making them extremely important when designing good DX. You can improve DX by focusing on a few small improvements at a time. The benefits of improving your DX is worth it.&lt;/p&gt;
-&lt;p&gt;So remember if your building a product or service, devs might be users too.&lt;/p&gt;
+&lt;p&gt;I believe that Jakob Neilson’s heuristics are already being applied to software libraries and tools to improve the user experience for developers, but it seems that only sometimes it is a conscious effort by the creators. By following the heuristics more closely we can greatly improve the user experience our products provide. Developers may also interact heavily with APIs and documentation making them extremely important when designing good DX. You can improve DX by focusing on a few small improvements at a time. The benefits of improving your DX is worth it.&lt;/p&gt;
+&lt;h3&gt;Examples of good DX in the wild&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://stripe.com/docs/api&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Stripe API documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/cli&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Firebase CLI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://reactjs.org/docs/getting-started.html&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;ReactJS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://code.visualstudio.com/updates&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;VS Code release notes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2&gt;References&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;10 Usability Heuristics for User Interface Design &lt;a href=&quot;https://www.nngroup.com/articles/ten-usability-heuristics/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;https://www.nngroup.com/articles/ten-usability-heuristics/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.nngroup.com/articles/ten-usability-heuristics/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;10 Usability Heuristics for User Interface Design&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content:encoded></item></channel></rss>
