@@ -158,7 +158,7 @@ In this post I talked about a side project I recently worked on, AC Visitor Cent
 
 This little project only took a few days to design and build. It was fun learning more about Google's Firebase platform and I'm a big fan of learning through doing. Working on this project has thought me to be more conscious of my design choices especially when using real-time data. Another thing I loved about this project was getting feedback as soon as possible using analytics and getting it in the hands of users.
 
-If you made it this far thank you for reading. I encourage you to [Build useless things](https://www.ted.com/talks/simone_giertz_why_you_should_make_useless_things?language=en) you never know what you'll learn and re-enforcing the fundamentals is never a bad idea.
+If you made it this far thank you for reading. I encourage you to [build useless things](https://www.ted.com/talks/simone_giertz_why_you_should_make_useless_things?language=en) you never know what you'll learn and re-enforcing the fundamentals is never a bad idea.
 
 ## References
 
