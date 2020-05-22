@@ -86,8 +86,8 @@ module.exports = {
                 return Object.assign({}, edge.node.frontmatter, {
                   title: edge.node.frontmatter.title,
                   description: edge.node.excerpt,
-                  url: `${site.siteMetadata.siteUrl}blog/${edge.node.fields.slug}`,
-                  guid: `${site.siteMetadata.siteUrl}blog/${edge.node.fields.slug}`,
+                  url: `${site.siteMetadata.siteUrl}/blog${edge.node.fields.slug}`,
+                  guid: `${site.siteMetadata.siteUrl}/blog${edge.node.fields.slug}`,
                   custom_elements: [{ 'content:encoded': edge.node.html }],
                   keywords: edge.node.frontmatter.keywords.split(','),
                 })
