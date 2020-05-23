@@ -36,7 +36,7 @@ The type of queue we need to use here is a FIFO (First In First Out) queue, if I
 
 The web application will function similar to a visitor center, a place for people to arrive and relax while they wait to visit an island. The visitor center has two types of users, the **owner** of the visitor center, and the **visitor** trying to get to the island. Each user type has different requirements of the visitor center and the waiting queue inside.
 
-The visitor center must be running in a browser to operate correctly, by fetching real-time data for status updates. It also has a status of open or closed to signify when the owner is online or offline. The waiting queue may be locked or unlocked by the owner to control the flow of visitors. And the visitor center must also provide a code so user can successfully create a connection to visit an island.
+The visitor center must be running in a browser to operate correctly, by fetching real-time data for status updates. It also has a status of open or closed to signify when the owner is online or offline. The waiting queue may be locked or unlocked by the owner to control the flow of visitors. And the visitor center must also provide a code so that users can successfully create a connection to visit an island.
 
 Each user type has different requirements of the visitor center, some of which are listed below as user stories.
 
@@ -65,7 +65,7 @@ _Sketches of the visitor center mobile UI design for both user types owner and v
 
 On the left is the owners view. Owners can edit the title and summary of the visitor center. They can also edit the secret code that will be displayed to visitors in a popup dialog. The waiting list is also immediately displayed for owners which provides functionality to clear the entire list, or lock it to prevent more visitors joining.
 
-On the right is the visitors view. The title and summary of the visitor center is visible at the top of the page, but not editable. Below this is an input for the visitors username in order to join the queue. They can also leave the queue if they no longer want to wait. Once a user has joined the queue the waiting list is displayed which will update in real-time. When a visitor is first in the queue a dialog popup will be displayed with the secret code. This dialog can be dismissed by the visitor by clicking the close button.
+On the right is the visitors view. The title and summary of the visitor center is visible at the top of the page, but not editable. Below this is an input for the visitors username in order to join the queue. They can also leave the queue if they no longer want to wait. Once a user has joined the queue the waiting list is displayed which will update in real-time. When a visitor is first in the queue a dialog popup will be displayed with the secret code. The user can dismiss this dialog by clicking the close button.
 
 Not shown here is the UI design of the messaging feature listed in the user stories. The initial version of the project does not have this feature, I'll wait until I'm asked by enough users to add it before reviewing.
 

@@ -169,7 +169,7 @@ Here are a few things you can focus on right now to improve the DX your creating
 
 - Create client libraries in multiple languages to make integration with you product or service easier for developers.
 - Create documentation for getting set up, building solutions, and using client libraries. This documentation needs to be aesthetically pleasing, developers like well designed documentation.
-- Provide code examples and solutions to common problems that you customers might encounter. For example, if your platform provides authentication put an example of how a developer can integrate their solution in multiple languages.
+- Provide code examples and solutions to common problems that your customers might encounter. For example, if your platform provides authentication put an example of how a developer can integrate their solution in multiple languages.
 - Your API should be well designed, use industry standards, and be consistent. This enables developers to build momentum when interacting with your API.
 - Create release notes and change logs for every new release. Developers like to see what has changed between versions, we're curious so help us out a bit.
 
