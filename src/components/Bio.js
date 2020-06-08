@@ -38,6 +38,7 @@ const Bio = () => {
               style={{
                 textDecoration: 'none',
                 color: 'inherit',
+                borderBottom: 'none'
               }}
             >
               <strong>{author}</strong> is a JavaScript software engineer

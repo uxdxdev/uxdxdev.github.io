@@ -37,6 +37,7 @@ const Header = () => {
               style={{
                 textDecoration: 'none',
                 color: 'inherit',
+                borderBottom: 'none'
               }}
             >
               <span style={{ fontWeight: 500 }}>{author}</span>
