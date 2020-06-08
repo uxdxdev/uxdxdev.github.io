@@ -35,12 +35,12 @@ function SEO({ description, lang, meta, keywords, title, image }) {
                 content: `website`,
               },
               {
-                name: `og:image`,
+                property: `og:image`,
                 content: image,
               },
               {
                 name: `author`,
-                content: data.site.siteMetadata.twitter,
+                content: `Daithi Morton`,
               },
               {
                 name: `twitter:card`,
