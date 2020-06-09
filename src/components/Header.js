@@ -5,48 +5,56 @@ import { rhythm } from '../utils/typography'
 
 const Header = () => {
   return (
-    <StaticQuery
-      query={bioQuery}
-      render={(data) => {
-        const { author } = data.site.siteMetadata
+    <header
+      style={{
+        marginLeft: `auto`,
+        marginRight: `auto`,
+        maxWidth: rhythm(30),
+        padding: `${rhythm(3 / 4)} ${rhythm(3 / 4)} 0 ${rhythm(3 / 4)}`,
+      }}
+    >
+      <StaticQuery
+        query={bioQuery}
+        render={(data) => {
+          const { author } = data.site.siteMetadata
 
-        return (
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              marginBottom: rhythm(1),
-            }}
-          >
-            <Image
-              fixed={data.avatar.childImageSharp.fixed}
-              alt={author}
+          return (
+            <div
               style={{
-                marginRight: rhythm(1 / 2),
-                marginBottom: 0,
-                minWidth: 50,
-                borderRadius: `100%`,
-              }}
-              imgStyle={{
-                borderRadius: `50%`,
-              }}
-            />
-            {/* <h1 style={{ marginBottom: 0 }}> */}
-            <Link
-              to="/"
-              style={{
-                textDecoration: 'none',
-                color: 'inherit',
-                borderBottom: 'none'
+                display: 'flex',
+                alignItems: 'center',
               }}
             >
-              <span style={{ fontWeight: 500 }}>{author}</span>
-            </Link>
-            {/* </h1> */}
-          </div>
-        )
-      }}
-    />
+              <Image
+                fixed={data.avatar.childImageSharp.fixed}
+                alt={author}
+                style={{
+                  marginRight: rhythm(1 / 2),
+                  marginBottom: 0,
+                  minWidth: 50,
+                  borderRadius: `100%`,
+                }}
+                imgStyle={{
+                  borderRadius: `50%`,
+                }}
+              />
+              {/* <h1 style={{ marginBottom: 0 }}> */}
+              <Link
+                to="/"
+                style={{
+                  textDecoration: 'none',
+                  color: 'inherit',
+                  borderBottom: 'none'
+                }}
+              >
+                <span style={{ fontWeight: 500 }}>{author}</span>
+              </Link>
+              {/* </h1> */}
+            </div>
+          )
+        }}
+      />
+    </header>
   )
 }
 

@@ -1,12 +1,11 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Image from 'gatsby-image'
-
 import Bio from '../components/Bio'
-import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import { rhythm, scale } from '../utils/typography'
 import ExternalLink from '../components/ExternalLink'
+import Footer from '../components/Footer'
 import {
   EmailShareButton,
   EmailIcon,
@@ -21,6 +20,7 @@ import {
   WhatsappShareButton,
   WhatsappIcon,
 } from 'react-share'
+import Header from '../components/Header'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -42,105 +42,121 @@ class BlogPostTemplate extends React.Component {
     const sharingIconSize = 48
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO
-          title={frontmatter.title}
-          description={post.excerpt}
-          keywords={keywords}
-          image={imageSrc}
-        />
+      <>
+        <Header />
+
         <div
           style={{
-            textAlign: 'center',
+            marginLeft: `auto`,
+            marginRight: `auto`,
+            maxWidth: rhythm(30),
+            padding: rhythm(3 / 4)
           }}
         >
-          <h1>{frontmatter.title}</h1>
-          <p
+
+          <SEO
+            title={frontmatter.title}
+            description={post.excerpt}
+            keywords={keywords}
+            image={imageSrc}
+          />
+          <div
             style={{
-              ...scale(-1 / 5),
-              display: `block`,
-              marginBottom: rhythm(1),
-              marginTop: rhythm(-1),
+              textAlign: 'center',
             }}
           >
-            ☕ {post.fields.readingTime.text}
-          </p>
-        </div>
-
-        {banner && (
-          <div>
-            <Image
-              fluid={banner.childImageSharp.fluid}
-              alt={frontmatter.imageAltText}
-            />
-            <ExternalLink href={frontmatter.bannerLink}>
-              {frontmatter.bannerCredit}
-            </ExternalLink>
+            <h1>{frontmatter.title}</h1>
+            <p
+              style={{
+                ...scale(-1 / 5),
+                display: `block`,
+                marginBottom: rhythm(1),
+                marginTop: rhythm(-1),
+              }}
+            >
+              ☕ {post.fields.readingTime.text}
+            </p>
           </div>
-        )}
 
-        <br />
+          {banner && (
+            <div>
+              <Image
+                fluid={banner.childImageSharp.fluid}
+                alt={frontmatter.imageAltText}
+              />
+              <ExternalLink href={frontmatter.bannerLink}>
+                {frontmatter.bannerCredit}
+              </ExternalLink>
+            </div>
+          )}
 
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <h2>Share this post</h2>
-        <div>
-          <EmailShareButton url={shareUrl} subject={postTitle}>
-            <EmailIcon size={sharingIconSize} round />
-          </EmailShareButton>
-          <RedditShareButton url={shareUrl} title={postTitle}>
-            <RedditIcon size={sharingIconSize} round />
-          </RedditShareButton>
-          <LinkedinShareButton url={shareUrl} title={postTitle}>
-            <LinkedinIcon size={sharingIconSize} round />
-          </LinkedinShareButton>
-          <TwitterShareButton url={shareUrl} title={postTitle}>
-            <TwitterIcon size={sharingIconSize} round />
-          </TwitterShareButton>
-          <FacebookShareButton url={shareUrl} quote={postTitle}>
-            <FacebookIcon size={sharingIconSize} round />
-          </FacebookShareButton>
-          <WhatsappShareButton
-            url={shareUrl}
-            title={postTitle}
-            windowWidth={660}
-            windowHeight={460}
+          <br />
+
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          <h2>Share this post</h2>
+          <div>
+            <EmailShareButton url={shareUrl} subject={postTitle}>
+              <EmailIcon size={sharingIconSize} round />
+            </EmailShareButton>
+            <RedditShareButton url={shareUrl} title={postTitle}>
+              <RedditIcon size={sharingIconSize} round />
+            </RedditShareButton>
+            <LinkedinShareButton url={shareUrl} title={postTitle}>
+              <LinkedinIcon size={sharingIconSize} round />
+            </LinkedinShareButton>
+            <TwitterShareButton url={shareUrl} title={postTitle}>
+              <TwitterIcon size={sharingIconSize} round />
+            </TwitterShareButton>
+            <FacebookShareButton url={shareUrl} quote={postTitle}>
+              <FacebookIcon size={sharingIconSize} round />
+            </FacebookShareButton>
+            <WhatsappShareButton
+              url={shareUrl}
+              title={postTitle}
+              windowWidth={660}
+              windowHeight={460}
+            >
+              <WhatsappIcon size={sharingIconSize} round />
+            </WhatsappShareButton>
+          </div>
+          <hr
+            style={{
+              marginBottom: rhythm(1),
+              marginTop: rhythm(1),
+            }}
+          />
+          <Bio />
+
+          <ul
+            style={{
+              display: `flex`,
+              flexWrap: `wrap`,
+              justifyContent: `space-between`,
+              listStyle: `none`,
+              padding: 0,
+              margin: 0
+            }}
           >
-            <WhatsappIcon size={sharingIconSize} round />
-          </WhatsappShareButton>
-        </div>
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-            marginTop: rhythm(1),
-          }}
-        />
-        <Bio />
+            <li>
+              {previous && (
+                <Link to={`/blog${previous.fields.slug}`} rel="prev">
+                  ← {previous.frontmatter.title}
+                </Link>
+              )}
+            </li>
+            <li>
+              {next && (
+                <Link to={`/blog${next.fields.slug}`} rel="next">
+                  {next.frontmatter.title} →
+                </Link>
+              )}
+            </li>
+          </ul>
 
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={`/blog${previous.fields.slug}`} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={`/blog${next.fields.slug}`} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </Layout>
+        </div>
+
+        <Footer />
+      </>
     )
   }
 }
