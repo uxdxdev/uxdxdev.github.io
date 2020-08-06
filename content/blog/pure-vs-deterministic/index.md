@@ -74,7 +74,7 @@ const hardToTestFunction = (a, b) => {
 hardToTestFunction(5, 7) // 89
 hardToTestFunction(5, 7) // 173
 ```
-When the result of a function is not strictly determined by the inputs, it is nondeterministic, and therefore not pure. In the example above, the result returned by the function is affected by the value of `variableX` and this will change with each new invocation. The value in `variableX` could also be changed by another part of the system, which may change returned result.
+When the result of a function is not strictly determined by the inputs, it is nondeterministic, and therefore not pure. In the example above, the result returned by the function is affected by the value of `variableX` and this will change with each new invocation. The value in `variableX` could also be changed by another part of the system, which may change the returned result.
 
 ## Testing
 
@@ -94,7 +94,7 @@ let actual = hardToTestFunction(5, 7); // when
 console.assert(actual === 89, actual) // then
 ```
 
-Nondeterministic functions are difficult to reason about and test effectively, stay away from these if you can. In the above example the results we are asserting could be affected by another part of the system changing the value of `variableX`. We do not know how or when this could happen, so how do we test this effectively?
+Nondeterministic functions are difficult to reason about and test effectively, stay away from these or refactor them if you can. In the above example the results we are asserting could be affected by another part of the system changing the value of `variableX`. We do not know how or when this could happen, so how do we test this effectively?
 
 ### Deterministic
 
