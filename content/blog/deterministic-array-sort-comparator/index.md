@@ -13,7 +13,7 @@ keywords: nodejs,sorting
 
 <!-- end -->
 
-In NodeJS version 11 the [v8 engine was updated to version 7.0](https://github.com/nodejs/node/pull/22754). One of the issues that was fixed in this release was a move to a [stable sorting algorithm](https://bugs.chromium.org/p/v8/issues/detail?id=90). You read more about sorting in v8 [here](https://v8.dev/blog/array-sort).
+In NodeJS version 11 the [v8 engine was updated to version 7.0](https://github.com/nodejs/node/pull/22754). One of the issues that was fixed in this release was a move to a [stable sorting algorithm](https://bugs.chromium.org/p/v8/issues/detail?id=90). You can read more about sorting in v8 [here](https://v8.dev/blog/array-sort).
 
 > Previously, V8 used an unstable QuickSort for arrays with more than 10 elements. Now, we use the stable TimSort algorithm. 
 > - Mathias Bynens https://twitter.com/mathias/status/1036626116654637057
@@ -32,6 +32,8 @@ Array.sort((b, a) => {
 })
 ```
 Notice `a` and `b` have switched, if you relied on the value of `a` being first in the argument order it is now second. I've recreated the bug I encountered below.
+
+## Problem
 
 ```javascript
 var numbersArray = [22, 34, 5, 104, 76]
@@ -82,7 +84,9 @@ The example above shows a comparator function for sorting an array of objects. T
 
 We can see that in NodeJS 12 all is fine, the array is sorted as intended, and specifically when the `name` and `age` values are the same there is no change to the original order of the elements. Great!. But now if we look at the result when this code is run in NodeJS 10, we can see that when the `name` and `age` values are equal, the sort order is affected.
 
-The bug here is that when the `name` values are equal the comparator function resolves with either `-1` or `1`, there is no resolution where `0` is returned. So our function logic has a bug and we should not be relying on the argument order to this function.
+The bug here is that when the `name` values are equal the comparator function resolves with either `-1` or `1`, there is no resolution where `0` is returned. So we have a bug and its directly related to the argument order of this function.
+
+## Solution
 
 ```javascript
 var result = objectArray.concat().sort((a, b) => {
@@ -106,9 +110,14 @@ A solution to fix this bug is to first check if the names are equal, then sort b
 
 ## Conclusion
 
-Working on this bug has reminded me that my application code is like a planet in the Milky Way JavaScript galaxy. There are alot of moving parts that get involved to run my code in the way that I expect. It is easy to forget those layers of complexity and the work that has been done to provide such an acceptable developer experience. Bugs that arise from changes to your development environment are always a little tricky to get to the root of. 
+Working on this bug has reminded me that my code is only a small cog in the machine that is NodeJS and the JavaScript ecosystem. There are alot of moving parts that get involved to run my code in the way that I expect. It is easy to forget those layers of complexity and to wonder why your code works on your computer, but not in production. 
 
-So the next time I'm working on a weird little bug I'll be sure to look just a little bit deeper.
+In relation to developer experience, bugs that arise from changes to your development environment are always a little tricky to get to the root of. But testing for these changes is very important when designing a good developer experience. Developers may use environments that are very different to yours so it's important to define the boundaries as best you can, and to test those environments you support.
+
+And the next time I'm working on a weird little bug I'll be quicker to look just a little bit deeper into the stack, after a quick walk of course.
+
+![haunted computer](./images/inexplicable_2x.png)
+[xkcd.com](https://xkcd.com/1316/)
 
 ## References
 

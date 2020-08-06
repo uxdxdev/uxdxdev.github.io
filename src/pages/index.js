@@ -55,17 +55,22 @@ class LandingPage extends React.Component {
                   <h2
                     style={{
                       lineHeight: '1.25em',
-                      marginBottom: rhythm(1 / 4),
+                      marginBottom: 0,
                     }}
                   >
 
                     {title}
                   </h2>
+                  <small>☕ {node.fields.readingTime.text}</small>
                   <Image
                     fluid={banner.childImageSharp.fluid}
                     alt={node.frontmatter.imageAltText}
+                    style={
+                      {
+                        marginBottom: rhythm(1 / 4),
+                      }
+                    }
                   />
-                  <small>☕ {node.fields.readingTime.text}</small>
                   <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
                 </Link>
 

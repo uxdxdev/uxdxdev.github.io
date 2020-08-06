@@ -42,7 +42,7 @@ const Bio = () => {
               }}
             >
               <strong>{author}</strong> is a JavaScript software engineer
-              interested in UX/DX, product development, and teaching.
+              interested in UI/UX, DevX, product development, and teaching.
             </Link>
           </div>
         )
