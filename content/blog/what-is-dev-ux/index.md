@@ -6,7 +6,7 @@ imageAltText: 'white tiger lying down'
 bannerCredit: 'Photo by Smit Patel'
 bannerLink: 'https://unsplash.com/photos/dGMcpbzcq1I'
 # see src/pages/index.js for default keywords
-keywords: user experience,developer experience,usability,principles,design
+keywords: design,developer experience
 ---
 
 > DX is the user experience from a developers perspective when using a product or service such as client libraries, APIs, SDKs, frameworks, or other developer tools.

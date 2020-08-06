@@ -6,7 +6,7 @@ module.exports = {
     description: `Let's talk about that.`,
     siteUrl: `https://daithimorton.github.io`,
   },
-  plugins: [
+  plugins: [`gatsby-plugin-twitter`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

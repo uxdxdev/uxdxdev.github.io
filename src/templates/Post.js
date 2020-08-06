@@ -4,6 +4,7 @@ import Image from 'gatsby-image'
 import Bio from '../components/Bio'
 import SEO from '../components/seo'
 import { rhythm, scale } from '../utils/typography'
+import { keywords as commonKeywords } from '../utils/constants'
 import ExternalLink from '../components/ExternalLink'
 import Footer from '../components/Footer'
 import {
@@ -34,7 +35,7 @@ class BlogPostTemplate extends React.Component {
     // banner image for social media sharing
     const bannerSrc = banner && banner.childImageSharp.fluid.src
     const imageSrc = siteUrl + bannerSrc
-    const keywords = frontmatter.keywords.split(`,`)
+    const keywords = commonKeywords.concat(frontmatter.keywords?.split(`,`))
 
     const shareUrl = `${siteUrl}/blog${post.fields.slug}`
     const postTitle = `I've published a new article! "${frontmatter.title}" read it here`
