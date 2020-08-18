@@ -10,7 +10,7 @@ const Header = () => {
         marginLeft: `auto`,
         marginRight: `auto`,
         maxWidth: rhythm(30),
-        padding: `${rhythm(3 / 4)} ${rhythm(3 / 4)} 0 ${rhythm(3 / 4)}`,
+        padding: rhythm(1 / 2),
       }}
     >
       <StaticQuery

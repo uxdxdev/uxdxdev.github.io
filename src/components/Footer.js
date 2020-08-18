@@ -8,7 +8,7 @@ const Footer = () => {
       marginLeft: `auto`,
       marginRight: `auto`,
       maxWidth: rhythm(30),
-      padding: `0 ${rhythm(3 / 4)} ${rhythm(3 / 4)} ${rhythm(3 / 4)}`,
+      padding: rhythm(1 / 2),
       textAlign: 'center'
     }}>
       <ExternalLink href="https://twitter.com/daithimorton">

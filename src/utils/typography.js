@@ -22,7 +22,7 @@ const typography = new Typography({
     },
     blockquote: {
       fontStyle: 'italic',
-      paddingLeft: rhythm(1),
+      paddingLeft: rhythm(1 / 2),
       marginLeft: rhythm(0),
       borderLeft: `${rhythm(1 / 4)} solid hsla(0,0%,0%,0.8)`,
     },

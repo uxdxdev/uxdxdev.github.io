@@ -69,10 +69,10 @@ class BlogPostTemplate extends React.Component {
             <h1>{frontmatter.title}</h1>
             <p
               style={{
-                ...scale(-1 / 5),
+                // ...scale(-1 / 5),
                 display: `block`,
                 marginBottom: rhythm(1),
-                marginTop: rhythm(-1),
+                marginTop: rhythm(-1 / 2),
               }}
             >
               ☕ {post.fields.readingTime.text}

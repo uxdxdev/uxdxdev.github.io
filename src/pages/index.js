@@ -43,6 +43,7 @@ class LandingPage extends React.Component {
                 padding: rhythm(1 / 2),
                 margin: rhythm(1 / 2),
                 boxShadow: 'rgba(0, 0, 0, 0.1) 0px 1px 3px 0px',
+                backgroundColor: 'white',
                 width: rhythm(12)
               }}>
                 <Link
@@ -61,7 +62,9 @@ class LandingPage extends React.Component {
 
                     {title}
                   </h2>
-                  <small>☕ {node.fields.readingTime.text}</small>
+                  <p style={{
+                    marginBottom: rhythm(1 / 3)
+                  }}>☕ {node.fields.readingTime.text}</p>
                   <Image
                     fluid={banner.childImageSharp.fluid}
                     alt={node.frontmatter.imageAltText}

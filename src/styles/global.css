@@ -4,3 +4,7 @@ a {
     border-bottom: 2px solid #c0c;
     font-weight: 500;
 }
+
+body {
+    background-color: rgb(250, 250, 250);
+}
