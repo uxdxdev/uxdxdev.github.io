@@ -40,7 +40,7 @@ class LandingPage extends React.Component {
             return (
 
               <div key={node.fields.slug} style={{
-                padding: rhythm(1 / 2),
+                padding: rhythm(1),
                 margin: rhythm(1 / 2),
                 boxShadow: 'rgba(0, 0, 0, 0.1) 0px 1px 3px 0px',
                 backgroundColor: 'white',
