@@ -51,7 +51,7 @@ class BlogPostTemplate extends React.Component {
             marginLeft: `auto`,
             marginRight: `auto`,
             maxWidth: rhythm(30),
-            padding: rhythm(3 / 4)
+            padding: rhythm(1 / 2)
           }}
         >
 
@@ -128,7 +128,7 @@ class BlogPostTemplate extends React.Component {
           />
           <Bio />
 
-          <ul
+          {/* <ul
             style={{
               display: `flex`,
               flexWrap: `wrap`,
@@ -152,7 +152,7 @@ class BlogPostTemplate extends React.Component {
                 </Link>
               )}
             </li>
-          </ul>
+          </ul> */}
 
         </div>
 

@@ -40,10 +40,10 @@ class LandingPage extends React.Component {
             return (
 
               <div key={node.fields.slug} style={{
-                padding: '20px',
-                margin: '20px',
+                padding: rhythm(1 / 2),
+                margin: rhythm(1 / 2),
                 boxShadow: 'rgba(0, 0, 0, 0.1) 0px 1px 3px 0px',
-                width: '320px'
+                width: rhythm(12)
               }}>
                 <Link
                   style={{
