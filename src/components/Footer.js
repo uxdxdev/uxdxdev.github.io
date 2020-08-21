@@ -19,7 +19,7 @@ const Footer = () => {
         github
       </ExternalLink>{' '}
       •{' '}
-      <ExternalLink href="https://www.npmjs.com/settings/mortond/packages">
+      <ExternalLink href="https://www.npmjs.com/~mortond">
         NPM
       </ExternalLink>{' '}
       •{' '}
