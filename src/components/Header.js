@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import Image from 'gatsby-image'
 import { rhythm } from '../utils/typography'
+import ExternalLink from './ExternalLink'
 
 const Header = () => {
   return (
@@ -11,6 +12,8 @@ const Header = () => {
         marginRight: `auto`,
         maxWidth: rhythm(30),
         padding: rhythm(1 / 2),
+        display: 'flex',
+        alignItems: 'center',
       }}
     >
       <StaticQuery
@@ -23,6 +26,7 @@ const Header = () => {
               style={{
                 display: 'flex',
                 alignItems: 'center',
+                marginRight: rhythm(1)
               }}
             >
               <Image
@@ -54,6 +58,26 @@ const Header = () => {
           )
         }}
       />
+      <div style={{
+        marginLeft: `auto`,
+      }}>
+        <ExternalLink href="https://twitter.com/daithimorton">
+          twitter
+      </ExternalLink>{' '}
+      •{' '}
+        <ExternalLink href="https://github.com/daithimorton">
+          github
+      </ExternalLink>{' '}
+      •{' '}
+        <ExternalLink href="https://www.npmjs.com/~mortond">
+          NPM
+      </ExternalLink>{' '}
+      •{' '}
+        <ExternalLink href="https://stackoverflow.com/users/2600522/david-morton">
+          stackoverflow
+      </ExternalLink>{' '}
+      • <ExternalLink href="/rss.xml">rss</ExternalLink>
+      </div>
     </header>
   )
 }

@@ -156,7 +156,7 @@ class BlogPostTemplate extends React.Component {
 
         </div>
 
-        <Footer />
+        {/* <Footer /> */}
       </>
     )
   }

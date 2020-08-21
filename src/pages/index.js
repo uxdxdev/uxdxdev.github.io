@@ -82,7 +82,7 @@ class LandingPage extends React.Component {
           })}
         </div>
 
-        <Footer />
+        {/* <Footer /> */}
       </>
     )
   }
