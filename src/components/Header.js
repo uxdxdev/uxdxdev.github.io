@@ -60,23 +60,14 @@ const Header = () => {
       />
       <div style={{
         marginLeft: `auto`,
+        textAlign: 'center'
       }}>
-        <ExternalLink href="https://twitter.com/daithimorton">
-          twitter
-      </ExternalLink>{' '}
-      •{' '}
-        <ExternalLink href="https://github.com/daithimorton">
-          github
-      </ExternalLink>{' '}
-      •{' '}
-        <ExternalLink href="https://www.npmjs.com/~mortond">
-          NPM
-      </ExternalLink>{' '}
-      •{' '}
-        <ExternalLink href="https://stackoverflow.com/users/2600522/david-morton">
-          stackoverflow
-      </ExternalLink>{' '}
-      • <ExternalLink href="/rss.xml">rss</ExternalLink>
+        <ExternalLink href="https://twitter.com/daithimorton">Twitter</ExternalLink>
+        {' '}•{' '}<ExternalLink href="https://github.com/daithimorton">GitHub</ExternalLink>
+        {' '}•{' '}<ExternalLink href="https://www.npmjs.com/~mortond">NPM</ExternalLink>
+        {' '}•{' '}<ExternalLink href="https://www.linkedin.com/in/daithimorton/">LinkedIn</ExternalLink>
+        {' '}•{' '}<ExternalLink href="https://stackoverflow.com/users/2600522/david-morton">Stackoverflow</ExternalLink>
+        {/* {' '}•{' '}<ExternalLink href="/rss.xml">rss</ExternalLink> */}
       </div>
     </header>
   )
