@@ -35,7 +35,7 @@ So what's the difference between a good developer experience and a bad developer
 
 **Bad DX for an application developer**
 
-```javascript
+```jsx
 <Panel isNotBordered={true}>
   // confusing alignment props
   <PanelTitle isNotAlignedToSide="right">"Panel Title"</PanelTitle>
@@ -50,7 +50,7 @@ This is an example of a bad user experience for an application developer. The UI
 
 **Good DX for an application developer**
 
-```javascript
+```jsx
 // easy to use props
 <Panel bordered={true} titleCentered={true} title="Panel Title">
   // sensible defaults
@@ -62,7 +62,7 @@ This example is a better user experience for an application developer. The UI co
 
 **Bad DX for a framework developer**
 
-```javascript
+```jsx
 // bad function naming
 test1st('verifies that the panel class is set to the root element', () => {
   const panel = createFakeComponentWithSomeExtraStuffToMakeItWork(
@@ -83,7 +83,7 @@ In this example a framework developer is building some UI components that need t
 
 **Good DX for a framework developer**
 
-```javascript
+```jsx
 test('verifies that the panel class is set to the root element', () => {
   const panel = mount(
     <Panel>

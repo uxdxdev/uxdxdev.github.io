@@ -12,13 +12,13 @@ const typography = new Typography({
   ],
   overrideStyles: ({ rhythm, adjustFontSizeTo }) => ({
     h1: {
-      ...adjustFontSizeTo('36px'),
+      ...adjustFontSizeTo('48px'),
     },
     h2: {
-      ...adjustFontSizeTo('28px'),
+      ...adjustFontSizeTo('40px'),
     },
     h3: {
-      ...adjustFontSizeTo('22px'),
+      ...adjustFontSizeTo('32px'),
     },
     blockquote: {
       fontStyle: 'italic',

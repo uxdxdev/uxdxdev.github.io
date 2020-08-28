@@ -99,7 +99,7 @@ The data for this web application is stored in Firestore database which controls
 
 There are many rules used to secure the data for this project, I will only talk about the rules used to secure the secret code here. I won't talk about the other rules for securing data in `centers/`, they are mostly for data validation.
 
-```javascript
+```
 match /users/{userId}
     ...
     allow get: if request.auth != null &&

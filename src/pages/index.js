@@ -44,12 +44,13 @@ class LandingPage extends React.Component {
                 margin: rhythm(1 / 2),
                 boxShadow: 'rgba(0, 0, 0, 0.1) 0px 1px 3px 0px',
                 backgroundColor: 'white',
-                width: rhythm(12)
+                width: rhythm(12),
               }}>
                 <Link
                   style={{
                     borderBottom: 'none',
-                    fontWeight: 'inherit'
+                    fontWeight: 'inherit',
+                    color: 'inherit'
                   }}
                   to={`/blog${node.fields.slug}`}
                 >
