@@ -31,7 +31,7 @@
 <span class="token punctuation">}</span>
 <span class="token function">deterministicFunction</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span> <span class="token comment">// 12</span></code></pre></div>
 <p>This deterministic function will return <code class="language-text">12</code> for inputs <code class="language-text">5</code> and <code class="language-text">7</code> no matter how many times we invoke it. It will also increment <code class="language-text">variableX</code> outside of the functions scope, which is known as a side effect. This is a deterministic function, but its not pure because it generates a side effect by updating <code class="language-text">variableX</code>. </p>
-<p>Some other examples of side-effects are:</p>
+<p>Some other examples of side effects are:</p>
 <ul>
 <li>Modifying variables outside of the functions scope</li>
 <li><code class="language-text">console.log()</code></li>
@@ -40,7 +40,7 @@
 <li>Writing to the file system <code class="language-text">fs.writeFile()</code></li>
 <li>Modifying input variables</li>
 </ul>
-<p>If your function is involved in a side-effect it may be deterministic, but its definitely not pure.</p>
+<p>If your function is involved in a side effect it may be deterministic, but its definitely not pure.</p>
 <h2>Pure functions</h2>
 <blockquote>
 <p>In computer programming, a pure function is a function that has the following properties:</p>
@@ -89,7 +89,7 @@ console<span class="token punctuation">.</span><span class="token function">asse
 console<span class="token punctuation">.</span><span class="token function">assert</span><span class="token punctuation">(</span>actual <span class="token operator">===</span> <span class="token number">12</span><span class="token punctuation">,</span> actual<span class="token punctuation">)</span> <span class="token comment">// then</span></code></pre></div>
 <p>Deterministic functions are a little easier to test than nondeterministic functions because we know that we will get the same result each time we call this function provided we do not change the inputs. </p>
 <p>But when testing, do we need to also test the change in the overall system behaviour as a result of invoking this function? How do we scope this test? How do we know we have tested all related system changes? </p>
-<p>Function side-effects usually require mocking or spying on external dependencies, we should try to avoid this as much as possible.</p>
+<p>Function side effects usually require mocking or spying on external dependencies, we should try to avoid this as much as possible.</p>
 <h3>Pure</h3>
 <div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">let</span> variableX <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token function-variable function">pureFunction</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>

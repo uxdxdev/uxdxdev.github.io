@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[Let's talk about that.]]></description><link>https://daithimorton.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 29 Aug 2020 09:08:34 GMT</lastBuildDate><item><title><![CDATA[Watch out for Array.sort()]]></title><description><![CDATA[When using Array.sort() make sure your comparator function is deterministic. It should always return the same value for the same inputs, even if the argument order changes.]]></description><link>https://daithimorton.github.io/blog/deterministic-array-sort-comparator/</link><guid isPermaLink="false">https://daithimorton.github.io/blog/deterministic-array-sort-comparator/</guid><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[Let's talk about that.]]></description><link>https://daithimorton.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 07 Sep 2020 08:56:45 GMT</lastBuildDate><item><title><![CDATA[Watch out for Array.sort()]]></title><description><![CDATA[When using Array.sort() make sure your comparator function is deterministic. It should always return the same value for the same inputs, even if the argument order changes.]]></description><link>https://daithimorton.github.io/blog/deterministic-array-sort-comparator/</link><guid isPermaLink="false">https://daithimorton.github.io/blog/deterministic-array-sort-comparator/</guid><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;When using Array.sort() make sure your comparator function is deterministic. It should always return the same value for the same inputs, even if the argument order changes.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;!-- end --&gt;
@@ -83,9 +83,9 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;p&gt;The localeCompare() method returns a number indicating whether a reference string comes before, or after, or is the same as the given string in sort order.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;Working on this bug has reminded me that my code is only a small cog in the machine that is NodeJS and the JavaScript ecosystem. There are alot of moving parts that get involved to run my code in the way that I expect. It is easy to forget those layers of complexity and to wonder why your code works on your computer, but not in production. &lt;/p&gt;
+&lt;p&gt;Working on this bug has reminded me that my code is only a small cog in the machine that is NodeJS and the JavaScript ecosystem. There are a lot of moving parts that get involved to run my code in the way that I expect. It is easy to forget those layers of complexity and to wonder why your code works on your computer, but not in production. &lt;/p&gt;
 &lt;p&gt;In relation to developer experience, bugs that arise from changes to your development environment are always a little tricky to get to the root of. But testing for these changes is very important when designing a good developer experience. Developers may use environments that are very different to yours so it’s important to define the boundaries as best you can, and to test those environments you support.&lt;/p&gt;
-&lt;p&gt;And the next time I’m working on a weird little bug I’ll be quicker to look just a little bit deeper into the stack, after a quick walk of course.&lt;/p&gt;
+&lt;p&gt;And the next time I’m working on a weird little bug I’ll be quicker to look just a little deeper into the stack, after a quick walk of course.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1280px; &quot;
@@ -134,7 +134,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token function&quot;&gt;deterministicFunction&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 12&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This deterministic function will return &lt;code class=&quot;language-text&quot;&gt;12&lt;/code&gt; for inputs &lt;code class=&quot;language-text&quot;&gt;5&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;7&lt;/code&gt; no matter how many times we invoke it. It will also increment &lt;code class=&quot;language-text&quot;&gt;variableX&lt;/code&gt; outside of the functions scope, which is known as a side effect. This is a deterministic function, but its not pure because it generates a side effect by updating &lt;code class=&quot;language-text&quot;&gt;variableX&lt;/code&gt;. &lt;/p&gt;
-&lt;p&gt;Some other examples of side-effects are:&lt;/p&gt;
+&lt;p&gt;Some other examples of side effects are:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Modifying variables outside of the functions scope&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;console.log()&lt;/code&gt;&lt;/li&gt;
@@ -143,7 +143,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;li&gt;Writing to the file system &lt;code class=&quot;language-text&quot;&gt;fs.writeFile()&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Modifying input variables&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;If your function is involved in a side-effect it may be deterministic, but its definitely not pure.&lt;/p&gt;
+&lt;p&gt;If your function is involved in a side effect it may be deterministic, but its definitely not pure.&lt;/p&gt;
 &lt;h2&gt;Pure functions&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;In computer programming, a pure function is a function that has the following properties:&lt;/p&gt;
@@ -192,7 +192,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;actual &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; actual&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// then&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Deterministic functions are a little easier to test than nondeterministic functions because we know that we will get the same result each time we call this function provided we do not change the inputs. &lt;/p&gt;
 &lt;p&gt;But when testing, do we need to also test the change in the overall system behaviour as a result of invoking this function? How do we scope this test? How do we know we have tested all related system changes? &lt;/p&gt;
-&lt;p&gt;Function side-effects usually require mocking or spying on external dependencies, we should try to avoid this as much as possible.&lt;/p&gt;
+&lt;p&gt;Function side effects usually require mocking or spying on external dependencies, we should try to avoid this as much as possible.&lt;/p&gt;
 &lt;h3&gt;Pure&lt;/h3&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; variableX &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;pureFunction&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;a&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; b&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -217,10 +217,10 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;p&gt;AC Visitor Center is a queue manager using ReactJS and Firebase created to solve a problem I had in a video game. It allows for a secret code to be securely exposed to the first person in a queue.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;!-- end --&gt;
-&lt;p&gt;In this post I’m going to describe a small side project I worked on &lt;a href=&quot;https://acvisitorcenter.firebaseapp.com/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;AC Visitor Center&lt;/a&gt;. The idea for this little side project came from playing a video game, I won’t mention the game here but it involves islands, turnips, and traders. I will talk about the UI/UX design and the features of Google’s Firebase platform that I used which include hosting, real-time database, firestore database, and analytics. I’ll also talk about some interesting problems I had to solve along the way.&lt;/p&gt;
+&lt;p&gt;In this post I’m going to describe a small side project I worked on &lt;a href=&quot;https://acvisitorcenter.firebaseapp.com/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;AC Visitor Center&lt;/a&gt;. The idea for this little side project came from playing a video game, I won’t mention the game here but it involves islands, turnips, and traders. I will talk about the UI/UX design and the features of Google’s Firebase platform that I used which include hosting, real-time database, Firestore database, and analytics. I’ll also talk about some interesting problems I had to solve along the way.&lt;/p&gt;
 &lt;h2&gt;Mechanics&lt;/h2&gt;
 &lt;p&gt;Your island in the video game has a shop where turnips can be sold at a different price each day, excluding Sundays when you can only buy turnips. Owners of an island can allow remote players to visit their island using a secret code where they can then sell their turnips. Each island has a limit of 8 live connections from visitors which means a total of 9 people on an island, 8 visitors and the owner.&lt;/p&gt;
-&lt;p&gt;As visitors arrive and leave the island there is a delay of ~60 seconds each time to watch a cut scene of their arrival progress. This can become very frustrating for players when there are alot of visitors trying to arrive and leave the island constantly. Even with a limit of 8 visitors this means alot of delay for all players involved.&lt;/p&gt;
+&lt;p&gt;As visitors arrive and leave the island there is a delay of ~60 seconds each time to watch a cut scene of their arrival progress. This can become very frustrating for players when there are a lot of visitors trying to arrive and leave the island constantly. Even with a limit of 8 visitors this means a lot of delay for all players involved.&lt;/p&gt;
 &lt;p&gt;How can we reduce this delay caused by cut scenes so that we can get on with selling our turnips!?&lt;/p&gt;
 &lt;h2&gt;Queues&lt;/h2&gt;
 &lt;p&gt;&lt;span
@@ -294,12 +294,12 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
     &lt;/span&gt;
 &lt;em&gt;Sketches of the visitor center mobile UI design for both user types owner and visitor.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;On the left is the owners view. Owners can edit the title and summary of the visitor center. They can also edit the secret code that will be displayed to visitors in a popup dialog. The waiting list is also immediately displayed for owners which provides functionality to clear the entire list, or lock it to prevent more visitors joining.&lt;/p&gt;
-&lt;p&gt;On the right is the visitors view. The title and summary of the visitor center is visible at the top of the page, but not editable. Below this is an input for the visitors username in order to join the queue. They can also leave the queue if they no longer want to wait. Once a user has joined the queue the waiting list is displayed which will update in real-time. When a visitor is first in the queue a dialog popup will be displayed with the secret code. The user can dismiss this dialog by clicking the close button.&lt;/p&gt;
+&lt;p&gt;On the right is the visitors view. The title and summary of the visitor center is visible at the top of the page, but not editable. Below this is an input for the visitor’s username in order to join the queue. They can also leave the queue if they no longer want to wait. Once a user has joined the queue the waiting list is displayed which will update in real-time. When a visitor is first in the queue a dialog popup will be displayed with the secret code. The user can dismiss this dialog by clicking the close button.&lt;/p&gt;
 &lt;p&gt;Not shown here is the UI design of the messaging feature listed in the user stories. The initial version of the project does not have this feature, I’ll wait until I’m asked by enough users to add it before reviewing.&lt;/p&gt;
 &lt;h2&gt;Implementation&lt;/h2&gt;
 &lt;p&gt;Implementing this project was surprisingly challenging. At first it seemed very straight forward using ReactJS and Google Firebase but as the project progressed there were a few considerations that forced me to make some design changes along the way. I’ll cover some of the more interesting problems and solutions of the project here.&lt;/p&gt;
 &lt;h3&gt;Database read requests&lt;/h3&gt;
-&lt;p&gt;After releasing the project to beta users to get feedback and weed out some of the bugs I noticed something interesting in the Firebase analytics dashboard. The number of read requests being made to the Firestore database was growing very quickly for the number of currently active users. Each read request is charged in Firebase to it was worth investigating.&lt;/p&gt;
+&lt;p&gt;After releasing the project to beta users to get feedback and weed out some of the bugs I noticed something interesting in the Firebase analytics dashboard. The number of read requests being made to the Firestore database was growing very quickly for the number of currently active users. Each read request is charged in Firebase so it was worth investigating.&lt;/p&gt;
 &lt;p&gt;Listeners are used to watch for real-time changes to the queue data stored in Firestore, the waiting list in the UI sketches above uses this queue data. For the queue to operate correctly the client application needs to be open in both the owner and visitors browser. When a visitor joins or leaves the queue all users will see the updated queue. With Firebase each change to the data being listened to in a Firestore database causes a new read request, websockets are used to provide these real-time updates.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -311,8 +311,8 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;spike in firestore read requests&quot;
-        title=&quot;spike in firestore read requests&quot;
+        alt=&quot;spike in Firestore read requests&quot;
+        title=&quot;spike in Firestore read requests&quot;
         src=&quot;/static/0b120fa874b25d139d107bb0051c6a36/2e195/firestore_read_spikes.png&quot;
         srcset=&quot;/static/0b120fa874b25d139d107bb0051c6a36/72799/firestore_read_spikes.png 320w,
 /static/0b120fa874b25d139d107bb0051c6a36/6af66/firestore_read_spikes.png 640w,
@@ -327,7 +327,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;p&gt;To fix this issue, on day 3 I updated the design so that the waiting list was only visible to visitors when they joined the queue, owners would still see the queue at all times, and visitors that were not in the queue would not see the queue which meant no real-time updates.&lt;/p&gt;
 &lt;p&gt;This small change resulted in a remarkable reduction in read requests with minimal impact to the user experience. Instead of seeing the full waiting list, a visitor would only see the number of people waiting in the queue at that time, a snapshot, which only required a single read. Notice on days 4 and 5 the number of read requests changes to a linear trend.&lt;/p&gt;
 &lt;h3&gt;Keeping the secret code secret&lt;/h3&gt;
-&lt;p&gt;When visitors join the queue they must wait until they are at the front of the queue to receive the secret code. This code is used to connect to the owners island. It is important that only the visitor in 1st position of the queue can see the code. If anyone else in the queue could see the code the queue would be redundant, so we must keep it secret.&lt;/p&gt;
+&lt;p&gt;When visitors join the queue they must wait until they are at the front of the queue to receive the secret code. This code is used to connect to the owner’s island. It is important that only the visitor in 1st position of the queue can see the code. If anyone else in the queue could see the code the queue would be redundant, so we must keep it secret.&lt;/p&gt;
 &lt;p&gt;The data for this web application is stored in Firestore database which controls access to data using security rules. Firestore is a NoSQL database which means data is stored in documents which are similar to JSON objects with attributes and links to other objects. Data is structured as a tree and for this project there are two main roots.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;users/{userId}&lt;/li&gt;
@@ -383,13 +383,13 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;li&gt;&lt;a href=&quot;https://reactjs.org/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;ReactJS&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://material-ui.com/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Material UI&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://create-react-app.dev/docs/getting-started/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Create React App&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[What is DX?]]></title><description><![CDATA[DX is the user experience from a developers perspective when using a product or service such as client libraries, APIs, SDKs, frameworks, or other developer tools.]]></description><link>https://daithimorton.github.io/blog/what-is-dev-ux/</link><guid isPermaLink="false">https://daithimorton.github.io/blog/what-is-dev-ux/</guid><content:encoded>&lt;blockquote&gt;
-&lt;p&gt;DX is the user experience from a developers perspective when using a product or service such as client libraries, APIs, SDKs, frameworks, or other developer tools.&lt;/p&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[What is DX?]]></title><description><![CDATA[DX is the user experience from a developer’s perspective when using a product or service such as client libraries, APIs, SDKs, frameworks, or other developer tools.]]></description><link>https://daithimorton.github.io/blog/what-is-dev-ux/</link><guid isPermaLink="false">https://daithimorton.github.io/blog/what-is-dev-ux/</guid><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;DX is the user experience from a developer’s perspective when using a product or service such as client libraries, APIs, SDKs, frameworks, or other developer tools.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;!-- end --&gt;
 &lt;p&gt;I’m sure you’ve heard of UX (User Experience) and from what I have seen and read online it mostly relates to the user experience of end-users when using a product or service.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;But what about the developers building those products and services?&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;In this post I’m going to talk about the UX from a developers perspective when using software libraries, UI components, and other developer tools. I’ll cover different developers types with some good and bad examples of DX. And I’ve listed Jakob Nielson’s 10 usability heuristics below because I believe they can be used alot more to improve DX.&lt;/p&gt;
+&lt;p&gt;In this post I’m going to talk about the UX from a developer’s perspective when using software libraries, UI components, and other developer tools. I’ll cover different developers types with some good and bad examples of DX. And I’ve listed Jakob Nielson’s 10 usability heuristics below because I believe they can be used a lot more to improve DX.&lt;/p&gt;
 &lt;p&gt;Developers may also interact with APIs and documentation heavily which is extremely important when designing a good user experience for developers. I will not go into API design and documentation in this post.&lt;/p&gt;
 &lt;h2&gt;Developer Types&lt;/h2&gt;
 &lt;p&gt;&lt;span
@@ -435,7 +435,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
   // sensible defaults
   &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;PanelContent&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;&quot;This is the panel content.&quot;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;PanelContent&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Panel&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This example is a better user experience for an application developer. The UI components have clear well defined props and sensible defaults. I think developers would prefer to use and maintain this type of UI component.&lt;/p&gt;
+&lt;p&gt;This example is a better user experience for an application developer. The UI components have clear well-defined props and sensible defaults. I think developers would prefer to use and maintain this type of UI component.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Bad DX for a framework developer&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// bad function naming&lt;/span&gt;
 &lt;span class=&quot;token function&quot;&gt;test1st&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;verifies that the panel class is set to the root element&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -513,13 +513,13 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Now compare this console output to the bad DX above. A developer runs the tests, and the result shows the number of tests and a coverage summary. Of coarse this could be improved but it is a much better user experience for the developer.&lt;/p&gt;
-&lt;p&gt;The examples here highlight the differences in user experience from a developers perspective in a few scenarios. This is very different to the UX that an end-user would have using a web application or website. Developers may also interact heavily with documentation and APIs. I’m sure you have seen some examples of bad documentation or poorly defined APIs. Thinking about how a developer interacts with your product or service is crucial to providing a good user experience.&lt;/p&gt;
+&lt;p&gt;Now compare this console output to the bad DX above. A developer runs the tests, and the result shows the number of tests and a coverage summary. Of course this could be improved but it is a much better user experience for the developer.&lt;/p&gt;
+&lt;p&gt;The examples here highlight the differences in user experience from a developer’s perspective in a few scenarios. This is very different to the UX that an end-user would have using a web application or website. Developers may also interact heavily with documentation and APIs. I’m sure you have seen some examples of bad documentation or poorly defined APIs. Thinking about how a developer interacts with your product or service is crucial to providing a good user experience.&lt;/p&gt;
 &lt;h2&gt;10 Usability heuristics for user interface design&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Jakob Nielsen’s 10 general principles for interaction design. They are called “heuristics” because they are broad rules of thumb and not specific usability guidelines. — &lt;cite&gt;&lt;a href=&quot;https://www.nngroup.com/articles/ten-usability-heuristics/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;https://www.nngroup.com/articles/ten-usability-heuristics/&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Jakob Nielsen’s user interaction design heuristics can help when it comes to designing a good developer experience. Not all of the heuristics may be easily applied to UI components, library APIs, or command line output, but they could provide some guidance.&lt;/p&gt;
+&lt;p&gt;Jakob Nielsen’s user interaction design heuristics can help when it comes to designing a good developer experience. Not all the heuristics may be easily applied to UI components, library APIs, or command line output, but they could provide some guidance.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Visibility of system status&lt;/li&gt;
 &lt;/ul&gt;
@@ -569,14 +569,14 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;h2&gt;First steps to improving DX&lt;/h2&gt;
 &lt;p&gt;Here are a few things you can focus on right now to improve the DX your creating:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Create client libraries in multiple languages to make integration with you product or service easier for developers.&lt;/li&gt;
-&lt;li&gt;Create documentation for getting set up, building solutions, and using client libraries. This documentation needs to be aesthetically pleasing, developers like well designed documentation.&lt;/li&gt;
+&lt;li&gt;Create client libraries in multiple languages to make integration with your product or service easier for developers.&lt;/li&gt;
+&lt;li&gt;Create documentation for getting set up, building solutions, and using client libraries. This documentation needs to be aesthetically pleasing, developers like well-designed documentation.&lt;/li&gt;
 &lt;li&gt;Provide code examples and solutions to common problems that your customers might encounter. For example, if your platform provides authentication put an example of how a developer can integrate their solution in multiple languages.&lt;/li&gt;
 &lt;li&gt;Your API should be well designed, use industry standards, and be consistent. This enables developers to build momentum when interacting with your API.&lt;/li&gt;
 &lt;li&gt;Create release notes and change logs for every new release. Developers like to see what has changed between versions, we’re curious so help us out a bit.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;In this post I talked about the user experience from a developers perspective. I’ve highlighted three different types of developers, application developer, framework developer, and library developer. A developer could be all three types in their role as a software engineer and I’ve used them to categorize the examples of good and bad experiences they may encounter. I’ve also listed Jakob Nielson’s 10 usability heuristics for interaction design at the end. I listed the benefits of improving DX and how you might do this right now for your products and services.&lt;/p&gt;
+&lt;p&gt;In this post I talked about the user experience from a developer’s perspective. I’ve highlighted three different types of developers, application developer, framework developer, and library developer. A developer could be all three types in their role as a software engineer and I’ve used them to categorize the examples of good and bad experiences they may encounter. I’ve also listed Jakob Nielson’s 10 usability heuristics for interaction design at the end. I listed the benefits of improving DX and how you might do this right now for your products and services.&lt;/p&gt;
 &lt;p&gt;I believe that Jakob Neilson’s heuristics are already being applied to software libraries and tools to improve the user experience for developers, but it seems that only sometimes it is a conscious effort by the creators. By following the heuristics more closely we can greatly improve the user experience our products provide. Developers may also interact heavily with APIs and documentation making them extremely important when designing good DX. You can improve DX by focusing on a few small improvements at a time. The benefits of improving your DX is worth it.&lt;/p&gt;
 &lt;h3&gt;Examples of good DX in the wild&lt;/h3&gt;
 &lt;ul&gt;
