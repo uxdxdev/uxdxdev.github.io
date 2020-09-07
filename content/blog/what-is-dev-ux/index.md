@@ -9,7 +9,7 @@ bannerLink: 'https://unsplash.com/photos/dGMcpbzcq1I'
 keywords: design,developer experience
 ---
 
-> DX is the user experience from a developers perspective when using a product or service such as client libraries, APIs, SDKs, frameworks, or other developer tools.
+> DX is the user experience from a developer's perspective when using a product or service such as client libraries, APIs, SDKs, frameworks, or other developer tools.
 
 <!-- end -->
 
@@ -17,7 +17,7 @@ I'm sure you've heard of UX (User Experience) and from what I have seen and read
 
 **But what about the developers building those products and services?**
 
-In this post I'm going to talk about the UX from a developers perspective when using software libraries, UI components, and other developer tools. I'll cover different developers types with some good and bad examples of DX. And I've listed Jakob Nielson's 10 usability heuristics below because I believe they can be used alot more to improve DX.
+In this post I'm going to talk about the UX from a developer's perspective when using software libraries, UI components, and other developer tools. I'll cover different developers types with some good and bad examples of DX. And I've listed Jakob Nielson's 10 usability heuristics below because I believe they can be used a lot more to improve DX.
 
 Developers may also interact with APIs and documentation heavily which is extremely important when designing a good user experience for developers. I will not go into API design and documentation in this post.
 
@@ -58,7 +58,7 @@ This is an example of a bad user experience for an application developer. The UI
 </Panel>
 ```
 
-This example is a better user experience for an application developer. The UI components have clear well defined props and sensible defaults. I think developers would prefer to use and maintain this type of UI component.
+This example is a better user experience for an application developer. The UI components have clear well-defined props and sensible defaults. I think developers would prefer to use and maintain this type of UI component.
 
 **Bad DX for a framework developer**
 
@@ -106,15 +106,15 @@ A developer building a library wants to run some tests on the command line. They
 
 ![Good terminal output](../what-is-dev-ux/images/goodterminaloutput.png)
 
-Now compare this console output to the bad DX above. A developer runs the tests, and the result shows the number of tests and a coverage summary. Of coarse this could be improved but it is a much better user experience for the developer.
+Now compare this console output to the bad DX above. A developer runs the tests, and the result shows the number of tests and a coverage summary. Of course this could be improved but it is a much better user experience for the developer.
 
-The examples here highlight the differences in user experience from a developers perspective in a few scenarios. This is very different to the UX that an end-user would have using a web application or website. Developers may also interact heavily with documentation and APIs. I'm sure you have seen some examples of bad documentation or poorly defined APIs. Thinking about how a developer interacts with your product or service is crucial to providing a good user experience.
+The examples here highlight the differences in user experience from a developer's perspective in a few scenarios. This is very different to the UX that an end-user would have using a web application or website. Developers may also interact heavily with documentation and APIs. I'm sure you have seen some examples of bad documentation or poorly defined APIs. Thinking about how a developer interacts with your product or service is crucial to providing a good user experience.
 
 ## 10 Usability heuristics for user interface design
 
 > Jakob Nielsen's 10 general principles for interaction design. They are called "heuristics" because they are broad rules of thumb and not specific usability guidelines. -- <cite>https://www.nngroup.com/articles/ten-usability-heuristics/</cite>
 
-Jakob Nielsen's user interaction design heuristics can help when it comes to designing a good developer experience. Not all of the heuristics may be easily applied to UI components, library APIs, or command line output, but they could provide some guidance.
+Jakob Nielsen's user interaction design heuristics can help when it comes to designing a good developer experience. Not all the heuristics may be easily applied to UI components, library APIs, or command line output, but they could provide some guidance.
 
 - Visibility of system status
 
@@ -167,15 +167,15 @@ Improving DX has a number of benefits for any product or service.
 
 Here are a few things you can focus on right now to improve the DX your creating:
 
-- Create client libraries in multiple languages to make integration with you product or service easier for developers.
-- Create documentation for getting set up, building solutions, and using client libraries. This documentation needs to be aesthetically pleasing, developers like well designed documentation.
+- Create client libraries in multiple languages to make integration with your product or service easier for developers.
+- Create documentation for getting set up, building solutions, and using client libraries. This documentation needs to be aesthetically pleasing, developers like well-designed documentation.
 - Provide code examples and solutions to common problems that your customers might encounter. For example, if your platform provides authentication put an example of how a developer can integrate their solution in multiple languages.
 - Your API should be well designed, use industry standards, and be consistent. This enables developers to build momentum when interacting with your API.
 - Create release notes and change logs for every new release. Developers like to see what has changed between versions, we're curious so help us out a bit.
 
 ## Conclusion
 
-In this post I talked about the user experience from a developers perspective. I've highlighted three different types of developers, application developer, framework developer, and library developer. A developer could be all three types in their role as a software engineer and I've used them to categorize the examples of good and bad experiences they may encounter. I've also listed Jakob Nielson's 10 usability heuristics for interaction design at the end. I listed the benefits of improving DX and how you might do this right now for your products and services.
+In this post I talked about the user experience from a developer's perspective. I've highlighted three different types of developers, application developer, framework developer, and library developer. A developer could be all three types in their role as a software engineer and I've used them to categorize the examples of good and bad experiences they may encounter. I've also listed Jakob Nielson's 10 usability heuristics for interaction design at the end. I listed the benefits of improving DX and how you might do this right now for your products and services.
 
 I believe that Jakob Neilson's heuristics are already being applied to software libraries and tools to improve the user experience for developers, but it seems that only sometimes it is a conscious effort by the creators. By following the heuristics more closely we can greatly improve the user experience our products provide. Developers may also interact heavily with APIs and documentation making them extremely important when designing good DX. You can improve DX by focusing on a few small improvements at a time. The benefits of improving your DX is worth it.
 

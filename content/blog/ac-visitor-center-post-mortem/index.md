@@ -13,13 +13,13 @@ keywords: nodejs,react,firebase,video games,saas
 
 <!-- end -->
 
-In this post I'm going to describe a small side project I worked on [AC Visitor Center](https://acvisitorcenter.firebaseapp.com/). The idea for this little side project came from playing a video game, I won't mention the game here but it involves islands, turnips, and traders. I will talk about the UI/UX design and the features of Google's Firebase platform that I used which include hosting, real-time database, firestore database, and analytics. I'll also talk about some interesting problems I had to solve along the way.
+In this post I'm going to describe a small side project I worked on [AC Visitor Center](https://acvisitorcenter.firebaseapp.com/). The idea for this little side project came from playing a video game, I won't mention the game here but it involves islands, turnips, and traders. I will talk about the UI/UX design and the features of Google's Firebase platform that I used which include hosting, real-time database, Firestore database, and analytics. I'll also talk about some interesting problems I had to solve along the way.
 
 ## Mechanics
 
 Your island in the video game has a shop where turnips can be sold at a different price each day, excluding Sundays when you can only buy turnips. Owners of an island can allow remote players to visit their island using a secret code where they can then sell their turnips. Each island has a limit of 8 live connections from visitors which means a total of 9 people on an island, 8 visitors and the owner.
 
-As visitors arrive and leave the island there is a delay of ~60 seconds each time to watch a cut scene of their arrival progress. This can become very frustrating for players when there are alot of visitors trying to arrive and leave the island constantly. Even with a limit of 8 visitors this means alot of delay for all players involved.
+As visitors arrive and leave the island there is a delay of ~60 seconds each time to watch a cut scene of their arrival progress. This can become very frustrating for players when there are a lot of visitors trying to arrive and leave the island constantly. Even with a limit of 8 visitors this means a lot of delay for all players involved.
 
 How can we reduce this delay caused by cut scenes so that we can get on with selling our turnips!?
 
@@ -65,7 +65,7 @@ _Sketches of the visitor center mobile UI design for both user types owner and v
 
 On the left is the owners view. Owners can edit the title and summary of the visitor center. They can also edit the secret code that will be displayed to visitors in a popup dialog. The waiting list is also immediately displayed for owners which provides functionality to clear the entire list, or lock it to prevent more visitors joining.
 
-On the right is the visitors view. The title and summary of the visitor center is visible at the top of the page, but not editable. Below this is an input for the visitors username in order to join the queue. They can also leave the queue if they no longer want to wait. Once a user has joined the queue the waiting list is displayed which will update in real-time. When a visitor is first in the queue a dialog popup will be displayed with the secret code. The user can dismiss this dialog by clicking the close button.
+On the right is the visitors view. The title and summary of the visitor center is visible at the top of the page, but not editable. Below this is an input for the visitor's username in order to join the queue. They can also leave the queue if they no longer want to wait. Once a user has joined the queue the waiting list is displayed which will update in real-time. When a visitor is first in the queue a dialog popup will be displayed with the secret code. The user can dismiss this dialog by clicking the close button.
 
 Not shown here is the UI design of the messaging feature listed in the user stories. The initial version of the project does not have this feature, I'll wait until I'm asked by enough users to add it before reviewing.
 
@@ -75,11 +75,11 @@ Implementing this project was surprisingly challenging. At first it seemed very 
 
 ### Database read requests
 
-After releasing the project to beta users to get feedback and weed out some of the bugs I noticed something interesting in the Firebase analytics dashboard. The number of read requests being made to the Firestore database was growing very quickly for the number of currently active users. Each read request is charged in Firebase to it was worth investigating.
+After releasing the project to beta users to get feedback and weed out some of the bugs I noticed something interesting in the Firebase analytics dashboard. The number of read requests being made to the Firestore database was growing very quickly for the number of currently active users. Each read request is charged in Firebase so it was worth investigating.
 
 Listeners are used to watch for real-time changes to the queue data stored in Firestore, the waiting list in the UI sketches above uses this queue data. For the queue to operate correctly the client application needs to be open in both the owner and visitors browser. When a visitor joins or leaves the queue all users will see the updated queue. With Firebase each change to the data being listened to in a Firestore database causes a new read request, websockets are used to provide these real-time updates.
 
-![spike in firestore read requests](./images/firestore_read_spikes.png)
+![spike in Firestore read requests](./images/firestore_read_spikes.png)
 _Firestore database read requests, days along the X axis, number of read requests on the Y axis._
 
 The first iteration of the project allowed all users that opened the app to see the queue. This meant that every instance of the client application loaded in a browser would result in firstly a read to get the full list of visitors currently waiting and then a read each time the queue was updated in some way. This meant a huge number of read requests per user as the queue was being updated in real-time. You can see on days 1 to 3 the number of requests is increasing rapidly.
@@ -90,7 +90,7 @@ This small change resulted in a remarkable reduction in read requests with minim
 
 ### Keeping the secret code secret
 
-When visitors join the queue they must wait until they are at the front of the queue to receive the secret code. This code is used to connect to the owners island. It is important that only the visitor in 1st position of the queue can see the code. If anyone else in the queue could see the code the queue would be redundant, so we must keep it secret.
+When visitors join the queue they must wait until they are at the front of the queue to receive the secret code. This code is used to connect to the owner's island. It is important that only the visitor in 1st position of the queue can see the code. If anyone else in the queue could see the code the queue would be redundant, so we must keep it secret.
 
 The data for this web application is stored in Firestore database which controls access to data using security rules. Firestore is a NoSQL database which means data is stored in documents which are similar to JSON objects with attributes and links to other objects. Data is structured as a tree and for this project there are two main roots.
 

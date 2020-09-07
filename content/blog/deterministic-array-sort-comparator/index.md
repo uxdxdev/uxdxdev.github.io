@@ -110,11 +110,11 @@ A solution to fix this bug is to first check if the names are equal, then sort b
 
 ## Conclusion
 
-Working on this bug has reminded me that my code is only a small cog in the machine that is NodeJS and the JavaScript ecosystem. There are alot of moving parts that get involved to run my code in the way that I expect. It is easy to forget those layers of complexity and to wonder why your code works on your computer, but not in production. 
+Working on this bug has reminded me that my code is only a small cog in the machine that is NodeJS and the JavaScript ecosystem. There are a lot of moving parts that get involved to run my code in the way that I expect. It is easy to forget those layers of complexity and to wonder why your code works on your computer, but not in production. 
 
 In relation to developer experience, bugs that arise from changes to your development environment are always a little tricky to get to the root of. But testing for these changes is very important when designing a good developer experience. Developers may use environments that are very different to yours so it's important to define the boundaries as best you can, and to test those environments you support.
 
-And the next time I'm working on a weird little bug I'll be quicker to look just a little bit deeper into the stack, after a quick walk of course.
+And the next time I'm working on a weird little bug I'll be quicker to look just a little deeper into the stack, after a quick walk of course.
 
 ![haunted computer](./images/inexplicable_2x.png)
 [xkcd.com](https://xkcd.com/1316/)

@@ -35,7 +35,7 @@ deterministicFunction(5, 7) // 12
 ```
 This deterministic function will return `12` for inputs `5` and `7` no matter how many times we invoke it. It will also increment `variableX` outside of the functions scope, which is known as a side effect. This is a deterministic function, but its not pure because it generates a side effect by updating `variableX`. 
 
-Some other examples of side-effects are:
+Some other examples of side effects are:
 
 - Modifying variables outside of the functions scope
 - `console.log()`
@@ -44,7 +44,7 @@ Some other examples of side-effects are:
 - Writing to the file system `fs.writeFile()`
 - Modifying input variables
 
-If your function is involved in a side-effect it may be deterministic, but its definitely not pure.
+If your function is involved in a side effect it may be deterministic, but its definitely not pure.
 
 ## Pure functions
 
@@ -114,7 +114,7 @@ Deterministic functions are a little easier to test than nondeterministic functi
 
 But when testing, do we need to also test the change in the overall system behaviour as a result of invoking this function? How do we scope this test? How do we know we have tested all related system changes? 
 
-Function side-effects usually require mocking or spying on external dependencies, we should try to avoid this as much as possible.
+Function side effects usually require mocking or spying on external dependencies, we should try to avoid this as much as possible.
 
 ### Pure
 
