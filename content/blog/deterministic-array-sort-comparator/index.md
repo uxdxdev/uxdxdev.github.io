@@ -1,6 +1,6 @@
 ---
 date: '2020-03-01'
-title: 'Watch out for Array.sort()'
+title: 'Deterministic Array.sort() comparator'
 banner: './images/banner.jpg'
 imageAltText: 'blue whale'
 bannerCredit: 'Photo by Todd Cravens'
@@ -12,6 +12,9 @@ keywords: nodejs,sorting
 > When using Array.sort() make sure your comparator function is deterministic. It should always return the same value for the same inputs, even if the argument order changes.
 
 <!-- end -->
+
+Related:
+- [Deterministic vs. Pure functions](/blog/pure-vs-deterministic)
 
 In NodeJS version 11 the [v8 engine was updated to version 7.0](https://github.com/nodejs/node/pull/22754). One of the issues that was fixed in this release was a move to a [stable sorting algorithm](https://bugs.chromium.org/p/v8/issues/detail?id=90). You can read more about sorting in v8 [here](https://v8.dev/blog/array-sort).
 
