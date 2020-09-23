@@ -16,10 +16,6 @@
 <p>When using Array.sort() make sure your comparator function is deterministic. It should always return the same value for the same inputs, even if the argument order changes.</p>
 </blockquote>
 <!-- end -->
-<p>Related:</p>
-<ul>
-<li><a href="/blog/pure-vs-deterministic">Deterministic vs. Pure functions</a></li>
-</ul>
 <p>In NodeJS version 11 the <a href="https://github.com/nodejs/node/pull/22754" target="_blank" rel="noreferrer noopener">v8 engine was updated to version 7.0</a>. One of the issues that was fixed in this release was a move to a <a href="https://bugs.chromium.org/p/v8/issues/detail?id=90" target="_blank" rel="noreferrer noopener">stable sorting algorithm</a>. You can read more about sorting in v8 <a href="https://v8.dev/blog/array-sort" target="_blank" rel="noreferrer noopener">here</a>.</p>
 <blockquote>
 <p>Previously, V8 used an unstable QuickSort for arrays with more than 10 elements. Now, we use the stable TimSort algorithm. </p>
@@ -127,6 +123,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
       />
     </span>
 <a href="https://xkcd.com/1316/" target="_blank" rel="noreferrer noopener">xkcd.com</a></p>
+<h2>Related</h2>
+<ul>
+<li><a href="/blog/pure-vs-deterministic">Deterministic vs. Pure functions</a></li>
+</ul>
 <h2>References</h2>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank" rel="noreferrer noopener">MDN: Array.prototype.sort()</a></li>

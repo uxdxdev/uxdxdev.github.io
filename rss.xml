@@ -1,11 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[Let's talk about that.]]></description><link>https://daithimorton.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 11 Sep 2020 10:17:58 GMT</lastBuildDate><item><title><![CDATA[Deterministic Array.sort() comparator]]></title><description><![CDATA[When using Array.sort() make sure your comparator function is deterministic. It should always return the same value for the same inputs, even if the argument order changes.]]></description><link>https://daithimorton.github.io/blog/deterministic-array-sort-comparator/</link><guid isPermaLink="false">https://daithimorton.github.io/blog/deterministic-array-sort-comparator/</guid><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[Let's talk about that.]]></description><link>https://daithimorton.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 23 Sep 2020 08:31:05 GMT</lastBuildDate><item><title><![CDATA[Deterministic Array.sort() comparator]]></title><description><![CDATA[When using Array.sort() make sure your comparator function is deterministic. It should always return the same value for the same inputs, even if the argument order changes.]]></description><link>https://daithimorton.github.io/blog/deterministic-array-sort-comparator/</link><guid isPermaLink="false">https://daithimorton.github.io/blog/deterministic-array-sort-comparator/</guid><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;When using Array.sort() make sure your comparator function is deterministic. It should always return the same value for the same inputs, even if the argument order changes.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;!-- end --&gt;
-&lt;p&gt;Related:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/pure-vs-deterministic&quot;&gt;Deterministic vs. Pure functions&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;p&gt;In NodeJS version 11 the &lt;a href=&quot;https://github.com/nodejs/node/pull/22754&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;v8 engine was updated to version 7.0&lt;/a&gt;. One of the issues that was fixed in this release was a move to a &lt;a href=&quot;https://bugs.chromium.org/p/v8/issues/detail?id=90&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;stable sorting algorithm&lt;/a&gt;. You can read more about sorting in v8 &lt;a href=&quot;https://v8.dev/blog/array-sort&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Previously, V8 used an unstable QuickSort for arrays with more than 10 elements. Now, we use the stable TimSort algorithm. &lt;/p&gt;
@@ -113,6 +109,10 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
       /&gt;
     &lt;/span&gt;
 &lt;a href=&quot;https://xkcd.com/1316/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;xkcd.com&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Related&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/pure-vs-deterministic&quot;&gt;Deterministic vs. Pure functions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;MDN: Array.prototype.sort()&lt;/a&gt;&lt;/li&gt;
