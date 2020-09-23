@@ -13,9 +13,6 @@ keywords: nodejs,sorting
 
 <!-- end -->
 
-Related:
-- [Deterministic vs. Pure functions](/blog/pure-vs-deterministic)
-
 In NodeJS version 11 the [v8 engine was updated to version 7.0](https://github.com/nodejs/node/pull/22754). One of the issues that was fixed in this release was a move to a [stable sorting algorithm](https://bugs.chromium.org/p/v8/issues/detail?id=90). You can read more about sorting in v8 [here](https://v8.dev/blog/array-sort).
 
 > Previously, V8 used an unstable QuickSort for arrays with more than 10 elements. Now, we use the stable TimSort algorithm. 
@@ -122,9 +119,13 @@ And the next time I'm working on a weird little bug I'll be quicker to look just
 ![haunted computer](./images/inexplicable_2x.png)
 [xkcd.com](https://xkcd.com/1316/)
 
+## Related
+- [Deterministic vs. Pure functions](/blog/pure-vs-deterministic)
+
 ## References
 
 - [MDN: Array.prototype.sort()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
 - [MDN: Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators)
 - [MDN: String.prototype.localeCompare()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare)
 - [v8.dev "Getting things sorted in V8"](https://v8.dev/blog/array-sort)
+
