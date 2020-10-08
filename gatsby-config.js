@@ -1,10 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `daithimorton.github.io 🐋`,
+    title: `davidmorton.dev`,
     author: `David Morton`,
     twitter: `daithimorton`,
     description: `Let's talk about that.`,
-    siteUrl: `https://daithimorton.github.io`,
+    siteUrl: `https://davidmorton.dev`,
   },
   plugins: [`gatsby-plugin-twitter`,
     {
@@ -121,8 +121,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `daithimorton.github.io`,
-        short_name: `daithimorton.github.io`,
+        name: `davidmorton.dev`,
+        short_name: `davidmorton.dev`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#03A9F4`,
