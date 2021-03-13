@@ -1,6 +1,6 @@
 ---
 date: '2020-04-01'
-title: 'Deterministic Array.sort() comparator'
+title: 'Deterministic sorting'
 banner: './images/banner.jpg'
 imageAltText: 'blue whale'
 bannerCredit: 'Photo by Todd Cravens'
@@ -54,7 +54,7 @@ var objectArray = [
     {id: 4, name: 'nick', age: 104},
     {id: 5, name: 'cece', age: 76}
     ]
-var result = objectArray.concat().sort((a, b) => {    
+var result = objectArray.sort((a, b) => {    
     // sort by name, if names are equal sort by age
     // else no change to sort order
     return a.name > b.name || (a.name === b.name && a.age > b.age) ? -1 : 1;
@@ -89,7 +89,7 @@ The bug here is that when the `name` values are equal the comparator function re
 ## Solution
 
 ```javascript
-var result = objectArray.concat().sort((a, b) => {
+var result = objectArray.sort((a, b) => {
     if(a.name === b.name){
         return a.age - b.age
     }
@@ -112,7 +112,7 @@ A solution to fix this bug is to first check if the names are equal, then sort b
 
 Working on this bug has reminded me that my code is only a small cog in the machine that is NodeJS and the JavaScript ecosystem. There are a lot of moving parts that get involved to run my code in the way that I expect. It is easy to forget those layers of complexity and to wonder why your code works on your computer, but not in production. 
 
-In relation to developer experience, bugs that arise from changes to your development environment are always a little tricky to get to the root of. But testing for these changes is very important when designing a good developer experience. Developers may use environments that are very different to yours so it's important to define the boundaries as best you can, and to test those environments you support.
+In relation to developer experience, bugs that arise from changes to your development environment are always a little tricky to get to the root of. And testing for these changes is very important when designing a good developer experience. Developers may use environments that are very different to yours so it's important to define the boundaries as best you can, and to test those environments you support.
 
 And the next time I'm working on a weird little bug I'll be quicker to look just a little deeper into the stack, after a quick walk of course.
 
@@ -120,7 +120,7 @@ And the next time I'm working on a weird little bug I'll be quicker to look just
 [xkcd.com](https://xkcd.com/1316/)
 
 ## Related
-- [Deterministic vs. Pure functions](/blog/pure-vs-deterministic)
+- [Deterministic vs. Pure functions](/blog/deterministic-vs-pure-functions)
 
 ## References
 

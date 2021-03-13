@@ -96,18 +96,18 @@ class BlogPostTemplate extends React.Component {
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
           <h2>Share this post</h2>
           <div>
-            <EmailShareButton url={shareUrl} subject={postTitle}>
-              <EmailIcon size={sharingIconSize} round />
-            </EmailShareButton>
-            <RedditShareButton url={shareUrl} title={postTitle}>
-              <RedditIcon size={sharingIconSize} round />
-            </RedditShareButton>
             <LinkedinShareButton url={shareUrl} title={postTitle}>
               <LinkedinIcon size={sharingIconSize} round />
             </LinkedinShareButton>
             <TwitterShareButton url={shareUrl} title={postTitle}>
               <TwitterIcon size={sharingIconSize} round />
             </TwitterShareButton>
+            <EmailShareButton url={shareUrl} subject={postTitle}>
+              <EmailIcon size={sharingIconSize} round />
+            </EmailShareButton>
+            <RedditShareButton url={shareUrl} title={postTitle}>
+              <RedditIcon size={sharingIconSize} round />
+            </RedditShareButton>
             <FacebookShareButton url={shareUrl} quote={postTitle}>
               <FacebookIcon size={sharingIconSize} round />
             </FacebookShareButton>

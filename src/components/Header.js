@@ -35,7 +35,7 @@ const Header = () => {
                 style={{
                   marginRight: rhythm(1 / 2),
                   marginBottom: 0,
-                  minWidth: 50,
+                  minWidth: 80,
                   borderRadius: `100%`,
                 }}
                 imgStyle={{
@@ -60,13 +60,18 @@ const Header = () => {
       />
       <div style={{
         marginLeft: `auto`,
-        textAlign: 'center'
+        textAlign: 'center',
       }}>
         <ExternalLink href="https://twitter.com/daithimorton">Twitter</ExternalLink>
-        {' '}•{' '}<ExternalLink href="https://github.com/daithimorton">GitHub</ExternalLink>
+        {' '}<ExternalLink href="https://github.com/daithimorton">GitHub</ExternalLink>
+        {' '}<ExternalLink href="https://www.npmjs.com/~mortond">NPM</ExternalLink>
+        {' '}<ExternalLink href="https://www.linkedin.com/in/daithimorton/">LinkedIn</ExternalLink>
+        {' '}<ExternalLink href="https://stackoverflow.com/users/2600522/david-morton">Stackoverflow</ExternalLink>
+        {/* {' '}<ExternalLink href="https://twitter.com/daithimorton">Twitter</ExternalLink> */}
+        {/* {' '}•{' '}<ExternalLink href="https://github.com/daithimorton">GitHub</ExternalLink>
         {' '}•{' '}<ExternalLink href="https://www.npmjs.com/~mortond">NPM</ExternalLink>
         {' '}•{' '}<ExternalLink href="https://www.linkedin.com/in/daithimorton/">LinkedIn</ExternalLink>
-        {' '}•{' '}<ExternalLink href="https://stackoverflow.com/users/2600522/david-morton">Stackoverflow</ExternalLink>
+        {' '}•{' '}<ExternalLink href="https://stackoverflow.com/users/2600522/david-morton">Stackoverflow</ExternalLink> */}
         {/* {' '}•{' '}<ExternalLink href="/rss.xml">rss</ExternalLink> */}
       </div>
     </header>
@@ -75,9 +80,9 @@ const Header = () => {
 
 const bioQuery = graphql`
   query {
-    avatar: file(absolutePath: { regex: "/profile_cropped.png/" }) {
+    avatar: file(absolutePath: { regex: "/profile_cropped.jpg/" }) {
       childImageSharp {
-        fixed(width: 50, height: 50) {
+        fixed(width: 80, height: 80) {
           ...GatsbyImageSharpFixed
         }
       }

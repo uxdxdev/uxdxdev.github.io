@@ -45,6 +45,10 @@ pre.language-json::after {
 	content: 'json';
 }
 
+pre.language-console::after {
+	content: 'console';
+}
+
 pre.language-bash::after {
 	content: 'bash';
 }

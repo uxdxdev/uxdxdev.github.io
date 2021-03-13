@@ -41,8 +41,7 @@ const Bio = () => {
                 borderBottom: 'none'
               }}
             >
-              <strong>{author}</strong> is a JavaScript software engineer
-              interested in UI/UX, DevX, product development, and teaching.
+              <strong>{author}</strong> is a husband, father, and software engineer living in Ireland with interests in UI/UX, DevX, building great product experiences, story telling, and teaching.
             </Link>
           </div>
         )
@@ -53,7 +52,7 @@ const Bio = () => {
 
 const bioQuery = graphql`
   query {
-    avatar: file(absolutePath: { regex: "/profile_cropped.png/" }) {
+    avatar: file(absolutePath: { regex: "/profile_cropped.jpg/" }) {
       childImageSharp {
         fixed(width: 80, height: 80) {
           ...GatsbyImageSharpFixed
