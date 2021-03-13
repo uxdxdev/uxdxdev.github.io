@@ -1,6 +1,6 @@
 ---
 date: '2020-05-01'
-title: 'Designing CLI tools - Orca'
+title: 'Designing CLI tools: Orca'
 banner: './images/banner.jpg'
 imageAltText: 'two wrenches'
 bannerCredit: 'Photo by Matt Artz'
@@ -120,7 +120,7 @@ I wanted Orca to have a reasonable default configuration. By default, it will do
 
 - `--data <string>` 
   - Data to download, e.g. upvoted,saved,submissions,comments
-  - Default: `--data=upvoted,saved,submissions,comments`
+  - Default: `--data=upvoted, saved, submissions, comments`
 - `--output-dir <directory>` 
   - Output directory for data files
   - Default: `--output-dir=orca-output`
