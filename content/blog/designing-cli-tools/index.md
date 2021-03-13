@@ -73,7 +73,7 @@ The help section of a CLI tool should supplement a more in depth collection of d
 ```console
 Setup steps:
 - Open https://www.reddit.com/prefs/apps/
-- Click Create another app button
+- Click Create app button
 - Pick a name, e.g. Orca web app
 - Select web app as the application type
 - Set redirect url to https://not-an-aardvark.github.io/reddit-oauth-helper/
@@ -82,11 +82,11 @@ Setup steps:
 
     Orca
     web app
-    Ano5_FAKE_BZrVg (client id)
+    FlF8aE_FAKE_gpYa_LNw (client id)
     
 - Copy your client secret, e.g.
 
-    secret vfAs98fP_FAKE_lizCB5Qfdsa
+    secret z1KNAUb_c0MF7_FAKE_hGyR8lfHCQjnzJtGw
 
 - Open https://not-an-aardvark.github.io/reddit-oauth-helper/
 - Input your client id and client secret at the top of the page
@@ -94,24 +94,20 @@ Setup steps:
     - history
     - identity
     - read
-- Click Generate tokens button
+- Click Generate tokens button and then click Allow
 - Copy your access token from the bottom of the page, e.g.
 
-    Access token: 70162531-R3rT0i_FAKE_Vi1X6mNd2Ei-72dFs4hA
+    Access token: 70162531-eWBggyup_FAKE_Usdf1cz7u-G9pM_dhrVf3g
 
 - Run Orca
 
-npx @mortond/orca --data=upvoted,saved,submissions,comments \
---output-dir=output/ \
---client-id=Ano5_FAKE_BZrVg \
---client-secret=vfAs98fP_FAKE_lizCB5Qfdsa \
---access-token=70162531-R3rT0i_FAKE_Vi1X6mNd2Ei-72dFs4hA
+npx @mortond/orca --access-token=70162531-eWBggyup_FAKE_Usdf1cz7u-G9pM_dhrVf3g
 ```
 _Steps to gather the required authentication credentials of the snoowrap package_
 
 ### Usage
 
-Once the user has read the help section documentation and familiarised themselves with how to get the required authentication credentials like their client Id, client secret, and access token they can then choose what way they want to initialise Orca. I provided two ways to do this: 
+Once the user has read the help section documentation and familiarised themselves with how to get the required authentication credentials like their client Id, client secret, and access token, they can then choose what way they want to initialise Orca. I provided two ways to do this: 
 
 - Use an access token which will expire after one hour once created. (one time execution)
 - Use a client Id, client secret, and refresh token which will remain active until revoked by the user. (scheduled execution)
@@ -135,12 +131,19 @@ I wanted Orca to have a reasonable default configuration. By default, it will do
   - Download only the latest data since last execution
   - Default: `--only-latest=false`
 
-Some of these options are required for the snoowrap package to communicate with the Reddit API.
+Some of these options are required for the snoowrap package to communicate with the Reddit API depending on use case:
+
+**Scheduled execution, multiple runs**
 
 - `--client-id <id>` (required)
   - Reddit application client Id. See https://www.reddit.com/prefs/apps/
 - `--client-secret <secret>` (required)
   - Reddit application client secret. See https://www.reddit.com/prefs/apps/
+- `--refresh-token <token>` (required)
+  - Refresh token generated using https://not-an-aardvark.github.io/reddit-oauth-helper/
+
+**One time execution, token lasts for 24 hours**
+
 - `--access-token <token>` (required)
   - Access token generated using https://not-an-aardvark.github.io/reddit-oauth-helper/
 
@@ -157,35 +160,6 @@ Based on the user stories documented above for this tool I will describe in this
 ### Formatting
 
 For the first release of Orca the only data format I planned to implement was the CSV format, but upon implementing this feature it was trivial to add the other formats JSON and txt.
-
-```javascript
-  ...
-  const promises = []
-  const dataTypeDownloaderMap = {
-      saved: getSavedContent,
-      upvoted: getUpvotedContent,
-      submissions: getSubmissionsContent,
-      comments: getCommentsContent
-  }
-  dataToDownload.forEach(dataType => {
-      const downloader = dataTypeDownloaderMap[dataType]
-      const promise = downloader({ config, onlyLatest })
-          .then(saveLatestEntry)
-          .then(formatter)
-          .then(data => {
-              const filename = `reddit_${dataType}`;
-              return writeDataToFile({ rootOutputDirectory, dataType, filename, data, format });
-          }).catch(error => {
-              // do nothing
-          })
-      promises.push(promise)
-  })
-
-  Promise.all(promises).then(() => console.log('\n'))
-  ...
-```
-
-I've implemented a collection of promises for each data type based on the user's preference using the `--data` option. The steps involved in fetching the user's Reddit data are all chained together using `Promise.then()`, I could have used `async/await` here but by using a promise chain we can fetch different data types concurrently. The formatter functions are run in this chain and configured prior to this based on the user's input to the CLI option `--format` which can be `csv`, `json`, or `txt`.
 
 ```javascript
 const formatCsv = (data) => {
@@ -217,7 +191,38 @@ const formatJson = (data) => {
     return JSON.stringify(data)
 }
 ```
+
 Each of the formatter functions receive the same data structure from the previous step in the promise chain. The output of these formatters is a string that is passed on to the file writer. I like how simple and straight forward this implementation is, it will be easy for me to understand what's happening here If I ever revisit this code. The promise chain reminds me of the chain of responsibility pattern, and the formatter functions resemble the command pattern. 
+
+```javascript
+  ...
+  const promises = []
+  const dataTypeDownloaderMap = {
+      saved: getSavedContent,
+      upvoted: getUpvotedContent,
+      submissions: getSubmissionsContent,
+      comments: getCommentsContent
+  }
+  dataToDownload.forEach(dataType => {
+      const downloader = dataTypeDownloaderMap[dataType]
+      const promise = downloader({ config, onlyLatest })
+          .then(saveLatestEntry)
+          .then(formatter)
+          .then(data => {
+              const filename = `reddit_${dataType}`;
+              return writeDataToFile({ rootOutputDirectory, dataType, filename, data, format });
+          }).catch(error => {
+              // do nothing
+          })
+      promises.push(promise)
+  })
+
+  Promise.all(promises).then(() => console.log('\n'))
+  ...
+```
+
+I've implemented a collection of promises for each data type based on the user's preference using the `--data` option. The steps involved in fetching the user's Reddit data are all chained together using `Promise.then()`, I could have used `async/await` here but by using a promise chain we can fetch different data types concurrently. The formatter functions are run in this chain and configured prior to this based on the user's input to the CLI option `--format` which can be `csv`, `json`, or `txt`.
+
 ### Keeping track of the latest data
 
 Orca will download all of the user's Reddit data when it runs by default. A primary use case for this tool is to only download the latest data since the last download so we can run this on a schedule. This means we need to keep track of the last entry in the data each time we run Orca. I've done this using a configuration file `orca.config.js` that is written to the current working directory when Orca runs. This configuration file stores the latest entry id for each data type the user has chosen.
@@ -261,7 +266,7 @@ The entry ids in this configuration file are only used if the user specifies the
 
 The `t1_` prefix specifies `Comment` data when using the Reddit API, and you can see here that we call `r.getMe()getComments(options)...` to fetch the comments data passing in the configured options. We also avoid calling `listing.fetchAll()` here when the `onlyLatest` option is set to make sure we get only the latest data and not all of the data stored for the user. 
 
-While implementing this feature I found it challenging to initially figure out how to keep state for a CLI tool. Typically CLI tools are stateless and so I found that using a configuration file that is queried based on user provided options was the cleanest way to get this to work, and also keeps things simple for the user. 
+While implementing this feature I found it challenging to initially figure out how to keep state for a CLI tool. Typically CLI tools are stateless and so I found that using a configuration file that is queried based on user provided options was the cleanest way to get this to work, and also keeps things simple for the user. NPM does something similar in that when a user installs a new package this information is saved to the `package.json` file.
 
 I could have implemented another CLI option that consumed a data entry id, e.g. `gcacr12`, and used this as the starting point for the download. But this makes using Orca more complex for the user. They would need to save this entry id off outside of Orca and then pipe it back in when running Orca again. I think using a configuration file for state management provides a better user experience than pushing this onto the user to implement.
 
@@ -277,9 +282,7 @@ I could have implemented another CLI option that consumed a data entry id, e.g. 
   
   You are wrong to think that you know what your user's want without talking to them. Try to provide some customisability for things like inputs, outputs, and core logic, but not too much. Less is more here so talk to your users!.
 
-  - verbose help text  
-    - help the user setup their environment in order to use your CLI, e.g. getting tokens
-    - documentation in the help section
+  - Help text
 
   When I'm trying to learn something new I like having lots of different examples to build a mental model from. Providing some documentation to the user is essential for any tool your trying to build, and the more use case examples you can provide the better. Having a dedicated documentation site will help users to fully understand how they might use your tools which is highly recommended, but having at least some easily accessible help through the `-h` option will get users up and running quickly.
   
@@ -294,12 +297,14 @@ I could have implemented another CLI option that consumed a data entry id, e.g. 
   Do not use abstract terms to describe CLI options, reuse terms your users are already familiar with, even if you think your new terms are way more clever or intuitive. Reducing a users cognitive load is always a good idea when designing a good user experience. Borrow design choices from other CLI tools in relation to option naming, available options, or commands.
 
   - User feedback
-    - let the user know what is happening and show some signs of progress 
-    - tell the user what has happened, if there was error, or if everything went ok
 
   Provide feedback to the user to communicate how to use the tool, whats happening while it's running, and if something goes wrong. You can do this through animations or updates in the terminal while it's running, error messages with clear instructions about what went wrong and how to mitigate the error, and hints when the user leaves out an option or provides a format thats not supported.
 
   Most of these features will become apparent the more you talk to your users about how they use your tools, so make it a priority and never assume you know whats best for your users.
+
+  ## Related
+  
+  - [What is DX?](/blog/what-is-dev-ux)
 
   ## References
 
