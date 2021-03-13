@@ -150,7 +150,7 @@ Some of these options are required for the snoowrap package to communicate with 
 With all of these design decisions made around authentication, data formatting, and output locations Orca can be used simply with the following command: 
 
 ```console
-@mortond/orca --access-token=70162531_FAKE_VxvHpXFiB0DCpA
+npx @mortond/orca --access-token=70162531_FAKE_VxvHpXFiB0DCpA
 ```
 *Orca will download the users Reddit data once using it's default configuration*
 ## Implementation
