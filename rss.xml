@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[Let's talk about that.]]></description><link>https://davidmorton.dev</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 13 Mar 2021 18:54:51 GMT</lastBuildDate><item><title><![CDATA[Designing CLI tools - Orca]]></title><description><![CDATA[A Command-Line Interface (CLI) is a way to interact with a program installed on a computer through a terminal interface. Typically these programs receive input via lines of text and will run processes based on this input.]]></description><link>https://davidmorton.dev/blog/designing-cli-tools/</link><guid isPermaLink="false">https://davidmorton.dev/blog/designing-cli-tools/</guid><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[Let's talk about that.]]></description><link>https://davidmorton.dev</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 13 Mar 2021 19:25:01 GMT</lastBuildDate><item><title><![CDATA[Designing CLI tools - Orca]]></title><description><![CDATA[A Command-Line Interface (CLI) is a way to interact with a program installed on a computer through a terminal interface. Typically these programs receive input via lines of text and will run processes based on this input.]]></description><link>https://davidmorton.dev/blog/designing-cli-tools/</link><guid isPermaLink="false">https://davidmorton.dev/blog/designing-cli-tools/</guid><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;A Command-Line Interface (CLI) is a way to interact with a program installed on a computer through a terminal interface. Typically these programs receive input via lines of text and will run processes based on this input.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;!-- end --&gt;
@@ -60,7 +60,7 @@
 &lt;p&gt;The help section of a CLI tool should supplement a more in depth collection of documentation that provides usage examples to the user. This could be a website used specifically for the Orca documentation but as a first step providing enough information to the user in the help section here should get them started quickly.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;console&quot;&gt;&lt;pre class=&quot;language-console&quot;&gt;&lt;code class=&quot;language-console&quot;&gt;Setup steps:
 - Open https://www.reddit.com/prefs/apps/
-- Click Create another app button
+- Click Create app button
 - Pick a name, e.g. Orca web app
 - Select web app as the application type
 - Set redirect url to https://not-an-aardvark.github.io/reddit-oauth-helper/
@@ -69,11 +69,11 @@
 
     Orca
     web app
-    Ano5_FAKE_BZrVg (client id)
+    FlF8aE_FAKE_gpYa_LNw (client id)
     
 - Copy your client secret, e.g.
 
-    secret vfAs98fP_FAKE_lizCB5Qfdsa
+    secret z1KNAUb_c0MF7_FAKE_hGyR8lfHCQjnzJtGw
 
 - Open https://not-an-aardvark.github.io/reddit-oauth-helper/
 - Input your client id and client secret at the top of the page
@@ -81,21 +81,17 @@
     - history
     - identity
     - read
-- Click Generate tokens button
+- Click Generate tokens button and then click Allow
 - Copy your access token from the bottom of the page, e.g.
 
-    Access token: 70162531-R3rT0i_FAKE_Vi1X6mNd2Ei-72dFs4hA
+    Access token: 70162531-eWBggyup_FAKE_Usdf1cz7u-G9pM_dhrVf3g
 
 - Run Orca
 
-npx @mortond/orca --data=upvoted,saved,submissions,comments \
---output-dir=output/ \
---client-id=Ano5_FAKE_BZrVg \
---client-secret=vfAs98fP_FAKE_lizCB5Qfdsa \
---access-token=70162531-R3rT0i_FAKE_Vi1X6mNd2Ei-72dFs4hA&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+npx @mortond/orca --access-token=70162531-eWBggyup_FAKE_Usdf1cz7u-G9pM_dhrVf3g&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;em&gt;Steps to gather the required authentication credentials of the snoowrap package&lt;/em&gt;&lt;/p&gt;
 &lt;h3&gt;Usage&lt;/h3&gt;
-&lt;p&gt;Once the user has read the help section documentation and familiarised themselves with how to get the required authentication credentials like their client Id, client secret, and access token they can then choose what way they want to initialise Orca. I provided two ways to do this: &lt;/p&gt;
+&lt;p&gt;Once the user has read the help section documentation and familiarised themselves with how to get the required authentication credentials like their client Id, client secret, and access token, they can then choose what way they want to initialise Orca. I provided two ways to do this: &lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Use an access token which will expire after one hour once created. (one time execution)&lt;/li&gt;
 &lt;li&gt;Use a client Id, client secret, and refresh token which will remain active until revoked by the user. (scheduled execution)&lt;/li&gt;
@@ -133,7 +129,8 @@ npx @mortond/orca --data=upvoted,saved,submissions,comments \
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Some of these options are required for the snoowrap package to communicate with the Reddit API.&lt;/p&gt;
+&lt;p&gt;Some of these options are required for the snoowrap package to communicate with the Reddit API depending on use case:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Scheduled execution, multiple runs&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;--client-id &amp;lt;id&amp;gt;&lt;/code&gt; (required)&lt;/p&gt;
@@ -148,6 +145,15 @@ npx @mortond/orca --data=upvoted,saved,submissions,comments \
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;--refresh-token &amp;lt;token&amp;gt;&lt;/code&gt; (required)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Refresh token generated using &lt;a href=&quot;https://not-an-aardvark.github.io/reddit-oauth-helper/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;https://not-an-aardvark.github.io/reddit-oauth-helper/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;One time execution, token lasts for 24 hours&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;--access-token &amp;lt;token&amp;gt;&lt;/code&gt; (required)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Access token generated using &lt;a href=&quot;https://not-an-aardvark.github.io/reddit-oauth-helper/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;https://not-an-aardvark.github.io/reddit-oauth-helper/&lt;/a&gt;&lt;/li&gt;
@@ -161,31 +167,6 @@ npx @mortond/orca --data=upvoted,saved,submissions,comments \
 &lt;p&gt;Based on the user stories documented above for this tool I will describe in this section the more interesting parts of the implementation, you can review all of the code on the GitHub repository &lt;a href=&quot;https://github.com/daithimorton/orca&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;here&lt;/a&gt;. &lt;/p&gt;
 &lt;h3&gt;Formatting&lt;/h3&gt;
 &lt;p&gt;For the first release of Orca the only data format I planned to implement was the CSV format, but upon implementing this feature it was trivial to add the other formats JSON and txt.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;  &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; promises &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; dataTypeDownloaderMap &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-      saved&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; getSavedContent&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      upvoted&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; getUpvotedContent&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      submissions&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; getSubmissionsContent&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      comments&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; getCommentsContent
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-  dataToDownload&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;dataType&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; downloader &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; dataTypeDownloaderMap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;dataType&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
-      &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; promise &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;downloader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; config&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; onlyLatest &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-          &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;saveLatestEntry&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-          &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;formatter&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-          &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-              &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; filename &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;reddit_&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;dataType&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-              &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;writeDataToFile&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; rootOutputDirectory&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; dataType&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; filename&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; format &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-          &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-              &lt;span class=&quot;token comment&quot;&gt;// do nothing&lt;/span&gt;
-          &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-      promises&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;promise&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-
-  Promise&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;promises&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;\n&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;I’ve implemented a collection of promises for each data type based on the user’s preference using the &lt;code class=&quot;language-text&quot;&gt;--data&lt;/code&gt; option. The steps involved in fetching the user’s Reddit data are all chained together using &lt;code class=&quot;language-text&quot;&gt;Promise.then()&lt;/code&gt;, I could have used &lt;code class=&quot;language-text&quot;&gt;async/await&lt;/code&gt; here but by using a promise chain we can fetch different data types concurrently. The formatter functions are run in this chain and configured prior to this based on the user’s input to the CLI option &lt;code class=&quot;language-text&quot;&gt;--format&lt;/code&gt; which can be &lt;code class=&quot;language-text&quot;&gt;csv&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;json&lt;/code&gt;, or &lt;code class=&quot;language-text&quot;&gt;txt&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;formatCsv&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;data &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
 
@@ -215,6 +196,31 @@ npx @mortond/orca --data=upvoted,saved,submissions,comments \
     &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Each of the formatter functions receive the same data structure from the previous step in the promise chain. The output of these formatters is a string that is passed on to the file writer. I like how simple and straight forward this implementation is, it will be easy for me to understand what’s happening here If I ever revisit this code. The promise chain reminds me of the chain of responsibility pattern, and the formatter functions resemble the command pattern. &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;  &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; promises &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; dataTypeDownloaderMap &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      saved&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; getSavedContent&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      upvoted&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; getUpvotedContent&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      submissions&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; getSubmissionsContent&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      comments&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; getCommentsContent
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  dataToDownload&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;dataType&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; downloader &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; dataTypeDownloaderMap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;dataType&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; promise &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;downloader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; config&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; onlyLatest &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;saveLatestEntry&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;formatter&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+              &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; filename &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;reddit_&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;dataType&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+              &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;writeDataToFile&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; rootOutputDirectory&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; dataType&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; filename&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; format &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+              &lt;span class=&quot;token comment&quot;&gt;// do nothing&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      promises&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;promise&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  Promise&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;promises&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;\n&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I’ve implemented a collection of promises for each data type based on the user’s preference using the &lt;code class=&quot;language-text&quot;&gt;--data&lt;/code&gt; option. The steps involved in fetching the user’s Reddit data are all chained together using &lt;code class=&quot;language-text&quot;&gt;Promise.then()&lt;/code&gt;, I could have used &lt;code class=&quot;language-text&quot;&gt;async/await&lt;/code&gt; here but by using a promise chain we can fetch different data types concurrently. The formatter functions are run in this chain and configured prior to this based on the user’s input to the CLI option &lt;code class=&quot;language-text&quot;&gt;--format&lt;/code&gt; which can be &lt;code class=&quot;language-text&quot;&gt;csv&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;json&lt;/code&gt;, or &lt;code class=&quot;language-text&quot;&gt;txt&lt;/code&gt;.&lt;/p&gt;
 &lt;h3&gt;Keeping track of the latest data&lt;/h3&gt;
 &lt;p&gt;Orca will download all of the user’s Reddit data when it runs by default. A primary use case for this tool is to only download the latest data since the last download so we can run this on a schedule. This means we need to keep track of the last entry in the data each time we run Orca. I’ve done this using a configuration file &lt;code class=&quot;language-text&quot;&gt;orca.config.js&lt;/code&gt; that is written to the current working directory when Orca runs. This configuration file stores the latest entry id for each data type the user has chosen.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -248,7 +254,7 @@ npx @mortond/orca --data=upvoted,saved,submissions,comments \
         &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; error&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;statusCode&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;t1_&lt;/code&gt; prefix specifies &lt;code class=&quot;language-text&quot;&gt;Comment&lt;/code&gt; data when using the Reddit API, and you can see here that we call &lt;code class=&quot;language-text&quot;&gt;r.getMe()getComments(options)...&lt;/code&gt; to fetch the comments data passing in the configured options. We also avoid calling &lt;code class=&quot;language-text&quot;&gt;listing.fetchAll()&lt;/code&gt; here when the &lt;code class=&quot;language-text&quot;&gt;onlyLatest&lt;/code&gt; option is set to make sure we get only the latest data and not all of the data stored for the user. &lt;/p&gt;
-&lt;p&gt;While implementing this feature I found it challenging to initially figure out how to keep state for a CLI tool. Typically CLI tools are stateless and so I found that using a configuration file that is queried based on user provided options was the cleanest way to get this to work, and also keeps things simple for the user. &lt;/p&gt;
+&lt;p&gt;While implementing this feature I found it challenging to initially figure out how to keep state for a CLI tool. Typically CLI tools are stateless and so I found that using a configuration file that is queried based on user provided options was the cleanest way to get this to work, and also keeps things simple for the user. NPM does something similar in that when a user installs a new package this information is saved to the &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt; file.&lt;/p&gt;
 &lt;p&gt;I could have implemented another CLI option that consumed a data entry id, e.g. &lt;code class=&quot;language-text&quot;&gt;gcacr12&lt;/code&gt;, and used this as the starting point for the download. But this makes using Orca more complex for the user. They would need to save this entry id off outside of Orca and then pipe it back in when running Orca again. I think using a configuration file for state management provides a better user experience than pushing this onto the user to implement.&lt;/p&gt;
 &lt;h2&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;  I really enjoyed working on Orca as it provided an opportunity to learn more about creating a good developer experience for CLI tools and also the tool itself provided immediate utility. There are alot of features that work together to create a good developer experience when making CLI tools. Some of these can be summarised as follows: &lt;/p&gt;
@@ -261,13 +267,7 @@ npx @mortond/orca --data=upvoted,saved,submissions,comments \
 &lt;/ul&gt;
 &lt;p&gt;  You are wrong to think that you know what your user’s want without talking to them. Try to provide some customisability for things like inputs, outputs, and core logic, but not too much. Less is more here so talk to your users!.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;verbose help text  &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;help the user setup their environment in order to use your CLI, e.g. getting tokens&lt;/li&gt;
-&lt;li&gt;documentation in the help section&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;Help text&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;  When I’m trying to learn something new I like having lots of different examples to build a mental model from. Providing some documentation to the user is essential for any tool your trying to build, and the more use case examples you can provide the better. Having a dedicated documentation site will help users to fully understand how they might use your tools which is highly recommended, but having at least some easily accessible help through the &lt;code class=&quot;language-text&quot;&gt;-h&lt;/code&gt; option will get users up and running quickly.&lt;/p&gt;
 &lt;ul&gt;
@@ -280,16 +280,14 @@ npx @mortond/orca --data=upvoted,saved,submissions,comments \
 &lt;p&gt;  &lt;strong&gt;“the quality or property of an object that defines its possible uses or makes clear how it can or should be used”&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;  Do not use abstract terms to describe CLI options, reuse terms your users are already familiar with, even if you think your new terms are way more clever or intuitive. Reducing a users cognitive load is always a good idea when designing a good user experience. Borrow design choices from other CLI tools in relation to option naming, available options, or commands.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;User feedback&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;let the user know what is happening and show some signs of progress &lt;/li&gt;
-&lt;li&gt;tell the user what has happened, if there was error, or if everything went ok&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;User feedback&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;  Provide feedback to the user to communicate how to use the tool, whats happening while it’s running, and if something goes wrong. You can do this through animations or updates in the terminal while it’s running, error messages with clear instructions about what went wrong and how to mitigate the error, and hints when the user leaves out an option or provides a format thats not supported.&lt;/p&gt;
 &lt;p&gt;  Most of these features will become apparent the more you talk to your users about how they use your tools, so make it a priority and never assume you know whats best for your users.&lt;/p&gt;
+&lt;h2&gt;Related&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/what-is-dev-ux&quot;&gt;What is DX?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/daithimorton/orca&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Orca&lt;/a&gt;&lt;/li&gt;

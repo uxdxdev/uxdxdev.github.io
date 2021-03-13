@@ -74,7 +74,7 @@
 <p>The help section of a CLI tool should supplement a more in depth collection of documentation that provides usage examples to the user. This could be a website used specifically for the Orca documentation but as a first step providing enough information to the user in the help section here should get them started quickly.</p>
 <div class="gatsby-highlight" data-language="console"><pre class="language-console"><code class="language-console">Setup steps:
 - Open https://www.reddit.com/prefs/apps/
-- Click Create another app button
+- Click Create app button
 - Pick a name, e.g. Orca web app
 - Select web app as the application type
 - Set redirect url to https://not-an-aardvark.github.io/reddit-oauth-helper/
@@ -83,11 +83,11 @@
 
     Orca
     web app
-    Ano5_FAKE_BZrVg (client id)
+    FlF8aE_FAKE_gpYa_LNw (client id)
     
 - Copy your client secret, e.g.
 
-    secret vfAs98fP_FAKE_lizCB5Qfdsa
+    secret z1KNAUb_c0MF7_FAKE_hGyR8lfHCQjnzJtGw
 
 - Open https://not-an-aardvark.github.io/reddit-oauth-helper/
 - Input your client id and client secret at the top of the page
@@ -95,21 +95,17 @@
     - history
     - identity
     - read
-- Click Generate tokens button
+- Click Generate tokens button and then click Allow
 - Copy your access token from the bottom of the page, e.g.
 
-    Access token: 70162531-R3rT0i_FAKE_Vi1X6mNd2Ei-72dFs4hA
+    Access token: 70162531-eWBggyup_FAKE_Usdf1cz7u-G9pM_dhrVf3g
 
 - Run Orca
 
-npx @mortond/orca --data=upvoted,saved,submissions,comments \
---output-dir=output/ \
---client-id=Ano5_FAKE_BZrVg \
---client-secret=vfAs98fP_FAKE_lizCB5Qfdsa \
---access-token=70162531-R3rT0i_FAKE_Vi1X6mNd2Ei-72dFs4hA</code></pre></div>
+npx @mortond/orca --access-token=70162531-eWBggyup_FAKE_Usdf1cz7u-G9pM_dhrVf3g</code></pre></div>
 <p><em>Steps to gather the required authentication credentials of the snoowrap package</em></p>
 <h3>Usage</h3>
-<p>Once the user has read the help section documentation and familiarised themselves with how to get the required authentication credentials like their client Id, client secret, and access token they can then choose what way they want to initialise Orca. I provided two ways to do this: </p>
+<p>Once the user has read the help section documentation and familiarised themselves with how to get the required authentication credentials like their client Id, client secret, and access token, they can then choose what way they want to initialise Orca. I provided two ways to do this: </p>
 <ul>
 <li>Use an access token which will expire after one hour once created. (one time execution)</li>
 <li>Use a client Id, client secret, and refresh token which will remain active until revoked by the user. (scheduled execution)</li>
@@ -147,7 +143,8 @@ npx @mortond/orca --data=upvoted,saved,submissions,comments \
 </ul>
 </li>
 </ul>
-<p>Some of these options are required for the snoowrap package to communicate with the Reddit API.</p>
+<p>Some of these options are required for the snoowrap package to communicate with the Reddit API depending on use case:</p>
+<p><strong>Scheduled execution, multiple runs</strong></p>
 <ul>
 <li>
 <p><code class="language-text">--client-id &lt;id&gt;</code> (required)</p>
@@ -162,6 +159,15 @@ npx @mortond/orca --data=upvoted,saved,submissions,comments \
 </ul>
 </li>
 <li>
+<p><code class="language-text">--refresh-token &lt;token&gt;</code> (required)</p>
+<ul>
+<li>Refresh token generated using <a href="https://not-an-aardvark.github.io/reddit-oauth-helper/" target="_blank" rel="noreferrer noopener">https://not-an-aardvark.github.io/reddit-oauth-helper/</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>One time execution, token lasts for 24 hours</strong></p>
+<ul>
+<li>
 <p><code class="language-text">--access-token &lt;token&gt;</code> (required)</p>
 <ul>
 <li>Access token generated using <a href="https://not-an-aardvark.github.io/reddit-oauth-helper/" target="_blank" rel="noreferrer noopener">https://not-an-aardvark.github.io/reddit-oauth-helper/</a></li>
@@ -175,31 +181,6 @@ npx @mortond/orca --data=upvoted,saved,submissions,comments \
 <p>Based on the user stories documented above for this tool I will describe in this section the more interesting parts of the implementation, you can review all of the code on the GitHub repository <a href="https://github.com/daithimorton/orca" target="_blank" rel="noreferrer noopener">here</a>. </p>
 <h3>Formatting</h3>
 <p>For the first release of Orca the only data format I planned to implement was the CSV format, but upon implementing this feature it was trivial to add the other formats JSON and txt.</p>
-<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript">  <span class="token operator">...</span>
-  <span class="token keyword">const</span> promises <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-  <span class="token keyword">const</span> dataTypeDownloaderMap <span class="token operator">=</span> <span class="token punctuation">{</span>
-      saved<span class="token operator">:</span> getSavedContent<span class="token punctuation">,</span>
-      upvoted<span class="token operator">:</span> getUpvotedContent<span class="token punctuation">,</span>
-      submissions<span class="token operator">:</span> getSubmissionsContent<span class="token punctuation">,</span>
-      comments<span class="token operator">:</span> getCommentsContent
-  <span class="token punctuation">}</span>
-  dataToDownload<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">dataType</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-      <span class="token keyword">const</span> downloader <span class="token operator">=</span> dataTypeDownloaderMap<span class="token punctuation">[</span>dataType<span class="token punctuation">]</span>
-      <span class="token keyword">const</span> promise <span class="token operator">=</span> <span class="token function">downloader</span><span class="token punctuation">(</span><span class="token punctuation">{</span> config<span class="token punctuation">,</span> onlyLatest <span class="token punctuation">}</span><span class="token punctuation">)</span>
-          <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>saveLatestEntry<span class="token punctuation">)</span>
-          <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>formatter<span class="token punctuation">)</span>
-          <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">data</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-              <span class="token keyword">const</span> filename <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">reddit_</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>dataType<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
-              <span class="token keyword">return</span> <span class="token function">writeDataToFile</span><span class="token punctuation">(</span><span class="token punctuation">{</span> rootOutputDirectory<span class="token punctuation">,</span> dataType<span class="token punctuation">,</span> filename<span class="token punctuation">,</span> data<span class="token punctuation">,</span> format <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-          <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">error</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-              <span class="token comment">// do nothing</span>
-          <span class="token punctuation">}</span><span class="token punctuation">)</span>
-      promises<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>promise<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-  Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span>promises<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-  <span class="token operator">...</span></code></pre></div>
-<p>I’ve implemented a collection of promises for each data type based on the user’s preference using the <code class="language-text">--data</code> option. The steps involved in fetching the user’s Reddit data are all chained together using <code class="language-text">Promise.then()</code>, I could have used <code class="language-text">async/await</code> here but by using a promise chain we can fetch different data types concurrently. The formatter functions are run in this chain and configured prior to this based on the user’s input to the CLI option <code class="language-text">--format</code> which can be <code class="language-text">csv</code>, <code class="language-text">json</code>, or <code class="language-text">txt</code>.</p>
 <div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">formatCsv</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>data <span class="token operator">||</span> <span class="token operator">!</span>data<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 
@@ -229,6 +210,31 @@ npx @mortond/orca --data=upvoted,saved,submissions,comments \
     <span class="token keyword">return</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre></div>
 <p>Each of the formatter functions receive the same data structure from the previous step in the promise chain. The output of these formatters is a string that is passed on to the file writer. I like how simple and straight forward this implementation is, it will be easy for me to understand what’s happening here If I ever revisit this code. The promise chain reminds me of the chain of responsibility pattern, and the formatter functions resemble the command pattern. </p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript">  <span class="token operator">...</span>
+  <span class="token keyword">const</span> promises <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token keyword">const</span> dataTypeDownloaderMap <span class="token operator">=</span> <span class="token punctuation">{</span>
+      saved<span class="token operator">:</span> getSavedContent<span class="token punctuation">,</span>
+      upvoted<span class="token operator">:</span> getUpvotedContent<span class="token punctuation">,</span>
+      submissions<span class="token operator">:</span> getSubmissionsContent<span class="token punctuation">,</span>
+      comments<span class="token operator">:</span> getCommentsContent
+  <span class="token punctuation">}</span>
+  dataToDownload<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">dataType</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> downloader <span class="token operator">=</span> dataTypeDownloaderMap<span class="token punctuation">[</span>dataType<span class="token punctuation">]</span>
+      <span class="token keyword">const</span> promise <span class="token operator">=</span> <span class="token function">downloader</span><span class="token punctuation">(</span><span class="token punctuation">{</span> config<span class="token punctuation">,</span> onlyLatest <span class="token punctuation">}</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>saveLatestEntry<span class="token punctuation">)</span>
+          <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>formatter<span class="token punctuation">)</span>
+          <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">data</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+              <span class="token keyword">const</span> filename <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">reddit_</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>dataType<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+              <span class="token keyword">return</span> <span class="token function">writeDataToFile</span><span class="token punctuation">(</span><span class="token punctuation">{</span> rootOutputDirectory<span class="token punctuation">,</span> dataType<span class="token punctuation">,</span> filename<span class="token punctuation">,</span> data<span class="token punctuation">,</span> format <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">error</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+              <span class="token comment">// do nothing</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      promises<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>promise<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span>promises<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token operator">...</span></code></pre></div>
+<p>I’ve implemented a collection of promises for each data type based on the user’s preference using the <code class="language-text">--data</code> option. The steps involved in fetching the user’s Reddit data are all chained together using <code class="language-text">Promise.then()</code>, I could have used <code class="language-text">async/await</code> here but by using a promise chain we can fetch different data types concurrently. The formatter functions are run in this chain and configured prior to this based on the user’s input to the CLI option <code class="language-text">--format</code> which can be <code class="language-text">csv</code>, <code class="language-text">json</code>, or <code class="language-text">txt</code>.</p>
 <h3>Keeping track of the latest data</h3>
 <p>Orca will download all of the user’s Reddit data when it runs by default. A primary use case for this tool is to only download the latest data since the last download so we can run this on a schedule. This means we need to keep track of the last entry in the data each time we run Orca. I’ve done this using a configuration file <code class="language-text">orca.config.js</code> that is written to the current working directory when Orca runs. This configuration file stores the latest entry id for each data type the user has chosen.</p>
 <div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
@@ -262,7 +268,7 @@ npx @mortond/orca --data=upvoted,saved,submissions,comments \
         <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">error</span> <span class="token operator">=></span> error<span class="token punctuation">.</span>statusCode<span class="token punctuation">)</span>
 <span class="token operator">...</span></code></pre></div>
 <p>The <code class="language-text">t1_</code> prefix specifies <code class="language-text">Comment</code> data when using the Reddit API, and you can see here that we call <code class="language-text">r.getMe()getComments(options)...</code> to fetch the comments data passing in the configured options. We also avoid calling <code class="language-text">listing.fetchAll()</code> here when the <code class="language-text">onlyLatest</code> option is set to make sure we get only the latest data and not all of the data stored for the user. </p>
-<p>While implementing this feature I found it challenging to initially figure out how to keep state for a CLI tool. Typically CLI tools are stateless and so I found that using a configuration file that is queried based on user provided options was the cleanest way to get this to work, and also keeps things simple for the user. </p>
+<p>While implementing this feature I found it challenging to initially figure out how to keep state for a CLI tool. Typically CLI tools are stateless and so I found that using a configuration file that is queried based on user provided options was the cleanest way to get this to work, and also keeps things simple for the user. NPM does something similar in that when a user installs a new package this information is saved to the <code class="language-text">package.json</code> file.</p>
 <p>I could have implemented another CLI option that consumed a data entry id, e.g. <code class="language-text">gcacr12</code>, and used this as the starting point for the download. But this makes using Orca more complex for the user. They would need to save this entry id off outside of Orca and then pipe it back in when running Orca again. I think using a configuration file for state management provides a better user experience than pushing this onto the user to implement.</p>
 <h2>Conclusion</h2>
 <p>  I really enjoyed working on Orca as it provided an opportunity to learn more about creating a good developer experience for CLI tools and also the tool itself provided immediate utility. There are alot of features that work together to create a good developer experience when making CLI tools. Some of these can be summarised as follows: </p>
@@ -275,13 +281,7 @@ npx @mortond/orca --data=upvoted,saved,submissions,comments \
 </ul>
 <p>  You are wrong to think that you know what your user’s want without talking to them. Try to provide some customisability for things like inputs, outputs, and core logic, but not too much. Less is more here so talk to your users!.</p>
 <ul>
-<li>
-<p>verbose help text  </p>
-<ul>
-<li>help the user setup their environment in order to use your CLI, e.g. getting tokens</li>
-<li>documentation in the help section</li>
-</ul>
-</li>
+<li>Help text</li>
 </ul>
 <p>  When I’m trying to learn something new I like having lots of different examples to build a mental model from. Providing some documentation to the user is essential for any tool your trying to build, and the more use case examples you can provide the better. Having a dedicated documentation site will help users to fully understand how they might use your tools which is highly recommended, but having at least some easily accessible help through the <code class="language-text">-h</code> option will get users up and running quickly.</p>
 <ul>
@@ -294,16 +294,14 @@ npx @mortond/orca --data=upvoted,saved,submissions,comments \
 <p>  <strong>“the quality or property of an object that defines its possible uses or makes clear how it can or should be used”</strong></p>
 <p>  Do not use abstract terms to describe CLI options, reuse terms your users are already familiar with, even if you think your new terms are way more clever or intuitive. Reducing a users cognitive load is always a good idea when designing a good user experience. Borrow design choices from other CLI tools in relation to option naming, available options, or commands.</p>
 <ul>
-<li>
-<p>User feedback</p>
-<ul>
-<li>let the user know what is happening and show some signs of progress </li>
-<li>tell the user what has happened, if there was error, or if everything went ok</li>
-</ul>
-</li>
+<li>User feedback</li>
 </ul>
 <p>  Provide feedback to the user to communicate how to use the tool, whats happening while it’s running, and if something goes wrong. You can do this through animations or updates in the terminal while it’s running, error messages with clear instructions about what went wrong and how to mitigate the error, and hints when the user leaves out an option or provides a format thats not supported.</p>
 <p>  Most of these features will become apparent the more you talk to your users about how they use your tools, so make it a priority and never assume you know whats best for your users.</p>
+<h2>Related</h2>
+<ul>
+<li><a href="/blog/what-is-dev-ux">What is DX?</a></li>
+</ul>
 <h2>References</h2>
 <ul>
 <li><a href="https://github.com/daithimorton/orca" target="_blank" rel="noreferrer noopener">Orca</a></li>
