@@ -13,7 +13,7 @@ keywords: nodejs,react,firebase,video games,saas
 
 <!-- end -->
 
-In this post I'm going to describe a small side project I worked on [AC Visitor Center](https://acvisitorcenter.firebaseapp.com/). The idea for this little side project came from playing a video game, I won't mention the game here but it involves islands, turnips, and traders. I will talk about the UI/UX design and the features of Google's Firebase platform that I used which include hosting, real-time database, Firestore database, and analytics. I'll also talk about some interesting problems I had to solve along the way.
+In this post I'm going to describe a small side project I worked on AC Visitor Center. The idea for this little side project came from playing a video game, I won't mention the game here but it involves islands, turnips, and traders. I will talk about the UI/UX design and the features of Google's Firebase platform that I used which include hosting, real-time database, Firestore database, and analytics. I'll also talk about some interesting problems I had to solve along the way.
 
 ## Mechanics
 
@@ -162,7 +162,7 @@ If you made it this far thank you for reading. I encourage you to [build useless
 
 ## References
 
-- [AC Visitor Center](https://acvisitorcenter.firebaseapp.com/)
+- [AC Visitor Center](https://github.com/daithimorton/acvisitorcenter)
 - [Firebase](https://firebase.google.com/)
 - [ReactJS](https://reactjs.org/)
 - [Material UI](https://material-ui.com/)

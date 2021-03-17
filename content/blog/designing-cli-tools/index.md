@@ -1,6 +1,6 @@
 ---
 date: '2020-05-01'
-title: 'Designing CLI tools: Orca'
+title: 'Side project: Orca'
 banner: './images/banner.jpg'
 imageAltText: 'two wrenches'
 bannerCredit: 'Photo by Matt Artz'
@@ -19,7 +19,7 @@ With a Graphical User Interface (GUI) a user can interact with buttons, menus, d
 
 ![Orca output](./images/orca-output.png)
 
-[Orca](https://github.com/daithimorton/orca) is CLI tool I built that lets you download your Reddit data, specifically your upvoted content, saved content, submissions, and comments. I could not find a tool that let me do this and I also wanted to learn more about CLI design which is why I built it.
+Orca is CLI tool I built that lets you download your Reddit data, specifically your upvoted content, saved content, submissions, and comments. I could not find a tool that let me do this and I also wanted to learn more about CLI design which is why I built it.
 
 ## Planning
 
