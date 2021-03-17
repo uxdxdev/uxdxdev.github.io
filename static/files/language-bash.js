@@ -25,5 +25,5 @@ window.addEventListener("load", () => {
     code +
     "</code></pre>";
   $head.innerHTML =
-    "<title>Daithi Morton</title>" + content.head.join("\n");
+    "<title>David Morton</title>" + content.head.join("\n");
 });
