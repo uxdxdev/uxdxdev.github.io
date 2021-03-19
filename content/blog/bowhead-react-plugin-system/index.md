@@ -29,7 +29,7 @@ Naming things is hard, I like whales, so this project was named Bowhead.
 
 > The bowhead whale is a species of baleen whale belonging to the family Balaenidae and the only living representative of the genus Balaena. It is the only baleen whale endemic to the Arctic and subarctic waters.
 
-Bowhead is a project to make the initial setup of a Micro-Saas product a little easier by providing a scaffold of ReactJS components along with a Create React App template. This will allow developers to focus on the business logic of their new product instead of spending time on infrastructure features such user authentication, data storage, and payment processing.
+Bowhead is a project to make the initial setup of a Micro-Saas product a little easier by providing a scaffold of ReactJS components along with a CRA (Create React App)  template. This will allow developers to focus on the business logic of their new product instead of spending time on infrastructure features such user authentication, data storage, and payment processing.
 
 ## Planning
 
@@ -69,24 +69,24 @@ As a **developer**:
 
 Based on the above user stories a bunch of solutions came to mind: 
 
-- A Create React App template that scaffolds some these features would give developers a ready made development environment that would require very little configuration to get up and running. 
+- A Create React App template that scaffolds some of these features together would give developers a ready made development environment that would require very little configuration to get up and running. 
 
 - User authentication, data storage, and security could be handled by Google's Firebase platform. 
 
 - Payment processing can be managed by Stripe's subscription services. 
 
-- A plugin system would enable developers to only work on their products business logic using ReactJS components. 
+- A plugin system would enable developers to only work on their products business logic using ReactJS components and inject them into the UI. 
 
 - Developers only need to create the required accounts on Google Firebase, Stripe, Netlify, etc, in order to get access tokens and API keys. These can be passed to Bowhead as configuration data.
 
-- Providing a pre-built landing page, dashboard page, and account page with the ability to inject new components into these as require would speed up development.
+- Providing a pre-built landing page, dashboard page, and account page with the ability to inject new components into these as required would speed up development.
 
 The most obvious solution to abstract all of these features away from developers is to use node modules hosted on NPM, and the Create React App template that would have these pre-configured for installation. These are the core node modules:
 
-- bowhead
-- bowhead-functions
-- eslint-config
-- cra-template-bowhead
+- bowhead (required)
+- bowhead-functions (required)
+- eslint-config (code linting, not required)
+- cra-template-bowhead (pre-configured development environment, not required)
 
 The required modules here are `bowhead` and `bowhead-functions`. The CRA template is optional and would depend upon and use these modules in a pre-configured development environment. Developers do not have to use the CRA template to get value from this project, they can use their own development environments with the help of some documentation to configure only the required modules.
 
@@ -107,7 +107,7 @@ const App = () => {
 };
 ```
 
-This component provides the landing page, dashboard page, styling infrastructure, user authentication, Firebase database integrations, Stripe integration, and some other features like dashboard side navigation, and user subscription billing management. All of these features require some configuration information that the user will need to provide and is consumed through the plugin system.
+This component provides the landing page, dashboard page, styling infrastructure, user authentication, Firebase database integrations, Stripe integration, and some other features like dashboard side navigation, and user subscription billing management. All of these features require some configuration information that the user will need to provide.
 
 - `bowhead-functions` (required)
 
@@ -172,18 +172,18 @@ The **bowhead-functions** module contains logic that must be integrated into a b
     }
 ```
 
-Connecting to the Stripe API and Firestore storage must be done through a secure private backend service. This could be a collection of server-less functions, or a NodeJS API that is created by the developer. This backend API must then hook into each of the 4 function listed above available from the `bowhead-functions` module. Once this backend API is deployed Bowhead must be configured with the URL endpoints for each.
+Connecting to the Stripe API and Firestore storage must be done through a secure private backend service. This could be a collection of server-less functions, or a NodeJS API that is created by the developer. This backend API must then hook into each of the 4 functions listed above available from the `bowhead-functions` module. Once this backend API is deployed Bowhead must be configured with the deployed URL endpoints for each.
 
 - `eslint-config`
 
-This is a shared configuration used during development, not important.
+This is a shared configuration used during development, not really important.
 
 - `cra-template-bowhead`
 
 This is the CRA template project which can be a starting point for developers to learn how to use Bowhead and configure it correctly.
 ### Landing Page
 
-There are a few main pages in every Saas product, the landing page, the dashboard page, and the users account page. The landing page is straight forward enough, a developer could provide a single ReactJS component with all of the content of this page which Bowhead then renders. Bowhead wraps this content in a navigation bar which has two buttons by default, the `Sign in` and `Get started` buttons.
+There are a few main pages in every Saas product, the landing page, the dashboard page, the users profile page, and a billing page. The landing page is straight forward and a developer could provide a single ReactJS component with all of the content of this page which Bowhead then renders. Bowhead wraps this landing page content in a navigation bar which has two buttons by default, the `Sign in` and `Get started` buttons.
 
 A developer can then configure the applications name, which is `Bowhead` in this example, and any additional elements that should be in the navigation bar such as anchor links to sections of the page, e.g. links to `#products` or `#services`. 
 
@@ -218,7 +218,7 @@ We use the plugin system to register a landing page component to render at the U
 Once a user has authenticated they are re-directed to the dashboard page. The dashboard page is a UI shell that provides a navigation bar with access to the users account through an avatar dropdown menu. It also provides a side navigation with a link back to the dashboard page. Both the avatar dropdown menu and the side navigation can be customised to include links to custom pages that developers will create and register using the plugin system.
 
 ![Landing Page](./images/dashboard-page-mock-up.png)
-*Bowhead landing page mock-up*
+*Bowhead dashboard page mock-up*
 
 The white space in the image above is where developers will inject their business logic, and the links in the side navigation allow for new pages to be added with complex workflows.
 
