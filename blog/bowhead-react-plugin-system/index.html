@@ -28,7 +28,7 @@
 <blockquote>
 <p>The bowhead whale is a species of baleen whale belonging to the family Balaenidae and the only living representative of the genus Balaena. It is the only baleen whale endemic to the Arctic and subarctic waters.</p>
 </blockquote>
-<p>Bowhead is a project to make the initial setup of a Micro-Saas product a little easier by providing a scaffold of ReactJS components along with a Create React App template. This will allow developers to focus on the business logic of their new product instead of spending time on infrastructure features such user authentication, data storage, and payment processing.</p>
+<p>Bowhead is a project to make the initial setup of a Micro-Saas product a little easier by providing a scaffold of ReactJS components along with a CRA (Create React App)  template. This will allow developers to focus on the business logic of their new product instead of spending time on infrastructure features such user authentication, data storage, and payment processing.</p>
 <h2>Planning</h2>
 <p>The original “big picture” plan for Bowhead was to create a platform for developers to build upon, similar to Shopify, but for Micro-Saas products. This platform would integrate with other third party services to provide the following features:</p>
 <ul>
@@ -60,19 +60,19 @@
 <h2>Implementation</h2>
 <p>Based on the above user stories a bunch of solutions came to mind: </p>
 <ul>
-<li>A Create React App template that scaffolds some these features would give developers a ready made development environment that would require very little configuration to get up and running. </li>
+<li>A Create React App template that scaffolds some of these features together would give developers a ready made development environment that would require very little configuration to get up and running. </li>
 <li>User authentication, data storage, and security could be handled by Google’s Firebase platform. </li>
 <li>Payment processing can be managed by Stripe’s subscription services. </li>
-<li>A plugin system would enable developers to only work on their products business logic using ReactJS components. </li>
+<li>A plugin system would enable developers to only work on their products business logic using ReactJS components and inject them into the UI. </li>
 <li>Developers only need to create the required accounts on Google Firebase, Stripe, Netlify, etc, in order to get access tokens and API keys. These can be passed to Bowhead as configuration data.</li>
-<li>Providing a pre-built landing page, dashboard page, and account page with the ability to inject new components into these as require would speed up development.</li>
+<li>Providing a pre-built landing page, dashboard page, and account page with the ability to inject new components into these as required would speed up development.</li>
 </ul>
 <p>The most obvious solution to abstract all of these features away from developers is to use node modules hosted on NPM, and the Create React App template that would have these pre-configured for installation. These are the core node modules:</p>
 <ul>
-<li>bowhead</li>
-<li>bowhead-functions</li>
-<li>eslint-config</li>
-<li>cra-template-bowhead</li>
+<li>bowhead (required)</li>
+<li>bowhead-functions (required)</li>
+<li>eslint-config (code linting, not required)</li>
+<li>cra-template-bowhead (pre-configured development environment, not required)</li>
 </ul>
 <p>The required modules here are <code class="language-text">bowhead</code> and <code class="language-text">bowhead-functions</code>. The CRA template is optional and would depend upon and use these modules in a pre-configured development environment. Developers do not have to use the CRA template to get value from this project, they can use their own development environments with the help of some documentation to configure only the required modules.</p>
 <h3>NPM modules</h3>
@@ -88,7 +88,7 @@
     <span class="token operator">&lt;</span>Bowhead <span class="token operator">/</span><span class="token operator">></span>
   <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
-<p>This component provides the landing page, dashboard page, styling infrastructure, user authentication, Firebase database integrations, Stripe integration, and some other features like dashboard side navigation, and user subscription billing management. All of these features require some configuration information that the user will need to provide and is consumed through the plugin system.</p>
+<p>This component provides the landing page, dashboard page, styling infrastructure, user authentication, Firebase database integrations, Stripe integration, and some other features like dashboard side navigation, and user subscription billing management. All of these features require some configuration information that the user will need to provide.</p>
 <ul>
 <li><code class="language-text">bowhead-functions</code> (required)</li>
 </ul>
@@ -149,17 +149,17 @@
 
         <span class="token keyword">return</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_stripe<span class="token punctuation">.</span>checkout<span class="token punctuation">.</span>sessions<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">session</span><span class="token punctuation">)</span> <span class="token operator">=></span> session<span class="token punctuation">)</span>
     <span class="token punctuation">}</span></code></pre></div>
-<p>Connecting to the Stripe API and Firestore storage must be done through a secure private backend service. This could be a collection of server-less functions, or a NodeJS API that is created by the developer. This backend API must then hook into each of the 4 function listed above available from the <code class="language-text">bowhead-functions</code> module. Once this backend API is deployed Bowhead must be configured with the URL endpoints for each.</p>
+<p>Connecting to the Stripe API and Firestore storage must be done through a secure private backend service. This could be a collection of server-less functions, or a NodeJS API that is created by the developer. This backend API must then hook into each of the 4 functions listed above available from the <code class="language-text">bowhead-functions</code> module. Once this backend API is deployed Bowhead must be configured with the deployed URL endpoints for each.</p>
 <ul>
 <li><code class="language-text">eslint-config</code></li>
 </ul>
-<p>This is a shared configuration used during development, not important.</p>
+<p>This is a shared configuration used during development, not really important.</p>
 <ul>
 <li><code class="language-text">cra-template-bowhead</code></li>
 </ul>
 <p>This is the CRA template project which can be a starting point for developers to learn how to use Bowhead and configure it correctly.</p>
 <h3>Landing Page</h3>
-<p>There are a few main pages in every Saas product, the landing page, the dashboard page, and the users account page. The landing page is straight forward enough, a developer could provide a single ReactJS component with all of the content of this page which Bowhead then renders. Bowhead wraps this content in a navigation bar which has two buttons by default, the <code class="language-text">Sign in</code> and <code class="language-text">Get started</code> buttons.</p>
+<p>There are a few main pages in every Saas product, the landing page, the dashboard page, the users profile page, and a billing page. The landing page is straight forward and a developer could provide a single ReactJS component with all of the content of this page which Bowhead then renders. Bowhead wraps this landing page content in a navigation bar which has two buttons by default, the <code class="language-text">Sign in</code> and <code class="language-text">Get started</code> buttons.</p>
 <p>A developer can then configure the applications name, which is <code class="language-text">Bowhead</code> in this example, and any additional elements that should be in the navigation bar such as anchor links to sections of the page, e.g. links to <code class="language-text">#products</code> or <code class="language-text">#services</code>. </p>
 <p>Here is a mock up of an expected landing page.</p>
 <p><span
@@ -224,7 +224,7 @@ routesAndMenuItems<span class="token punctuation">.</span><span class="token fun
         loading="lazy"
       />
     </span>
-<em>Bowhead landing page mock-up</em></p>
+<em>Bowhead dashboard page mock-up</em></p>
 <p>The white space in the image above is where developers will inject their business logic, and the links in the side navigation allow for new pages to be added with complex workflows.</p>
 <div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> routesAndMenuItems <span class="token operator">=</span> <span class="token punctuation">[</span>    
     <span class="token comment">// authenticated routes are available at /dashboard/*</span>
