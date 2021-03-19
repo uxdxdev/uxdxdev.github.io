@@ -217,7 +217,7 @@ We use the plugin system to register a landing page component to render at the U
 
 Once a user has authenticated they are re-directed to the dashboard page. The dashboard page is a UI shell that provides a navigation bar with access to the users account through an avatar dropdown menu. It also provides a side navigation with a link back to the dashboard page. Both the avatar dropdown menu and the side navigation can be customised to include links to custom pages that developers will create and register using the plugin system.
 
-![Landing Page](./images/dashboard-page-mock-up.png)
+![Dashboard Page](./images/dashboard-page-mock-up.png)
 *Bowhead dashboard page mock-up*
 
 The white space in the image above is where developers will inject their business logic, and the links in the side navigation allow for new pages to be added with complex workflows.
@@ -256,12 +256,12 @@ const routesAndMenuItems = [
   })
 ```
 
-Using the plugin system developers can inject a dashboard root page to customise the main `/dashboard/` page. They can also add new links and pages to the dashboard page to provide workflows and other business logic. In the example above a `Projects` ReactJS component is registered under an authenticate route `/projects`. A link to this route is also added to the side navigation.
+Using the plugin system developers can inject a dashboard root page to customise the main `/dashboard/` page. They can also add new links and pages to the dashboard page to provide workflows and other business logic. In the example above a `Projects` ReactJS component is registered under an authenticated route `/projects`. A link to this route is also added to the side navigation.
 
 
 ### Plugin system
 
-The plugin system is a fundamental feature for allowing developers to inject their custom components into Bowhead. The custom components can integrate with other third party services to provide business value to users and then can be rendered within the dashboard UI shell of Bowhead. 
+The plugin system is a fundamental feature of Bowhead allowing developers to inject their custom components into certain parts of the default pages. The custom components can integrate with other third party services to provide business value to users and then can be rendered within the dashboard UI shell of Bowhead. 
 
 ```javascript
 const PLUGIN_TYPES = {
@@ -291,7 +291,7 @@ Bowhead uses the Stripe API to manage user subscriptions. There are two parts to
 ![Pricing Page](./images/pricing-page-mock-up.png)
 *Bowhead pricing page mock up*
 
-When a user is not currently signed up to any subscription the pricing page is displayed on sign in, a user must be subscribed to gain access to any custom features developer may add. 
+When a user is not currently signed up to any subscription the pricing page is displayed on sign in, a user must be subscribed to gain access to any custom features developers may add. 
 
 A user can click on the `Get started` button of the subscription they want which brings them to a hosted Stripe payments page. Once payment is made securely using Stripe's portal the Bowhead database is updated through a webhook integration implemented in `bowhead-functions` and the UI is updated.
 #### Account page
@@ -308,7 +308,7 @@ If a user clicks this `Manage subscription` button they are re-directed to a hos
 
 ## Challenges
 
-The plugin system I implemented in Bowhead was the most interesting engineering problem I encountered during this time. Bowhead allows users to inject custom ReactJS components into parts of the UI shell, for example the dashboard page and side navigation. 
+The plugin system I implemented in Bowhead was the most interesting engineering problem I encountered. Bowhead allows users to inject custom ReactJS components into parts of the UI shell, for example the dashboard page and side navigation. 
 
 ```javascript
 const routesAndMenuItems = [
@@ -327,7 +327,7 @@ routesAndMenuItems.forEach(plugin => {
     pluginRegistry.register(plugin.name, plugin)
   })
 ```
-Users register their custom ReactJS components in there projects source code, e.g. `App.js`. In this case a `Projects` components is being injected with the route `/projects`. This will render at `/dashboard/projects` when the user is authenticated. 
+Users register their custom ReactJS components in there projects source code, e.g. `App.js`. In this case a `Projects` component is being injected with the route `/projects`. This will render at `/dashboard/projects` when the user is authenticated. 
 
 ```javascript
 // bowhead.js
@@ -436,9 +436,9 @@ Now in the custom `Projects` component we can access this state.
 
 This project was fun to work on, but I think a little too complex for developers to get real value from. In order to get Bowhead up and running you need to configure Google Firebase and Firestore, Stripe, some backend APIs or server-less functions, and finally hosting for the application. 
 
-Each of these tasks may be complex in themselves. I consider Bowhead an experiment and **I don't recommend developers use it in their products**. Integrations to third party services are difficult to maintain and when they are abstracted away into a library that you do not maintain yourself risks are introduced. You are relying on the developers of these abstractions to keep their integrations updated and secure.
+Each of these tasks may be complex in themselves. I consider Bowhead an experiment and **I don't recommend developers use it in their products**. Integrations to third party services are difficult to maintain and risks are introduced when they are abstracted away into a library that you do not maintain yourself. You are relying on the developers of these abstractions to keep their integrations updated and secure.
 
-It's not all bad, I learned some really valuable concepts. UI shells can be useful to speed up productivity. Things like landing pages, navigation bars, dashboard pages, and account pages, are all similar and required in a basic Micro-Saas product. Having these as templates to hand for your next product is a good idea. A design system that contains ReactJS component implementations of it's designs would help here.
+I learned some really valuable concepts during this project. UI shells can be useful to speed up productivity. Things like landing pages, navigation bars, dashboard pages, and account pages, are commonly required in a basic Micro-Saas product. Having these as templates to hand for your next product is a good idea. A design system that contains ReactJS component implementations of it's designs would help here too.
 
 I also learned that building products with good DX (Developer eXperience) is difficult and requires alot of thought in relation to design, software architecture, and documentation. Talking to other developers would have helped me immensely while I was working on Bowhead to figure out what features were unnecessary.
 
@@ -451,4 +451,5 @@ There are tons of implementation details I could talk about but too many for thi
 ## References
 
 - [Bowhead](https://github.com/daithimorton/bowhead)
+- [ReactJS](https://reactjs.org/)
 - [Create React App](https://create-react-app.dev/)
