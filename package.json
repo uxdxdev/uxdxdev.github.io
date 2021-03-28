@@ -52,11 +52,7 @@
     "url": "git+https://github.com/daithimorton/daithimorton.github.io.git"
   },
   "scripts": {
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "yarn build && gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo 'no tests'",
+    "start": "gatsby clean && gatsby develop",    
     "deploy": "gatsby build && cp CNAME public/ && gh-pages -d public -b master -r https://${GITHUB_TOKEN}@github.com/daithimorton/daithimorton.github.io.git",
     "commit": "git add . && git commit -am \"blog updates\" && git push"
   }
