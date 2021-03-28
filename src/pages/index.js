@@ -26,27 +26,23 @@ class LandingPage extends React.Component {
           image={imageSrc}
         />
         <div style={{
-          display: 'flex',
-          flexWrap: "wrap",
-          marginLeft: `auto`,
-          marginRight: `auto`,
+          display: 'grid',
+          gridGap: '1rem',
+          gridTemplateColumns: `repeat(auto-fit, minmax(${rhythm(12)}, 1fr))`,
+          margin: '1rem auto 1rem auto',
           maxWidth: rhythm(40),
           justifyContent: 'center',
         }}>
 
-          {posts.map(({ node }) => {
+          {posts.map(({ node }, index) => {
             const banner = node.frontmatter.banner
             const title = node.frontmatter.title || node.fields.slug
             return (
 
               <div key={node.fields.slug} style={{
                 padding: rhythm(1),
-                margin: rhythm(1 / 2),
                 boxShadow: 'rgb(0 0 0 / 20%) 0px 0px 20px 0px',
                 backgroundColor: 'white',
-                minWidth: rhythm(12),
-                width: rhythm(12),
-                flex: 1
               }}>
                 <Link
                   style={{

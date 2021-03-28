@@ -1,5 +1,9 @@
 a {
-    text-decoration: none;
-    color: #1a73e8;
-    border-bottom: 3px solid #1a73e8;
+  text-decoration: none;
+  color: #1a73e8;
+  border-bottom: 3px solid #1a73e8;
+}
+
+li {
+  margin-bottom: 0.5rem;
 }
