@@ -9,11 +9,11 @@ bannerLink: 'https://unsplash.com/photos/6ArTTluciuA'
 keywords: flux,soc,redux,data flow
 ---
 
-> Flux is the application architecture that Facebook uses for building client-side web applications. Redux is a popular JavaScript implementation of the Flux pattern. It reminds me of an insurance company.
+> Flux is the application architecture that Facebook uses for building client-side web applications. Redux is a popular JavaScript implementation of the Flux pattern. This pattern reminds me of an insurance company.
 
 <!-- end -->
 
-I'm going to attempt to explain data flow in the Flux pattern using an insurance company analogy. 
+I'm going to attempt to explain data flow in the Flux pattern with an insurance company analogy using Redux. 
 
 ![Flux as an insurance company](./images/flux-overview.png)
 *The Flux pattern compared to an example workflow in an insurance company*
