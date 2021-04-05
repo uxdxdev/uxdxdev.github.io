@@ -93,7 +93,7 @@ pre[class*='language-'] ::selection {
 :not(pre) > code[class*='language-'] {
   white-space: normal;
   border-radius: 0.2em;
-  padding: 0.1em 0.3em;
+  padding: 0.3em 0.4em;
 }
 
 pre[class*='language-'] {
