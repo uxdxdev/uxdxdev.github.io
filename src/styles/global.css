@@ -7,3 +7,7 @@ a {
 li {
   margin-bottom: 0.5rem;
 }
+
+.gatsby-highlight {
+  box-shadow: 5px 5px #1a73e8;
+}

@@ -125,7 +125,7 @@ module.exports = {
         short_name: `davidmorton.dev`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#03A9F4`,
+        theme_color: `#1a73e8`,
         display: `minimal-ui`,
         icon: `content/assets/profile_cropped.jpg`,
       },
