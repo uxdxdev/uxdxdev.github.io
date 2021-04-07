@@ -27,13 +27,15 @@ In the above diagram you can see each element of the Flux pattern mapped to a co
 - Reducer -> Department
 - State -> Company data and bank balance
 
-People will interact with the insurance company using a website or phone to create and cancelling policies, or make claims. This is analogous to UI components using action creators to create actions.
+People will interact with the insurance company using a website or phone to create policies, cancel policies, or make claims. This is analogous to UI components using action creators to create actions.
 
 New policies and claims must be routed to the right departments and processed, similar to how actions are dispatched to reducers. 
 
-When a department has processed a new policy form or claim, the company's data is modified, this could be the bank balance and/or customers on file. When reducers process actions they return a new updated version of state which becomes the current state.
+And when a department has processed a new policy or claim, the company's data is modified, this could be the bank balance and/or customers on file. When reducers process actions they return a new updated version of state which becomes the current state.
 
 ## Actions
+
+Actions are plain JavaScript objects that are returned from a function. This function is called an action creator.
 
 ```javascript
 // Flux Insurance company
@@ -82,6 +84,8 @@ Action creators are functions that typically return an object with two propertie
 
 ## Reducers
 
+Reducers are like event listeners, they will act on certain types of events and ignore others. Reducers modify state.
+
 ```javascript
 // reducers process actions and return updated state 
 const claimsHistory = function(state = [], action){
@@ -125,17 +129,21 @@ const policies = function(state = [], action) {
 ```
 *Company departments are similar to reducers, they process only the events they are interested in, and this modifies the company's data*
 
-Reducers consume actions and update state, they also have access to the current state in order to create new versions. Reducers will consume only the actions they are concerned about, this can be done using `if` or `switch` statements. If a reducer is not interested in the current action that was dispatched it will return the current state without modification.
+Reducers consume actions and update state, they also have access to the current state in order to create new versions. Reducers will consume only the actions they are concerned about. If a reducer is not interested in the current action that was dispatched it will return the current state without modification.
 
 ## State
 
+State is a plain JavaScript object stored in browser memory. It is updated by reducers. 
+
+State should be treated as immutable, when creating new versions of state you should use the spread operator `{...}` and use it at each level of an object tree to avoid copying references to the original object contents. We always want new versions of state from our reducers, no lingering references that will cause bugs later. Below is an example of creating deep copies of a JavaScript object, use this approach in your reducers to create new versions of state.
+
 ```javascript
 const x = {
-  a: 'test',
+  a: 'test', // level 0
   b: {
-    name: 'x',
+    name: 'x', // level 1
     c: {
-      value: 'DFV'
+      value: 'DFV' // level 2
     }
   }
 }
@@ -179,9 +187,56 @@ console.log(y)
 ```
 *Copying object properties and values at each level of an object tree*
 
+We want to make copies of an objects properties at each level of the object tree. If we don't do this we can end up with references to sections fo the original object tree.
 
-State should be treated as immutable, when creating new versions of state you should use the spread operator `{...}` and use it at each level of an object tree to avoid copying references to the original object contents. We want brand new versions of state from our reducers, no lingering references that will cause bugs later.
+```javascript
+const x = {
+  a: "test", // level 0
+  b: { 
+    name: "x", // level 1
+    c: { 
+      value: "dfv" // level 2
+    }
+  }
+};
 
+const y = {
+  ...x, // copy level 0 properties and values
+  b: {
+    ...x.b, // copy level 1 properties and values   
+  }
+};
+
+x.b.name = "updated";
+x.b.c.value = "GME";
+
+console.log(x)
+
+{
+   "a":"test",
+   "b":{
+      "name":"updated",
+      "c":{
+         "value":"GME"
+      }
+   }
+}
+
+console.log(y)
+
+{
+   "a":"test",
+   "b":{
+      "name":"x",
+      "c":{ // this is a reference to x.b.c because we didn't copy level 2
+         "value":"GME"
+      }
+   }
+}
+```
+*Only level 0 and level 1 are copied*
+
+You can see in the above example, if we only copy level 0 and level 1 we are left with a reference to level 2 of the original object `x`. And so when we update `x.b.c.value` both of the objects `x` and `y` are updated. Trying to track down these types of bugs can be painful so be vigilant.
 ## Redux
 
 ```javascript
@@ -223,37 +278,9 @@ Redux implements the Flux pattern and provides functionality to enable unidirect
 
 You can see from the example above our state contains "slices" based on the names of our reducers. In this way slices of state are kept isolated from each other meaning one reducer can't update the state of another. If a single action must update two different slices of state at the same time, then each reducer needs to listen out for that action **type** and process the action accordingly.
 
-```javascript
-store.dispatch(createClaim('Alex', 170))
-store.dispatch(createClaim('Jim', 100))
-
-console.log(store.getState())
-
-// console output
-{
-   "claimsHistory":[
-      {
-         "name":"Alex",
-         "amount":170
-      },
-      {
-         "name":"Jim",
-         "amount":100
-      }
-   ],
-   "accounting":10,
-   "policies":[
-      "Alex",
-      "Greg",
-      "Jim"
-   ]
-}
-```
-*The claimsHistory slice of the state is updated by the createClaim() action creator function, no other slice of the state is updated when this action type is dispatched*
-
 ## Conclusion
 
-In this post I compared the Flux architecture pattern to an insurance company and implemented it's data flow using Redux. I have used the Flux pattern in my Bowhead side project recently to manage client-side application state for features like authentication, and it can get messy very quickly!.
+In this post I compared the Flux architecture pattern to an insurance company and implemented it's data flow using Redux. I have used the Flux pattern in another side project recently to manage client-side application state for features like authentication, and it can get messy very quickly!.
 
 In my experience reducers and state can get tricky to manage if left to evolve without design. Reducers can grow quickly during development so it's important to spend some time designing how your state should look before adding that new feature. 
 
