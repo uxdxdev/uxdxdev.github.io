@@ -1,32 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[Let's talk about that.]]></description><link>https://davidmorton.dev</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 05 Apr 2021 09:54:11 GMT</lastBuildDate><item><title><![CDATA[Flux Insurance Company]]></title><description><![CDATA[Flux is the application architecture that Facebook uses for building client-side web applications. Redux is a popular JavaScript implementation of the Flux pattern. This pattern reminds me of an insurance company.]]></description><link>https://davidmorton.dev/blog/flux-unidirectional-data-flow/</link><guid isPermaLink="false">https://davidmorton.dev/blog/flux-unidirectional-data-flow/</guid><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[Let's talk about that.]]></description><link>https://davidmorton.dev</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 07 Apr 2021 07:23:44 GMT</lastBuildDate><item><title><![CDATA[Flux Insurance Company]]></title><description><![CDATA[Flux is the application architecture that Facebook uses for building client-side web applications. Redux is a popular JavaScript implementation of the Flux pattern. This pattern reminds me of an insurance company.]]></description><link>https://davidmorton.dev/blog/flux-unidirectional-data-flow/</link><guid isPermaLink="false">https://davidmorton.dev/blog/flux-unidirectional-data-flow/</guid><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;Flux is the application architecture that Facebook uses for building client-side web applications. Redux is a popular JavaScript implementation of the Flux pattern. This pattern reminds me of an insurance company.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;!-- end --&gt;
 &lt;p&gt;I’m going to attempt to explain data flow in the Flux pattern with an insurance company analogy using Redux. &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1233px; &quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1280px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/f53283bebbd221b03e8067340b338e7a/b0aa6/flux-overview.png&quot;
+    href=&quot;/static/a3643c541a05246930ae499dd07bd807/6c2de/flux-overview.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 49.0625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAAB4UlEQVQoz3VSXY/TMBDM//8lPAPiAVEhAQXEcaI6Dk5UidI2afPlOLZjO3HSZFgnlXhAZ2m865XXnp3doG1b1HWNcRzR9z3BoXfDaunsyLqbv8ZuvruhXzGOA6ZpQjAMA7TWyLIMUkpIwdHwCrLhEEKA05mTL6WAknyBj4tG0D2x+I2QqMkfxysCa+3yWJqmqKoK6nSPaPsCmuyhiPFl/wm74w6iTlAfNuDJezRVit/fI/z48AvZqcD+rLD9mdN9g8CX6hn60jtPv2VoqwM6VUJqiay+oBIlOtuiFSm0OMMakqkUKC8MWmk0yiJnLZTuESilwBhbqHuGHWnk14zn1/xMZJ5JQ2PM8lAURYjjGHlRkCarNllxQZSEOKQxOCdtvW4Lmv8gRLM2ZZ5nOOcWln5dh55gMHQWj+EDXm9f4t3dW0rimCeHcbCEAYMb4Tqy5PupyIpqsQvDJElwuLGTxzuwh1eowy1KVqIfLUQrkad78NMGDTWF5UfsPj/h22aHU5TiMWZ48/EJ0Vki8Oy8jn5kfMd7zWGaC4yo8OdISeFX3If0CSvQGwbb0iedoa7TqJR0V1so04MJA20dAl+3L3sVdcY0rxJ7tFbhUp9RiBzX63WN0zZN/9ric3wzfIa3fwFnaPgSzhga5AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 49.375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABvklEQVQoz52SW2/aQBCF+f+/pqrap6p9aFJE07QIQiDBCdgG2xhfsL221zf4ums3jSr1KSMd7Wg0e/bMnB21bYsQAh2Xy+VN0HE+n+m6jpEmDMOQKIrIsqxHnou/uX5syMWfXLzWxXDG6m7XtT3pSLMGQYC53eIdfEJrxn76kZP5i437zORxzL29JPKfcI3PhPvvuLbLdHzP6uca9xBxs3RYbGJk3Q6EL2qKUlKlBw5Pt5TRjpOI2R43eCePqojJozVlapFnOa7p4+8CRC5xwgInKKjqhlFd1z2ZlLI/66bjbXEZRq6qCtd1MU0TwzBwHIdUEadJyjH02Xm2GsshSVOSRCP5B6mq6/1rL3pC7ZJWqYs679qats5pK8ncmPH+6h3Xsyt1OVZWVpw72bvZVC2VVL1t1+9e5OVAqJm1wt3O5nBUbiszorsPBMY3pfBI2RRkhdqZNcdafWL7cM3DYsX4yw13kyWen/B1ajGe7ylkM5iirdfSi6JE5ify2KFIQtb2Iz+eJywUWRT5uM5ercbCtiw8JSIOT5SyIhGyR6PEjbTMl885fFS93iFEKfBilygL+3H+a8Xl3AMF3fMb4pL53iPl6acAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Flux as an insurance company&quot;
         title=&quot;Flux as an insurance company&quot;
-        src=&quot;/static/f53283bebbd221b03e8067340b338e7a/b0aa6/flux-overview.png&quot;
-        srcset=&quot;/static/f53283bebbd221b03e8067340b338e7a/72799/flux-overview.png 320w,
-/static/f53283bebbd221b03e8067340b338e7a/6af66/flux-overview.png 640w,
-/static/f53283bebbd221b03e8067340b338e7a/b0aa6/flux-overview.png 1233w&quot;
-        sizes=&quot;(max-width: 1233px) 100vw, 1233px&quot;
+        src=&quot;/static/a3643c541a05246930ae499dd07bd807/21b4d/flux-overview.png&quot;
+        srcset=&quot;/static/a3643c541a05246930ae499dd07bd807/72799/flux-overview.png 320w,
+/static/a3643c541a05246930ae499dd07bd807/6af66/flux-overview.png 640w,
+/static/a3643c541a05246930ae499dd07bd807/21b4d/flux-overview.png 1280w,
+/static/a3643c541a05246930ae499dd07bd807/6c2de/flux-overview.png 1334w&quot;
+        sizes=&quot;(max-width: 1280px) 100vw, 1280px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
@@ -42,10 +43,11 @@
 &lt;li&gt;Reducer -&gt; Department&lt;/li&gt;
 &lt;li&gt;State -&gt; Company data and bank balance&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;People will interact with the insurance company using a website or phone to create and cancelling policies, or make claims. This is analogous to UI components using action creators to create actions.&lt;/p&gt;
+&lt;p&gt;People will interact with the insurance company using a website or phone to create policies, cancel policies, or make claims. This is analogous to UI components using action creators to create actions.&lt;/p&gt;
 &lt;p&gt;New policies and claims must be routed to the right departments and processed, similar to how actions are dispatched to reducers. &lt;/p&gt;
-&lt;p&gt;When a department has processed a new policy form or claim, the company’s data is modified, this could be the bank balance and/or customers on file. When reducers process actions they return a new updated version of state which becomes the current state.&lt;/p&gt;
+&lt;p&gt;And when a department has processed a new policy or claim, the company’s data is modified, this could be the bank balance and/or customers on file. When reducers process actions they return a new updated version of state which becomes the current state.&lt;/p&gt;
 &lt;h2&gt;Actions&lt;/h2&gt;
+&lt;p&gt;Actions are plain JavaScript objects that are returned from a function. This function is called an action creator.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// Flux Insurance company&lt;/span&gt;
 &lt;span class=&quot;token comment&quot;&gt;// &lt;/span&gt;
 &lt;span class=&quot;token comment&quot;&gt;// People (action creator) create a policy, delete a policy, or create a claim (action).&lt;/span&gt;
@@ -88,6 +90,7 @@
 &lt;p&gt;&lt;em&gt;Action creators create actions that can be consumed by reducers&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Action creators are functions that typically return an object with two properties, in the above example &lt;strong&gt;type&lt;/strong&gt; and &lt;strong&gt;payload&lt;/strong&gt;. These properties can be named anything you want as long your reducers know how to read them. The &lt;strong&gt;type&lt;/strong&gt; differentiates one action from another, if two actions have the same type your reducers may get a little confused and start overwriting data in state. And &lt;strong&gt;payload&lt;/strong&gt; is the data you want your reducers to process.&lt;/p&gt;
 &lt;h2&gt;Reducers&lt;/h2&gt;
+&lt;p&gt;Reducers are like event listeners, they will act on certain types of events and ignore others. Reducers modify state.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// reducers process actions and return updated state &lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;claimsHistory&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;state &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; action&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;token keyword&quot;&gt;switch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;action&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;type&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -128,14 +131,16 @@
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;em&gt;Company departments are similar to reducers, they process only the events they are interested in, and this modifies the company’s data&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Reducers consume actions and update state, they also have access to the current state in order to create new versions. Reducers will consume only the actions they are concerned about, this can be done using &lt;code class=&quot;language-text&quot;&gt;if&lt;/code&gt; or &lt;code class=&quot;language-text&quot;&gt;switch&lt;/code&gt; statements. If a reducer is not interested in the current action that was dispatched it will return the current state without modification.&lt;/p&gt;
+&lt;p&gt;Reducers consume actions and update state, they also have access to the current state in order to create new versions. Reducers will consume only the actions they are concerned about. If a reducer is not interested in the current action that was dispatched it will return the current state without modification.&lt;/p&gt;
 &lt;h2&gt;State&lt;/h2&gt;
+&lt;p&gt;State is a plain JavaScript object stored in browser memory. It is updated by reducers. &lt;/p&gt;
+&lt;p&gt;State should be treated as immutable, when creating new versions of state you should use the spread operator &lt;code class=&quot;language-text&quot;&gt;{...}&lt;/code&gt; and use it at each level of an object tree to avoid copying references to the original object contents. We always want new versions of state from our reducers, no lingering references that will cause bugs later. Below is an example of creating deep copies of a JavaScript object, use this approach in your reducers to create new versions of state.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  a&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;test&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  a&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;test&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// level 0&lt;/span&gt;
   b&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;x&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;x&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// level 1&lt;/span&gt;
     c&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-      value&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;DFV&apos;&lt;/span&gt;
+      value&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;DFV&apos;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// level 2&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
@@ -177,7 +182,52 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;em&gt;Copying object properties and values at each level of an object tree&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;State should be treated as immutable, when creating new versions of state you should use the spread operator &lt;code class=&quot;language-text&quot;&gt;{...}&lt;/code&gt; and use it at each level of an object tree to avoid copying references to the original object contents. We want brand new versions of state from our reducers, no lingering references that will cause bugs later.&lt;/p&gt;
+&lt;p&gt;We want to make copies of an objects properties at each level of the object tree. If we don’t do this we can end up with references to sections fo the original object tree.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  a&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// level 0&lt;/span&gt;
+  b&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; 
+    name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;x&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// level 1&lt;/span&gt;
+    c&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; 
+      value&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;dfv&quot;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// level 2&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; y &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// copy level 0 properties and values&lt;/span&gt;
+  b&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;b&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// copy level 1 properties and values   &lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+x&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;updated&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+x&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;c&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;value &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;GME&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;token string&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+   &lt;span class=&quot;token string&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token string&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;updated&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token string&quot;&gt;&quot;c&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;token string&quot;&gt;&quot;value&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;GME&quot;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;token string&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+   &lt;span class=&quot;token string&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token string&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;x&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token string&quot;&gt;&quot;c&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// this is a reference to x.b.c because we didn&apos;t copy level 2&lt;/span&gt;
+         &lt;span class=&quot;token string&quot;&gt;&quot;value&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;GME&quot;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Only level 0 and level 1 are copied&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;You can see in the above example, if we only copy level 0 and level 1 we are left with a reference to level 2 of the original object &lt;code class=&quot;language-text&quot;&gt;x&lt;/code&gt;. And so when we update &lt;code class=&quot;language-text&quot;&gt;x.b.c.value&lt;/code&gt; both of the objects &lt;code class=&quot;language-text&quot;&gt;x&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;y&lt;/code&gt; are updated. Trying to track down these types of bugs can be painful so be vigilant.&lt;/p&gt;
 &lt;h2&gt;Redux&lt;/h2&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// init Redux by combining reducers and creating the store&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;createStore&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; combineReducers&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Redux&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
@@ -213,33 +263,8 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;p&gt;&lt;em&gt;Redux is a popular implementation of the Flux pattern, it provides a store, dispatch, and routes actions to reducers&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Redux implements the Flux pattern and provides functionality to enable unidirectional data flow. Reducers are registered and ready to consume actions. Actions are created and dispatched by the Redux store. The store holds the latest version of state, and updates this state based on the individual reducer logic.&lt;/p&gt;
 &lt;p&gt;You can see from the example above our state contains “slices” based on the names of our reducers. In this way slices of state are kept isolated from each other meaning one reducer can’t update the state of another. If a single action must update two different slices of state at the same time, then each reducer needs to listen out for that action &lt;strong&gt;type&lt;/strong&gt; and process the action accordingly.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;store&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;dispatch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createClaim&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Alex&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;170&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-store&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;dispatch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createClaim&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Jim&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-
-console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;store&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;token comment&quot;&gt;// console output&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-   &lt;span class=&quot;token string&quot;&gt;&quot;claimsHistory&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-         &lt;span class=&quot;token string&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Alex&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-         &lt;span class=&quot;token string&quot;&gt;&quot;amount&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;170&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-         &lt;span class=&quot;token string&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Jim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-         &lt;span class=&quot;token string&quot;&gt;&quot;amount&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-   &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-   &lt;span class=&quot;token string&quot;&gt;&quot;accounting&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-   &lt;span class=&quot;token string&quot;&gt;&quot;policies&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
-      &lt;span class=&quot;token string&quot;&gt;&quot;Alex&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;token string&quot;&gt;&quot;Greg&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;token string&quot;&gt;&quot;Jim&quot;&lt;/span&gt;
-   &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;em&gt;The claimsHistory slice of the state is updated by the createClaim() action creator function, no other slice of the state is updated when this action type is dispatched&lt;/em&gt;&lt;/p&gt;
 &lt;h2&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;In this post I compared the Flux architecture pattern to an insurance company and implemented it’s data flow using Redux. I have used the Flux pattern in my Bowhead side project recently to manage client-side application state for features like authentication, and it can get messy very quickly!.&lt;/p&gt;
+&lt;p&gt;In this post I compared the Flux architecture pattern to an insurance company and implemented it’s data flow using Redux. I have used the Flux pattern in another side project recently to manage client-side application state for features like authentication, and it can get messy very quickly!.&lt;/p&gt;
 &lt;p&gt;In my experience reducers and state can get tricky to manage if left to evolve without design. Reducers can grow quickly during development so it’s important to spend some time designing how your state should look before adding that new feature. &lt;/p&gt;
 &lt;p&gt;And make sure your state is immutable, it can be difficult to track down a bug caused by a copied object reference instead of the intended values. &lt;/p&gt;
 &lt;p&gt;Also try to keep your state slices small following the Separation of concerns (SoC) principle, this will reduce the complexity of your reducers and save you a lot of time in the end game. &lt;/p&gt;
