@@ -9,11 +9,11 @@ bannerLink: 'https://unsplash.com/photos/6ArTTluciuA'
 keywords: flux,soc,redux,data flow
 ---
 
-> Flux is the application architecture that Facebook uses for building client-side web applications. Redux is a popular JavaScript implementation of the Flux pattern. This pattern reminds me of an insurance company.
+> Flux is the application architecture that Facebook uses for building client-side web applications. Redux is a popular JavaScript implementation of the Flux pattern. This pattern can be explained through the analogy of an insurance company.
 
 <!-- end -->
 
-I'm going to attempt to explain data flow in the Flux pattern with an insurance company analogy using Redux. 
+I've recently been working through a popular [React course on Udemy](https://www.udemy.com/course/react-redux/) and in this course the Flux pattern is explained using an insurance company analogy with Redux. I'm going to share this example and expand on it a little, hopefully it's useful to you.
 
 ![Flux as an insurance company](./images/flux-overview.png)
 *The Flux pattern compared to an example workflow in an insurance company*
@@ -280,7 +280,7 @@ You can see from the example above our state contains "slices" based on the name
 
 ## Conclusion
 
-In this post I compared the Flux architecture pattern to an insurance company and implemented it's data flow using Redux. I have used the Flux pattern in another side project recently to manage client-side application state for features like authentication, and it can get messy very quickly!.
+In this post we looked at the Flux architecture pattern using the example of an insurance company and implemented it's data flow using Redux. I have used the Flux pattern in another side project recently to manage client-side application state for features like authentication, and it can get messy very quickly!.
 
 In my experience reducers and state can get tricky to manage if left to evolve without design. Reducers can grow quickly during development so it's important to spend some time designing how your state should look before adding that new feature. 
 
@@ -297,3 +297,4 @@ Also try to keep your state slices small following the Separation of concerns (S
 - [Flux](https://facebook.github.io/flux/docs/in-depth-overview)
 - [Redux](https://redux.js.org/)
 - [Separation of concerns (SoC) principle](https://en.wikipedia.org/wiki/Separation_of_concerns#:~:text=In%20computer%20science%2C%20separation%20of,section%20addresses%20a%20separate%20concern.&text=When%20concerns%20are%20well%2Dseparated,%2C%20reuse%2C%20and%20independent%20development.)
+- [Modern React with Redux Udemy course](https://www.udemy.com/course/react-redux/)
