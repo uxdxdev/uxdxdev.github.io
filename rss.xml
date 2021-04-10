@@ -1,33 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[Let's talk about that.]]></description><link>https://davidmorton.dev</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 10 Apr 2021 11:43:12 GMT</lastBuildDate><item><title><![CDATA[Flux Insurance Company]]></title><description><![CDATA[Flux is the application architecture that Facebook uses for building client-side web applications. Redux is a popular JavaScript implementation of the Flux pattern. This pattern can be explained through the analogy of an insurance company.]]></description><link>https://davidmorton.dev/blog/flux-unidirectional-data-flow/</link><guid isPermaLink="false">https://davidmorton.dev/blog/flux-unidirectional-data-flow/</guid><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[Let's talk about that.]]></description><link>https://davidmorton.dev</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 10 Apr 2021 11:45:36 GMT</lastBuildDate><item><title><![CDATA[Flux Insurance Company]]></title><description><![CDATA[Flux is the application architecture that Facebook uses for building client-side web applications. Redux is a popular JavaScript implementation of the Flux pattern. This pattern can be explained through the analogy of an insurance company.]]></description><link>https://davidmorton.dev/blog/flux-unidirectional-data-flow/</link><guid isPermaLink="false">https://davidmorton.dev/blog/flux-unidirectional-data-flow/</guid><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;Flux is the application architecture that Facebook uses for building client-side web applications. Redux is a popular JavaScript implementation of the Flux pattern. This pattern can be explained through the analogy of an insurance company.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;!-- end --&gt;
 &lt;p&gt;I’ve recently been working through a popular &lt;a href=&quot;https://www.udemy.com/course/react-redux/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;React course on Udemy&lt;/a&gt; and in this course the Flux pattern is explained using an insurance company analogy with Redux. I’m going to share this example and expand on it a little, hopefully it’s useful to you.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1280px; &quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1127px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/a3643c541a05246930ae499dd07bd807/6c2de/flux-overview.png&quot;
+    href=&quot;/static/8a642b138c1460516be7b6229dba5b45/dcccd/flux-overview.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 49.375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABvklEQVQoz52SW2/aQBCF+f+/pqrap6p9aFJE07QIQiDBCdgG2xhfsL221zf4ums3jSr1KSMd7Wg0e/bMnB21bYsQAh2Xy+VN0HE+n+m6jpEmDMOQKIrIsqxHnou/uX5syMWfXLzWxXDG6m7XtT3pSLMGQYC53eIdfEJrxn76kZP5i437zORxzL29JPKfcI3PhPvvuLbLdHzP6uca9xBxs3RYbGJk3Q6EL2qKUlKlBw5Pt5TRjpOI2R43eCePqojJozVlapFnOa7p4+8CRC5xwgInKKjqhlFd1z2ZlLI/66bjbXEZRq6qCtd1MU0TwzBwHIdUEadJyjH02Xm2GsshSVOSRCP5B6mq6/1rL3pC7ZJWqYs679qats5pK8ncmPH+6h3Xsyt1OVZWVpw72bvZVC2VVL1t1+9e5OVAqJm1wt3O5nBUbiszorsPBMY3pfBI2RRkhdqZNcdafWL7cM3DYsX4yw13kyWen/B1ajGe7ylkM5iirdfSi6JE5ify2KFIQtb2Iz+eJywUWRT5uM5ercbCtiw8JSIOT5SyIhGyR6PEjbTMl885fFS93iFEKfBilygL+3H+a8Xl3AMF3fMb4pL53iPl6acAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 49.0625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABx0lEQVQoz2VSa4+bMBC8//9zKrWV7kPVKtf20kcuUS53TVLCIQiQgMFgG9u8psbkkrRdaeT12Azj3b0pigJ931t03YjX/MJ357Ou7wzXnXm7ti3aE26yLAMhBIPwAMaKc36Nsrzel+d8+LauaytuBZMkgeu62EcHpN4cwewN8t13OKGDL88TLL0lSLRFuL1FGkyx9wLMJo94/rmGH6aYrkIsfqeom+EVRpBzjgGVVNA8wcFdoMoCFKKAn3o40AN0RSHoDortwUuO2E9B4gyMS0SkMhBGsBkFB9tCCGtfKo0hevwd/Yn4l78w/aWGURTBcRxsNhv4QYCcFqAG8THGxl3D27/YfZZT5Ba5uZPblVIKkprn1vpSQ6WUPRyirSVaVUCLEk+7Fd7fv8PdYgJuGtU1HI3m0FpDcgUpFJqmNT8myAt+EQzDEC+mKWF8ROY9gDy+xeHXJxxJAtkKJDkxNVshdW9RxFP4ro9vH+ZY3j+ZRmb4+GOHu7mHuu3HGlZVZWsoh6ZIDsUzSEaxDTb4uv6MB2cGVlJzZpzLEsOLmHEkmIDSNZhxyk5urcP/hrcfmyB1hZyZTlblmR+H2wwz+qvBHvE63H8AJlL66UmpL8MAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Flux as an insurance company&quot;
         title=&quot;Flux as an insurance company&quot;
-        src=&quot;/static/a3643c541a05246930ae499dd07bd807/21b4d/flux-overview.png&quot;
-        srcset=&quot;/static/a3643c541a05246930ae499dd07bd807/72799/flux-overview.png 320w,
-/static/a3643c541a05246930ae499dd07bd807/6af66/flux-overview.png 640w,
-/static/a3643c541a05246930ae499dd07bd807/21b4d/flux-overview.png 1280w,
-/static/a3643c541a05246930ae499dd07bd807/6c2de/flux-overview.png 1334w&quot;
-        sizes=&quot;(max-width: 1280px) 100vw, 1280px&quot;
+        src=&quot;/static/8a642b138c1460516be7b6229dba5b45/dcccd/flux-overview.png&quot;
+        srcset=&quot;/static/8a642b138c1460516be7b6229dba5b45/72799/flux-overview.png 320w,
+/static/8a642b138c1460516be7b6229dba5b45/6af66/flux-overview.png 640w,
+/static/8a642b138c1460516be7b6229dba5b45/dcccd/flux-overview.png 1127w&quot;
+        sizes=&quot;(max-width: 1127px) 100vw, 1127px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
