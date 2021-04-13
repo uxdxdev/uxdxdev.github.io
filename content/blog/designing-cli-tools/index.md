@@ -264,7 +264,7 @@ The entry ids in this configuration file are only used if the user specifies the
 ...
 ```
 
-The `t1_` prefix specifies `Comment` data when using the Reddit API, and you can see here that we call `r.getMe()getComments(options)...` to fetch the comments data passing in the configured options. We also avoid calling `listing.fetchAll()` here when the `onlyLatest` option is set to make sure we get only the latest data and not all of the data stored for the user. 
+The `t1_` prefix specifies `Comment` data when using the Reddit API, and you can see here that we call `r.getMe().getComments(options)...` to fetch the comments data passing in the configured options. We also avoid calling `listing.fetchAll()` here when the `onlyLatest` option is set to make sure we get only the latest data and not all of the data stored for the user. 
 
 While implementing this feature I found it challenging to initially figure out how to keep state for a CLI tool. Typically CLI tools are stateless and so I found that using a configuration file that is queried based on user provided options was the cleanest way to get this to work, and also keeps things simple for the user. NPM does something similar in that when a user installs a new package this information is saved to the `package.json` file.
 
