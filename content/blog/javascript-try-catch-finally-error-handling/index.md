@@ -9,11 +9,11 @@ bannerLink: 'https://unsplash.com/photos/HJDdrWtlkIY'
 keywords: error handling,try,catch,finally
 ---
 
-> I recently fixed a bug that involved checking the DOM in multiple locations for a specific element. The existing code used try/catch blocks to prevent propagating errors. The try/catch/finally combo is not exactly intuitive.
+> I recently encountered a bug that showed up when checking the DOM in multiple locations for a specific element. The existing code used try/catch blocks to prevent propagating errors when DOM queries failed. The try/catch/finally combo is not exactly intuitive.
 
 <!-- end -->
 
-In this post I'll talk about a bug I encountered after a refactor of a component. The existing code used a single try/catch block to find an element, and if not found would try an alternative location for the element being targeted. This logic was not updated alongside the HTML during the refactor which introduced a bug.
+In this post I'll talk about a bug I encountered after a components HTML structure was refactored but the underlining JavaScript logic was not. The existing code used a single try/catch block to find an element in the DOM, and if not found would try an alternative location for the element being targeted. If the first query of the DOM failed the error was caught, but subsequent queries also caused errors and were not handled correctly.
 
 ## The component
 
@@ -24,7 +24,7 @@ The component in question is called a "multiple search page popup" which is a co
 
 When the user selects an option from the dropdown and then clicks the search icon we use JavaScript to find the selected option and use it to open a specific popup page. There are as many different popup pages as there are options in the dropdown, and popup pages allow the user to search for specific information.
 
-The bug appeared when some refactoring was done to use a "list box" component or a "select" element in this component depending on some page context data. For example we went from using only a "select" element for all instances of the "multiple search page popup" component to using a "select" element or a "list box" component.
+The bug appeared when some refactoring was done to use a "list box" component or a "select" element for the dropdown depending on some page context data. For example we went from using only a "select" element for all instances of the "multiple search page popup" component to using a "select" element or a "list box" component.
 
 ```html
 <select>
