@@ -296,7 +296,7 @@
 <h2>Conclusion</h2>
 <p>In this post I talked about a bug in a component I encountered recently that made me think a little harder about how the try/catch/finally blocks worked. At first I misunderstood when a functions execution would continue under certain error conditions, but as I explored a little deeper things became more clear.</p>
 <p>When you need to query the DOM in multiple locations within a single function call then maybe the solution presented here is “good enough”. But I’m sure there are better ways to handle this type of scenario. I would have preferred to isolate the logic for each variant of the “multiple search page popup” component to avoid having one function check multiple use cases, but there was potential here to impact the wider system so it was avoided. </p>
-<p>Working on this bug has reminded me that having a comprehensive set of unit and integration tests ensuring system stability as you refactor code is extremely valuable. Tests give you confidence that yours changes are not negatively impacting the wider system, but only if you have quality tests. Badly written tests can give developers false positives, but I think some bad tests are still better than no tests at all. </p>
+<p>Working on this bug has reminded me that having a comprehensive set of unit and integration tests ensuring system stability as you refactor code is extremely valuable. Tests give you confidence that your changes are not negatively impacting the wider system, but only if you have quality tests. Badly written tests can give developers false positives, but I think some bad tests are still better than no tests at all. </p>
 <p>So write some tests! if not for you, then do it for future you, or me.</p>
 <h2>References</h2>
 <ul>
