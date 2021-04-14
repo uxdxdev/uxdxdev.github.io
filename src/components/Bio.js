@@ -41,7 +41,7 @@ const Bio = () => {
                 borderBottom: 'none'
               }}
             >
-              <strong>{author}</strong> is a husband, father, and software engineer living in Ireland with interests in user interface design, a/b testing, user experience, developer experience, game design, business, and teaching.
+              <strong>{author}</strong> is a software engineer living in Ireland with interests in user interface design, a/b testing, user experience, developer experience, game design, business, and teaching.
             </Link>
           </div>
         )
