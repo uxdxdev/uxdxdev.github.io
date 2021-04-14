@@ -312,7 +312,7 @@ In this post I talked about a bug in a component I encountered recently that mad
 
 When you need to query the DOM in multiple locations within a single function call then maybe the solution presented here is "good enough". But I'm sure there are better ways to handle this type of scenario. I would have preferred to isolate the logic for each variant of the "multiple search page popup" component to avoid having one function check multiple use cases, but there was potential here to impact the wider system so it was avoided. 
 
-Working on this bug has reminded me that having a comprehensive set of unit and integration tests ensuring system stability as you refactor code is extremely valuable. Tests give you confidence that yours changes are not negatively impacting the wider system, but only if you have quality tests. Badly written tests can give developers false positives, but I think some bad tests are still better than no tests at all. 
+Working on this bug has reminded me that having a comprehensive set of unit and integration tests ensuring system stability as you refactor code is extremely valuable. Tests give you confidence that your changes are not negatively impacting the wider system, but only if you have quality tests. Badly written tests can give developers false positives, but I think some bad tests are still better than no tests at all. 
 
 So write some tests! if not for you, then do it for future you, or me.
 
