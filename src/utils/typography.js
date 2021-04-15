@@ -11,16 +11,7 @@ const typography = new Typography({
       styles: ['400', '500', '700'],
     },
   ],
-  overrideStyles: ({ rhythm, adjustFontSizeTo }) => ({
-    h1: {
-      ...adjustFontSizeTo('48px'),
-    },
-    h2: {
-      ...adjustFontSizeTo('40px'),
-    },
-    h3: {
-      ...adjustFontSizeTo('32px'),
-    },
+  overrideStyles: ({ rhythm }) => ({
     blockquote: {
       fontStyle: 'italic',
       paddingLeft: rhythm(1 / 2),
