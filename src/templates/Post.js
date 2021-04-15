@@ -1,12 +1,11 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
-import Bio from '../components/Bio'
 import SEO from '../components/seo'
 import { rhythm, scale } from '../utils/typography'
 import { keywords as commonKeywords } from '../utils/constants'
 import ExternalLink from '../components/ExternalLink'
-import Footer from '../components/Footer'
+
 import {
   EmailShareButton,
   EmailIcon,
@@ -120,13 +119,13 @@ class BlogPostTemplate extends React.Component {
               <WhatsappIcon size={sharingIconSize} round />
             </WhatsappShareButton>
           </div>
-          <hr
+          {/* <hr
             style={{
               marginBottom: rhythm(1),
               marginTop: rhythm(1),
             }}
-          />
-          <Bio />
+          /> */}
+          {/* <Bio /> */}
         </div>
       </>
     )

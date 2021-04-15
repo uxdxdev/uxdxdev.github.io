@@ -1,8 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import Image from 'gatsby-image'
-
-import { rhythm } from '../utils/typography'
+import ExternalLink from './ExternalLink'
 
 const Bio = () => {
   return (
@@ -12,38 +11,88 @@ const Bio = () => {
         const { author } = data.site.siteMetadata
 
         return (
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              marginBottom: rhythm(1),
-            }}
-          >
-            <Image
-              fixed={data.avatar.childImageSharp.fixed}
-              alt={author}
-              style={{
-                marginRight: rhythm(1 / 2),
-                marginBottom: 0,
-                minWidth: 80,
-                borderRadius: `100%`,
-              }}
-              imgStyle={{
-                borderRadius: `50%`,
-              }}
-            />
-
+          <>
             <Link
               to="/"
               style={{
                 textDecoration: 'none',
                 color: 'inherit',
-                borderBottom: 'none'
+                borderBottom: 'none',
               }}
             >
-              <strong>{author}</strong> is a software engineer living in Ireland with interests in user interface design, a/b testing, user experience, developer experience, game design, business, and teaching.
+              <h1
+                style={{
+                  marginBottom: '5px',
+                }}
+              >
+                {author}
+              </h1>
             </Link>
-          </div>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  marginRight: 'auto',
+                }}
+              >
+                <Link
+                  to="/"
+                  style={{
+                    textDecoration: 'none',
+                    color: 'inherit',
+                    borderBottom: 'none',
+                  }}
+                >
+                  UI design, a/b testing, user experience, developer
+                  experience, performance, business, and teaching.
+                </Link>
+                <div>
+                  <ExternalLink href="https://twitter.com/daithimorton">
+                    Twitter
+                  </ExternalLink>{' '}
+                  <ExternalLink href="https://github.com/daithimorton">
+                    GitHub
+                  </ExternalLink>{' '}
+                  <ExternalLink href="https://www.npmjs.com/~mortond">
+                    NPM
+                  </ExternalLink>{' '}
+                  <ExternalLink href="https://www.linkedin.com/in/daithimorton/">
+                    LinkedIn
+                  </ExternalLink>{' '}
+                  <ExternalLink href="https://stackoverflow.com/users/2600522/david-morton">
+                    Stackoverflow
+                  </ExternalLink>
+                </div>
+              </div>
+              <Link
+                to="/"
+                style={{
+                  textDecoration: 'none',
+                  color: 'inherit',
+                  borderBottom: 'none',
+                }}
+              >
+                <Image
+                  fixed={data.avatar.childImageSharp.fixed}
+                  alt={author}
+                  style={{
+                    minWidth: 120,
+                    borderRadius: `100%`,
+                  }}
+                  imgStyle={{
+                    marginBottom: 0,
+                    borderRadius: `50%`,
+                  }}
+                />
+              </Link>
+            </div>
+          </>
         )
       }}
     />
@@ -54,7 +103,7 @@ const bioQuery = graphql`
   query {
     avatar: file(absolutePath: { regex: "/profile_cropped.jpg/" }) {
       childImageSharp {
-        fixed(width: 80, height: 80, quality: 100) {
+        fixed(width: 120, height: 120, quality: 100) {
           ...GatsbyImageSharpFixed
         }
       }
