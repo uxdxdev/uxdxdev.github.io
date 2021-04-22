@@ -65,7 +65,7 @@ const Bio = () => {
                   <ExternalLink href="https://www.linkedin.com/in/daithimorton/">
                     LinkedIn
                   </ExternalLink>{' '}
-                  <ExternalLink href="https://stackoverflow.com/users/2600522/david-morton">
+                  <ExternalLink href="https://stackoverflow.com/users/2600522/david?tab=profile">
                     Stackoverflow
                   </ExternalLink>
                 </div>
