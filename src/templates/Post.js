@@ -47,8 +47,7 @@ class BlogPostTemplate extends React.Component {
 
         <div
           style={{
-            marginLeft: `auto`,
-            marginRight: `auto`,
+            margin: `${rhythm(1)} auto`,
             maxWidth: rhythm(30),
             padding: rhythm(1 / 2)
           }}
