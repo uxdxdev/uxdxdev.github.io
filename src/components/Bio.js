@@ -49,8 +49,8 @@ const Bio = () => {
                     borderBottom: 'none',
                   }}
                 >
-                  UI design, a/b testing, user experience, developer
-                  experience, performance, business, and teaching.
+                  Software engineer interested in web technologies, UI design, a/b testing, user experience, developer
+                  experience, open source, business, and teaching.
                 </Link>
                 <div>
                   <ExternalLink href="https://twitter.com/daithimorton">
