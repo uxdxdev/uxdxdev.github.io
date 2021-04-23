@@ -8,7 +8,6 @@
     "url": "https://github.com/daithimorton/daithimorton.github.io/issues"
   },
   "dependencies": {
-    "@babel/helper-define-map": "^7.13.12",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "gatsby": "^2.20.3",
