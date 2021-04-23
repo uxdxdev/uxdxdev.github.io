@@ -33,6 +33,7 @@
     "gatsby-transformer-sharp": "^2.4.2",
     "gh-pages": "^2.2.0",
     "prismjs": "^1.19.0",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^5.2.1",
@@ -42,8 +43,7 @@
   },
   "devDependencies": {
     "eslint": "^6.8.0",
-    "eslint-plugin-react": "^7.19.0",
-    "prettier": "^2.0.2"
+    "eslint-plugin-react": "^7.19.0"
   },
   "homepage": "https://github.com/daithimorton/daithimorton.github.io#readme",
   "keywords": [
