@@ -11,65 +11,20 @@ const Bio = () => {
         const { author } = data.site.siteMetadata
 
         return (
-          <>
-            <Link
-              to="/"
-              style={{
-                textDecoration: 'none',
-                color: 'inherit',
-                borderBottom: 'none',
-              }}
-            >
-              <h1
-                style={{
-                  marginBottom: '5px',
-                }}
-              >
-                {author}
-              </h1>
-            </Link>
+
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+            }}
+          >
             <div
               style={{
                 display: 'flex',
-                alignItems: 'center',
+                flexDirection: 'column',
+                marginRight: 'auto',
               }}
             >
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  marginRight: 'auto',
-                }}
-              >
-                <Link
-                  to="/"
-                  style={{
-                    textDecoration: 'none',
-                    color: 'inherit',
-                    borderBottom: 'none',
-                  }}
-                >
-                  Software engineer interested in web technologies, UI design, a/b testing, user experience, developer
-                  experience, open source, business, and teaching.
-                </Link>
-                <div>
-                  <ExternalLink href="https://twitter.com/daithimorton">
-                    Twitter
-                  </ExternalLink>{' '}
-                  <ExternalLink href="https://github.com/daithimorton">
-                    GitHub
-                  </ExternalLink>{' '}
-                  <ExternalLink href="https://www.npmjs.com/~mortond">
-                    NPM
-                  </ExternalLink>{' '}
-                  <ExternalLink href="https://www.linkedin.com/in/daithimorton/">
-                    LinkedIn
-                  </ExternalLink>{' '}
-                  <ExternalLink href="https://stackoverflow.com/users/2600522/david?tab=profile">
-                    Stackoverflow
-                  </ExternalLink>
-                </div>
-              </div>
               <Link
                 to="/"
                 style={{
@@ -78,21 +33,56 @@ const Bio = () => {
                   borderBottom: 'none',
                 }}
               >
-                <Image
-                  fixed={data.avatar.childImageSharp.fixed}
-                  alt={author}
+                <h1
                   style={{
-                    minWidth: 120,
-                    borderRadius: `100%`,
+                    marginBottom: '5px',
                   }}
-                  imgStyle={{
-                    marginBottom: 0,
-                    borderRadius: `50%`,
-                  }}
-                />
-              </Link>
+                >
+                  {author}
+                </h1>
+                    Software engineer interested in web technologies, UI design, a/b testing, user experience, developer
+                    experience, open source, business, and teaching.
+                </Link>
+              <div>
+                <ExternalLink href="https://twitter.com/daithimorton">
+                  Twitter
+                  </ExternalLink>{' '}
+                <ExternalLink href="https://github.com/daithimorton">
+                  GitHub
+                  </ExternalLink>{' '}
+                <ExternalLink href="https://www.npmjs.com/~mortond">
+                  NPM
+                  </ExternalLink>{' '}
+                <ExternalLink href="https://www.linkedin.com/in/daithimorton/">
+                  LinkedIn
+                  </ExternalLink>{' '}
+                <ExternalLink href="https://stackoverflow.com/users/2600522/david?tab=profile">
+                  Stackoverflow
+                  </ExternalLink>
+              </div>
             </div>
-          </>
+            <Link
+              to="/"
+              style={{
+                textDecoration: 'none',
+                color: 'inherit',
+                borderBottom: 'none',
+              }}
+            >
+              <Image
+                fixed={data.avatar.childImageSharp.fixed}
+                alt={author}
+                style={{
+                  minWidth: 120,
+                  borderRadius: `100%`,
+                }}
+                imgStyle={{
+                  marginBottom: 0,
+                  borderRadius: `50%`,
+                }}
+              />
+            </Link>
+          </div>
         )
       }}
     />
