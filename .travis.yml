@@ -2,12 +2,5 @@ language: node_js
 node_js:
   - '12'
 script:
-  - echo "skipping tests"
-deploy:
-  provider: script
-  script:
-    - yarn build
-    - yarn deploy
-  skip_cleanup: true
-  on:
-    branch: develop
+  - yarn build
+  - yarn deploy
