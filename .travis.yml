@@ -1,6 +1,4 @@
 language: node_js
-before_script:
-  - yarn add global gatsby
 node_js:
   - '12'
 script:
