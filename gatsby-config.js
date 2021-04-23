@@ -98,7 +98,7 @@ module.exports = {
             allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
               edges {
                 node {                  
-                  html
+                  body
                   frontmatter {
                     title
                     excerpt
