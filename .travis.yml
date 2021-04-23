@@ -5,7 +5,9 @@ script:
   - echo "skipping tests"
 deploy:
   provider: script
-  script: yarn deploy
+  script:
+    - yarn build
+    - yarn deploy
   skip_cleanup: true
   on:
     branch: develop
