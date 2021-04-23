@@ -7,11 +7,8 @@ bannerCredit: 'Photo by Scott Graham'
 bannerLink: 'https://unsplash.com/photos/5fNmWej4tAA'
 # see src/pages/index.js for default keywords
 keywords: tech,teaching,tips,tricks
+excerpt: A recent Tweet from Josh W. Comeau got me thinking more about how to teach technical subjects like programming more effectively. Here is a list of tips and tricks from his summary and more.
 ---
-
-> A recent Tweet from Josh W. Comeau got me thinking more about how to teach technical subjects like programming more effectively. Here is a list of tips and tricks from his summary and more.
-
-<!-- end -->
 
 In his Twitter thread Josh shares a summary of some of the things he has learned while teaching programming subjects through blogs and online courses. In this post I want to review this thread and also add some extra tips and tricks I've learned myself while mentoring and teaching.
 

@@ -2,29 +2,24 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
 import SEO from '../components/seo'
-import { rhythm, scale } from '../utils/typography'
+import { rhythm } from '../utils/typography'
 import { keywords as commonKeywords } from '../utils/constants'
 import ExternalLink from '../components/ExternalLink'
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import {
   EmailShareButton,
   EmailIcon,
-  FacebookShareButton,
-  FacebookIcon,
   LinkedinShareButton,
   LinkedinIcon,
-  RedditShareButton,
-  RedditIcon,
   TwitterShareButton,
   TwitterIcon,
-  WhatsappShareButton,
-  WhatsappIcon,
 } from 'react-share'
 import Header from '../components/Header'
 
-class BlogPostTemplate extends React.Component {
+class PostTemplate extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark
+    const post = this.props.data.mdx
     const siteTitle = this.props.data.site.siteMetadata.title
     const siteUrl = this.props.data.site.siteMetadata.siteUrl
     const { previous, next } = this.props.pageContext
@@ -55,7 +50,7 @@ class BlogPostTemplate extends React.Component {
 
           <SEO
             title={frontmatter.title}
-            description={post.excerpt}
+            description={frontmatter.excerpt}
             keywords={keywords}
             image={imageSrc}
           />
@@ -73,7 +68,8 @@ class BlogPostTemplate extends React.Component {
                 marginTop: rhythm(-1 / 2),
               }}
             >
-              ☕ {post.fields.readingTime.text}
+              {/* ☕ {post.fields.readingTime.text} */}
+              ☕ {post.timeToRead} min read
             </p>
           </div>
 
@@ -90,8 +86,7 @@ class BlogPostTemplate extends React.Component {
           )}
 
           <br />
-
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          <MDXRenderer>{post.body}</MDXRenderer>
           <h2>Share this post</h2>
           <div>
             <LinkedinShareButton url={shareUrl} title={postTitle}>
@@ -103,35 +98,14 @@ class BlogPostTemplate extends React.Component {
             <EmailShareButton url={shareUrl} subject={postTitle}>
               <EmailIcon size={sharingIconSize} round />
             </EmailShareButton>
-            <RedditShareButton url={shareUrl} title={postTitle}>
-              <RedditIcon size={sharingIconSize} round />
-            </RedditShareButton>
-            <FacebookShareButton url={shareUrl} quote={postTitle}>
-              <FacebookIcon size={sharingIconSize} round />
-            </FacebookShareButton>
-            <WhatsappShareButton
-              url={shareUrl}
-              title={postTitle}
-              windowWidth={660}
-              windowHeight={460}
-            >
-              <WhatsappIcon size={sharingIconSize} round />
-            </WhatsappShareButton>
           </div>
-          {/* <hr
-            style={{
-              marginBottom: rhythm(1),
-              marginTop: rhythm(1),
-            }}
-          /> */}
-          {/* <Bio /> */}
         </div>
       </>
     )
   }
 }
 
-export default BlogPostTemplate
+export default PostTemplate
 
 export const pageQuery = graphql`
   query($slug: String!) {
@@ -141,12 +115,12 @@ export const pageQuery = graphql`
         siteUrl
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt
-      html
+    mdx(fields: { slug: { eq: $slug } }) {
+      id      
+      body
       frontmatter {
         title
+        excerpt
         bannerCredit
         bannerLink
         imageAltText
@@ -160,11 +134,9 @@ export const pageQuery = graphql`
         }
       }
       fields {
-        slug
-        readingTime {
-          text
-        }
+        slug        
       }
+      timeToRead 
     }
   }
 `

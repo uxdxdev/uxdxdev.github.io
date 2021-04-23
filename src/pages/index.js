@@ -6,14 +6,13 @@ import { rhythm } from '../utils/typography'
 import { keywords as commonKeywords } from '../utils/constants'
 import bannerSrc from '../../content/assets/blogBanner.jpg'
 import Header from '../components/Header'
-import Footer from '../components/Footer'
 
 class LandingPage extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const siteUrl = data.site.siteMetadata.siteUrl
-    const posts = data.allMarkdownRemark.edges
+    const posts = data.allMdx.edges
     const imageSrc = siteUrl + bannerSrc
 
     return (
@@ -21,7 +20,7 @@ class LandingPage extends React.Component {
         <Header />
 
         <SEO
-          title="All posts"
+          title="David Morton"
           keywords={commonKeywords}
           image={imageSrc}
         />
@@ -65,7 +64,9 @@ class LandingPage extends React.Component {
                   <p style={{
                     marginBottom: rhythm(1 / 3),
                     textAlign: 'center'
-                  }}>☕ {node.fields.readingTime.text}</p>
+                  }}>
+                    ☕ {node.timeToRead} min read
+                  </p>
                   <Image
                     fluid={banner.childImageSharp.fluid}
                     alt={node.frontmatter.imageAltText}
@@ -75,7 +76,7 @@ class LandingPage extends React.Component {
                       }
                     }
                   />
-                  <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+                  <p dangerouslySetInnerHTML={{ __html: node.frontmatter.excerpt }} />
                 </Link>
 
               </div>
@@ -83,7 +84,6 @@ class LandingPage extends React.Component {
           })}
         </div>
 
-        {/* <Footer /> */}
       </>
     )
   }
@@ -99,18 +99,16 @@ export const pageQuery = graphql`
         siteUrl
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
-          excerpt
           fields {
-            slug
-            readingTime {
-              text
-            }
+            slug           
           }
+          timeToRead
           frontmatter {
             title
+            excerpt
             banner {
               childImageSharp {
                 fluid(maxWidth: 720, quality: 100) {

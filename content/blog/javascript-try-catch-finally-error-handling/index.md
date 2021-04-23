@@ -7,11 +7,8 @@ bannerCredit: 'Photo by Hans Isaacson'
 bannerLink: 'https://unsplash.com/photos/HJDdrWtlkIY'
 # see src/pages/index.js for default keywords
 keywords: error handling,try,catch,finally
+excerpt: I recently encountered a bug that showed up when checking the DOM in multiple locations for a specific element. The existing code used try/catch blocks to prevent propagating errors when DOM queries failed. The try/catch/finally combo is not exactly intuitive.
 ---
-
-> I recently encountered a bug that showed up when checking the DOM in multiple locations for a specific element. The existing code used try/catch blocks to prevent propagating errors when DOM queries failed. The try/catch/finally combo is not exactly intuitive.
-
-<!-- end -->
 
 In this post I'll talk about a bug I encountered after a components HTML structure was refactored but the underlining JavaScript logic was not. The existing code used a single try/catch block to find an element in the DOM, and if not found would try an alternative location for the element being targeted. If the first query of the DOM failed the error was caught, but subsequent queries also caused errors and were not handled correctly.
 

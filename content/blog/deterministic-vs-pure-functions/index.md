@@ -7,11 +7,8 @@ bannerCredit: 'Photo by Michael Oxendine'
 bannerLink: 'https://unsplash.com/photos/t7wwffh6x8E'
 # see src/pages/index.js for default keywords
 keywords: nodejs,pure,deterministic,functions
+excerpt: All pure functions are deterministic, but not all deterministic functions are pure. Pure functions are easier to reason about and test, you should aim to implement pure functions.
 ---
-
-> All pure functions are deterministic, but not all deterministic functions are pure. Pure functions are easier to reason about and test, you should aim to implement pure functions.
-
-<!-- end -->
 
 Pure functions are deterministic AND they have no side effects. Deterministic functions may have side effects. Both types of functions return the same output every time they are invoked with the same inputs between invocations. 
 

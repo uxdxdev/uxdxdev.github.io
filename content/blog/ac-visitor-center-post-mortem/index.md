@@ -7,11 +7,8 @@ bannerCredit: 'Photo by Steve Johnson'
 bannerLink: 'https://unsplash.com/photos/wqhId9KS-do'
 # see src/pages/index.js for default keywords
 keywords: nodejs,react,firebase,video games,saas
+excerpt: AC Visitor Center is a queue manager using ReactJS and Firebase created to solve a problem I had in a video game. It allows for a secret code to be securely exposed to the first person in a queue.
 ---
-
-> AC Visitor Center is a queue manager using ReactJS and Firebase created to solve a problem I had in a video game. It allows for a secret code to be securely exposed to the first person in a queue.
-
-<!-- end -->
 
 In this post I'm going to describe a small side project I worked on AC Visitor Center. The idea for this little side project came from playing a video game, I won't mention the game here but it involves islands, turnips, and traders. I will talk about the UI/UX design and the features of Google's Firebase platform that I used which include hosting, real-time database, Firestore database, and analytics. I'll also talk about some interesting problems I had to solve along the way.
 

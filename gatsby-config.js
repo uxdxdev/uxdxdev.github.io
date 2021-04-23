@@ -3,7 +3,7 @@ module.exports = {
     title: `davidmorton.dev`,
     author: `David Morton`,
     twitter: `daithimorton`,
-    description: `Let's talk about that.`,
+    description: `Come check out my experiences of being a software engineer and beyond.`,
     siteUrl: `https://davidmorton.dev`,
   },
   plugins: [`gatsby-plugin-twitter`,
@@ -22,10 +22,10 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        excerpt_separator: `<!-- end -->`,
-        plugins: [
+        extensions: [`.md`, `.mdx`],
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -81,11 +81,11 @@ module.exports = {
       `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map((edge) => {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map((edge) => {
                 return Object.assign({}, edge.node.frontmatter, {
                   title: edge.node.frontmatter.title,
-                  description: edge.node.excerpt,
+                  description: edge.node.frontmatter.excerpt,
                   url: `${site.siteMetadata.siteUrl}/blog${edge.node.fields.slug}`,
                   guid: `${site.siteMetadata.siteUrl}/blog${edge.node.fields.slug}`,
                   custom_elements: [{ 'content:encoded': edge.node.html }],
@@ -95,13 +95,13 @@ module.exports = {
             },
             query: `
           {
-            allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+            allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
               edges {
-                node {
-                  excerpt
+                node {                  
                   html
                   frontmatter {
-                    title                    
+                    title
+                    excerpt
                     keywords                  
                   }
                   fields {

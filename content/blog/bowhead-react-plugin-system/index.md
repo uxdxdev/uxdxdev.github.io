@@ -7,11 +7,8 @@ bannerCredit: 'Photo by Bill Jelen'
 bannerLink: 'https://unsplash.com/photos/woWf_VJ7dNs'
 # see src/pages/index.js for default keywords
 keywords: design,developer experience,plugins
+excerpt: Bowhead is a boilerplate project for fast micro-saas prototyping using Google's Firebase platform for authentication and data storage, ReactJS for UI, and Stripe for subscription payment processing.
 ---
-
-> Bowhead is a boilerplate project for fast micro-saas prototyping using Google's Firebase platform for authentication and data storage, ReactJS for UI, and Stripe for subscription payment processing.
-
-<!-- end -->
 
 What is a Micro-Saas? 
 

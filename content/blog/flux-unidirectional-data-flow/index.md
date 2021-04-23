@@ -7,11 +7,8 @@ bannerCredit: 'Photo by Matt Hardy'
 bannerLink: 'https://unsplash.com/photos/6ArTTluciuA'
 # see src/pages/index.js for default keywords
 keywords: flux,soc,redux,data flow
+excerpt: Flux is the application architecture that Facebook uses for building client-side web applications. Redux is a popular JavaScript implementation of the Flux pattern. This pattern can be explained through the analogy of an insurance company.
 ---
-
-> Flux is the application architecture that Facebook uses for building client-side web applications. Redux is a popular JavaScript implementation of the Flux pattern. This pattern can be explained through the analogy of an insurance company.
-
-<!-- end -->
 
 I've recently been working through a popular [React course on Udemy](https://www.udemy.com/course/react-redux/) and in this course the Flux pattern is explained using an insurance company analogy with Redux. I'm going to share this example and expand on it a little, hopefully it's useful to you.
 

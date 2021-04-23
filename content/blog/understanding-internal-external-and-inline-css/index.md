@@ -7,11 +7,8 @@ bannerCredit: 'Photo by Maik Jonietz'
 bannerLink: 'https://unsplash.com/photos/_yMciiStJyY'
 # see src/pages/index.js for default keywords
 keywords: css,stylesheets,internal,external,inline
+excerpt: There are three main techniques to load Cascading Style Sheets (CSS) in your HTML pages; internal, external, and inline. Performance and maintainability, among other factors, can be impacted by your approach so choose wisely.
 ---
-
-> There are three main techniques to load Cascading Style Sheets (CSS) in your HTML pages; internal, external, and inline. Performance and maintainability, among other factors, can be impacted by your approach so choose wisely.
-
-<!-- end -->
 
 The three main ways to load CSS in your HTML pages are:
 
