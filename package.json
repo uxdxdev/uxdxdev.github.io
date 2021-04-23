@@ -8,6 +8,7 @@
     "url": "https://github.com/daithimorton/daithimorton.github.io/issues"
   },
   "dependencies": {
+    "@babel/helper-define-map": "^7.13.12",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "gatsby": "^2.20.3",
@@ -57,8 +58,8 @@
   "scripts": {
     "clean": "gatsby clean",
     "start": "yarn clean && gatsby develop",
-    "build": "yarn clean && gatsby build --verbose",
-    "deploy": "cp CNAME public/ && gh-pages -d public -b master -r https://${GITHUB_TOKEN}@github.com/daithimorton/daithimorton.github.io.git",
+    "build": "gatsby build",
+    "deploy": "yarn build && cp CNAME public/ && gh-pages -d public -b master -r https://${GITHUB_TOKEN}@github.com/daithimorton/daithimorton.github.io.git",
     "commit": "git add . && git commit -am \"blog updates\" && git push"
   }
 }
