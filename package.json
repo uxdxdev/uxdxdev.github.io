@@ -59,6 +59,6 @@
     "start": "yarn clean && gatsby develop",
     "build": "gatsby build",
     "deploy": "yarn build && cp CNAME public/ && gh-pages -d public -b master -r https://${GITHUB_TOKEN}@github.com/daithimorton/daithimorton.github.io.git",
-    "commit": "git add . && git commit -am \"blog updates\" && git push"
+    "commit": "git commit -am \"blog updates\" && git push"
   }
 }

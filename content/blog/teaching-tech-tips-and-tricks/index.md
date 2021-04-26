@@ -1,5 +1,5 @@
 ---
-date: '2021-05-01'
+date: '2021-04-22'
 title: 'Teaching Technology Tips and Tricks'
 banner: './images/banner.jpeg'
 imageAltText: 'two laptops on a table with people sitting in front of each talking'
@@ -10,7 +10,7 @@ keywords: tech,teaching,tips,tricks
 excerpt: A recent Tweet from Josh W. Comeau got me thinking more about how to teach technical subjects like programming more effectively. Here is a list of tips and tricks from his summary and more.
 ---
 
-In his Twitter thread Josh shares a summary of some of the things he has learned while teaching programming subjects through blogs and online courses. In this post I want to review this thread and also add some extra tips and tricks I've learned myself while mentoring and teaching.
+In his [Tweet thread](https://twitter.com/JoshWComeau/status/1381611771841146883) Josh W. Comeau shares a summary of some of the things he has learned while teaching programming subjects through blogs and online courses. In this post I want to review this thread and also add some extra tips and tricks I've learned myself while mentoring and teaching.
 
 ## Tips and Tricks
 
