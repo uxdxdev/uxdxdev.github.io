@@ -32,7 +32,7 @@ When a student opens your video or blog post give them a quick win immediately. 
 
 - Leverage what the student already knows
 
-If your teaching JavaScript it's likely the student has a technical background, use some technical subject in analogies. If a student can relate to the content they are learning they will be more engaged and it will be easier for them to learn. Analogies let students use a mental modal they already have and apply it to what they are currently learning. Innovation!.
+If your teaching JavaScript it's likely the student has a technical background, use some technical subject in analogies. If a student can relate to the content they are learning they will be more engaged and it will be easier for them to learn. Analogies let students use a mental model they already have and apply it to what they are currently learning. Innovation!.
 
 - Guide on the side, not Sage on the stage
 
