@@ -279,7 +279,9 @@ try {
 console.log('this will run')
 ```
 
-One final little thing I wanted to highlight about the `try/catch/finally` logic is that if we introduce some asynchronous code exection here we essentially break out of the `try/catch/finally` entirely. In the above example the `alert()` call is ignored and the error thrown in the `try` section will crash the application. This is because the `setTimeout()` function will branch the process exection and will just continue on as normal hitting the `finally` section and beyond. Then when the timeout delay is up the browser will be hit with this error out of nowhere and it won't know what to do with it. So be careful with asynchronous code execution in `try/catch/finally` blocks.
+One final little thing I wanted to highlight about the `try/catch/finally` logic is that if we introduce some asynchronous code exection here we essentially break out of the `try/catch/finally` entirely. In the above example the `alert()` call is ignored and the error thrown in the `try` section will be output to the console.
+
+This is because the `setTimeout()` function will branch the process exection and will just continue on as normal hitting the `finally` section and beyond. Then when the timeout delay is up the browser will be hit with this error out of nowhere and it won't know what to do with it. So be careful with asynchronous code execution in `try/catch/finally` blocks.
 
 ## The solution
 
