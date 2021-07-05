@@ -17,7 +17,7 @@ In this post I'll talk about a bug I encountered after a components HTML structu
 The component in question is called a "multiple search page popup" which is a combination of a dropdown and a link, in this case the search icon is the link.
 
 ![Multiple search page popup](./images/multiple-search-page-popup.png)
-*Multiple search page popup component*
+_Multiple search page popup component_
 
 When the user selects an option from the dropdown and then clicks the search icon we use JavaScript to find the selected option and use it to open a specific popup page. There are as many different popup pages as there are options in the dropdown, and popup pages allow the user to search for specific information.
 
@@ -29,7 +29,8 @@ The bug appeared when some refactoring was done to use a "list box" component or
   <option value="CP2">Employer</option>
 </select>
 ```
-*A select element with options for the dropdown*
+
+_A select element with options for the dropdown_
 
 ```html
 <div id="list-box">
@@ -37,7 +38,8 @@ The bug appeared when some refactoring was done to use a "list box" component or
   <div value="CP2">Employer</div>
 </div>
 ```
-*A list box component using multiple div elements as options in the dropdown*
+
+_A list box component using multiple div elements as options in the dropdown_
 
 > I'm not going to go into why this decision was made because it does not help us understand error handling in this example. But at this point you should understand that we now use two different HTML structures depending on the page context. And both versions of this component look identical to the user.
 
@@ -57,74 +59,77 @@ I've re-created the "multiple search page popup" component HTML structure in a v
   <a href="#" id="link">Open popup</a>
 </div>
 ```
-*New variant of the multiple search page popup component using a list box*
+
+_New variant of the multiple search page popup component using a list box_
 
 ![Multiple search page popup recreated](./images/multiple-search-page-popup-recreation.png)
-*Multiple search page popup component rendered in the browser*
+_Multiple search page popup component rendered in the browser_
 
 In the above code snippet and image you can see the newest version of the "multiple search page popup" component. I've omitted some styling to hide the options `Person` and `Employer` behind a dropdown menu. And the "Open popup" link represents the search icon.
 
 The `input` element shows the value associated with the users selection from the "dropdown", in this case the user selected `Employer` which has a value of `CP2`. Now when the "Open popup" link is clicked this value of `CP2` is used to select the popup page to be rendered.
 
 ```javascript
-document.querySelectorAll("#list-box-item").forEach(function (item) {
-  item.addEventListener("click", function () {
-    const container = this.parentNode.parentNode;
-    const hiddenInputElement = container.childNodes[1];
-    hiddenInputElement.value = this.getAttribute("value");
-  });
-});
+document.querySelectorAll('#list-box-item').forEach(function (item) {
+  item.addEventListener('click', function () {
+    const container = this.parentNode.parentNode
+    const hiddenInputElement = container.childNodes[1]
+    hiddenInputElement.value = this.getAttribute('value')
+  })
+})
 ```
 
 This is an example of the code used to interact with the list box component. You may have some suggestions for improvements, but for now this is what we have to work with.
 
 ```javascript
-document.querySelector("#link").addEventListener("click", function () {
-  let value = null;
-  const container = this.parentNode;
+document.querySelector('#link').addEventListener('click', function () {
+  let value = null
+  const container = this.parentNode
   // find the selected option
   try {
     // location 1
-    const selectElement = container.childNodes[0];
-    value = selectElement.options[selectElement.selectedIndex];
+    const selectElement = container.childNodes[0]
+    value = selectElement.options[selectElement.selectedIndex]
   } catch (e) {
     // location 2
-    const selectElement = container.childNodes[1];
-    value = selectElement.options[selectElement.selectedIndex];
-  }  
-  console.log(value);
-});
+    const selectElement = container.childNodes[1]
+    value = selectElement.options[selectElement.selectedIndex]
+  }
+  console.log(value)
+})
 ```
-*Multiple search popup component logic (old)*
 
-And this is the old JavaScript logic that closely resembles where the bug was found. It searches in two different locations expecting a `select` element in both cases. 
+_Multiple search popup component logic (old)_
+
+And this is the old JavaScript logic that closely resembles where the bug was found. It searches in two different locations expecting a `select` element in both cases.
 
 This code was designed to work with the original version of our "multiple search popup component" and will not search for the selected option in our new component variant that uses a "list box" component so we need to update it.
 
 ```javascript
-document.querySelector("#link").addEventListener("click", function () {
-  let value = null;
-  const container = this.parentNode;
+document.querySelector('#link').addEventListener('click', function () {
+  let value = null
+  const container = this.parentNode
   // find the selected option
   try {
     // location 1
-    const selectElement = container.childNodes[0];
-    value = selectElement.options[selectElement.selectedIndex];
+    const selectElement = container.childNodes[0]
+    value = selectElement.options[selectElement.selectedIndex]
   } catch (e) {
     // location 2
-    const selectElement = container.childNodes[1];
-    value = selectElement.options[selectElement.selectedIndex];
-  }  
+    const selectElement = container.childNodes[1]
+    value = selectElement.options[selectElement.selectedIndex]
+  }
 
   // location 3
   if (!value) {
-    const hiddenInputElement = container.firstElementChild;
-    value = hiddenInputElement.value;
+    const hiddenInputElement = container.firstElementChild
+    value = hiddenInputElement.value
   }
-  console.log(value);
-});
+  console.log(value)
+})
 ```
-*Multiple search popup component logic (new)*
+
+_Multiple search popup component logic (new)_
 
 This was the first change I made and tested. We added a new location to search, `location 3`, the first child of the container. This should grab our `input` element in our "list box" component to find the selected option value if the first two searches fail.
 
@@ -141,52 +146,56 @@ function run() {
   try {
     // no error
   } finally {
-    console.log("this will always run");
+    console.log('this will always run')
   }
 }
-run();
+run()
 ```
-*No errors are thrown, finally will run*
+
+_No errors are thrown, finally will run_
 
 ```javascript
 function run() {
   try {
-    throw new Error();
+    throw new Error()
   } finally {
-    console.log("this will always run");
+    console.log('this will always run')
   }
 }
-run();
+run()
 ```
-*Throw an error in try, finally will run*
+
+_Throw an error in try, finally will run_
 
 ```javascript
 function run() {
   try {
-    throw new Error();
+    throw new Error()
   } catch (e) {
     // no error
   } finally {
-    console.log("this will always run");
+    console.log('this will always run')
   }
 }
-run();
+run()
 ```
-*Throw an error in try but not in catch, finally will run*
+
+_Throw an error in try but not in catch, finally will run_
 
 ```javascript
 function run() {
   try {
-    throw new Error();
+    throw new Error()
   } catch (e) {
-    throw new Error();
+    throw new Error()
   } finally {
-    console.log("this will always run");
+    console.log('this will always run')
   }
 }
-run();
+run()
 ```
-*Throw an error in try and an error in catch, finally will run*
+
+_Throw an error in try and an error in catch, finally will run_
 
 Now we know `finally` will always run even if we do not throw an error, but function execution may not always continue, for example;
 
@@ -195,77 +204,97 @@ function run() {
   try {
     // no error
   } finally {
-    console.log("this will always run");
+    console.log('this will always run')
   }
 
-  console.log("this will run");
+  console.log('this will run')
 }
-run();
+run()
 ```
-*No errors are thrown, function execution continues*
+
+_No errors are thrown, function execution continues_
 
 ```javascript
 function run() {
   try {
-    throw new Error();
+    throw new Error()
   } finally {
-    console.log("this will always run");
+    console.log('this will always run')
   }
 
-  console.log("this will NOT run");
+  console.log('this will NOT run')
 }
-run();
+run()
 ```
-*Throw an error in try, function execution stops*
+
+_Throw an error in try, function execution stops_
 
 ```javascript
 function run() {
   try {
-    throw new Error();
+    throw new Error()
   } catch (e) {
     // no error
   } finally {
-    console.log("this will always run");
+    console.log('this will always run')
   }
 
-  console.log("this will run");
+  console.log('this will run')
 }
-run();
+run()
 ```
-*Throw an error in try but not in catch, function execution continues*
+
+_Throw an error in try but not in catch, function execution continues_
 
 ```javascript
 function run() {
   try {
-    throw new Error();
+    throw new Error()
   } catch (e) {
-    throw new Error();
+    throw new Error()
   } finally {
-    console.log("this will always run");
+    console.log('this will always run')
   }
 
-  console.log("this will NOT run");
+  console.log('this will NOT run')
 }
-run();
+run()
 ```
-*Throw an error in try and in catch, function execution stops*
 
-So function execution will continue only if there are no errors, or if we have a `catch` block that does not throw any errors. 
+_Throw an error in try and in catch, function execution stops_
+
+So function execution will continue only if there are no errors, or if we have a `catch` block that does not throw any errors.
+
+```javascript
+try {
+  setTimeout(() => {
+    throw new Error()
+  }, 100)
+} catch (err) {
+  alert('WOAH! there was an error')
+} finally {
+  console.log('this will always run')
+}
+
+console.log('this will run')
+```
+
+One final little thing I wanted to highlight about the `try/catch/finally` logic is that if we introduce some asynchronous code exection here we essentially break out of the `try/catch/finally` entirely. In the above example the `alert()` call is ignored and the error thrown in the `try` section will crash the application. This is because the `setTimeout()` function will branch the process exection and will just continue on as normal hitting the `finally` section and beyond. Then when the timeout delay is up the browser will be hit with this error out of nowhere and it won't know what to do with it. So be careful with asynchronous code execution in `try/catch/finally` blocks.
 
 ## The solution
 
 If we take this learning now, and apply it to our bug described above in the "multiple search page popup" component, we can implement a very basic solution. This solution will search across different DOM locations and HTML structures until we find our selected option.
 
 ```javascript
-document.querySelector("#link").addEventListener("click", function () {
-  let value = null;
-  const container = this.parentNode;
+document.querySelector('#link').addEventListener('click', function () {
+  let value = null
+  const container = this.parentNode
   // find the selected option
   try {
     // location 1
     if (!value) {
-      const selectElement = container.childNodes[0];
-      value = selectElement.options[selectElement.selectedIndex];
+      const selectElement = container.childNodes[0]
+      value = selectElement.options[selectElement.selectedIndex]
     }
   } catch (e) {
     // do nothing
@@ -274,8 +303,8 @@ document.querySelector("#link").addEventListener("click", function () {
   try {
     // location 2
     if (!value) {
-      const selectElement = container.childNodes[1];
-      value = selectElement.options[selectElement.selectedIndex];
+      const selectElement = container.childNodes[1]
+      value = selectElement.options[selectElement.selectedIndex]
     }
   } catch (e) {
     // do nothing
@@ -284,18 +313,18 @@ document.querySelector("#link").addEventListener("click", function () {
   try {
     // location 3
     if (!value) {
-      const hiddenInputElement = container.firstElementChild;
-      value = hiddenInputElement.value;
+      const hiddenInputElement = container.firstElementChild
+      value = hiddenInputElement.value
     }
   } catch (e) {
     // do nothing
   }
 
-  console.log(value);
-});
-
+  console.log(value)
+})
 ```
-*Each time we query the DOM we do it inside of a try/catch block*
+
+_Each time we query the DOM we do it inside of a try/catch block_
 
 In the above code snippet we look for a "select" element in our containers child nodes collection at index `0` and `1`. Failing this we then grab the first child element of the container and extract it's value. This covers all known variants of our "multiple search page popup" component, using both the "select" element and a "list box" component.
 
@@ -307,9 +336,9 @@ But in our new version of the component a "list box" component uses a bunch of `
 
 In this post I talked about a bug in a component I encountered recently that made me think a little harder about how the try/catch/finally blocks worked. At first I misunderstood when a functions execution would continue under certain error conditions, but as I explored a little deeper things became more clear.
 
-When you need to query the DOM in multiple locations within a single function call then maybe the solution presented here is "good enough". But I'm sure there are better ways to handle this type of scenario. I would have preferred to isolate the logic for each variant of the "multiple search page popup" component to avoid having one function check multiple use cases, but there was potential here to impact the wider system so it was avoided. 
+When you need to query the DOM in multiple locations within a single function call then maybe the solution presented here is "good enough". But I'm sure there are better ways to handle this type of scenario. I would have preferred to isolate the logic for each variant of the "multiple search page popup" component to avoid having one function check multiple use cases, but there was potential here to impact the wider system so it was avoided.
 
-Working on this bug has reminded me that having a comprehensive set of unit and integration tests ensuring system stability as you refactor code is extremely valuable. Tests give you confidence that your changes are not negatively impacting the wider system, but only if you have quality tests. Badly written tests can give developers false positives, but I think some bad tests are still better than no tests at all. 
+Working on this bug has reminded me that having a comprehensive set of unit and integration tests ensuring system stability as you refactor code is extremely valuable. Tests give you confidence that your changes are not negatively impacting the wider system, but only if you have quality tests. Badly written tests can give developers false positives, but I think some bad tests are still better than no tests at all.
 
 So write some tests! if not for you, then do it for future you, or me.
 
