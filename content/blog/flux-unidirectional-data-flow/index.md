@@ -184,7 +184,7 @@ console.log(y)
 ```
 *Copying object properties and values at each level of an object tree*
 
-We want to make copies of an objects properties at each level of the object tree. If we don't do this we can end up with references to sections fo the original object tree.
+We want to make copies of an objects properties at each level of the object tree. If we don't do this we can end up with references to sections of the original object tree.
 
 ```javascript
 const x = {
