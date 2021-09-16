@@ -1,9 +1,8 @@
-[![Build Status](https://travis-ci.org/uxdxdev/uxdxdev.github.io.svg?branch=develop)](https://travis-ci.org/uxdxdev/uxdxdev.github.io)
+![Workflow Status](https://github.com/uxdxdev/uxdxdev.github.io/actions/workflows/deploy-github-pages.yml/badge.svg)
 
-# uxdxdev.github.io
+# Built with
 
-- Gatsbyjs
+- Gatsbyjs Static Site Generator
 - ReactJS
-- GitHub Pages
-
-[Blog](https://uxdxdev.github.io)
+- GitHub Actions for CI
+- GitHub Pages for hosting
