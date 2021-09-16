@@ -54,7 +54,7 @@ jobs:
           # Set a SSH private key from repository secret value for pushing to the remote branch.
           #deploy_key: # optional
           # Set a generated GITHUB_TOKEN for pushing to the remote branch.
-          #github_token: # optional
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           # Set a personal access token for pushing to the remote branch.
           #personal_token: # optional
           # Set a target branch for deployment.
