@@ -1,9 +1,9 @@
-[![Build Status](https://travis-ci.org/daithimorton/daithimorton.github.io.svg?branch=develop)](https://travis-ci.org/daithimorton/daithimorton.github.io)
+[![Build Status](https://travis-ci.org/uxdxdev/uxdxdev.github.io.svg?branch=develop)](https://travis-ci.org/uxdxdev/uxdxdev.github.io)
 
-# daithimorton.github.io
+# uxdxdev.github.io
 
 - Gatsbyjs
 - ReactJS
 - GitHub Pages
 
-[Blog](https://daithimorton.github.io)
+[Blog](https://uxdxdev.github.io)

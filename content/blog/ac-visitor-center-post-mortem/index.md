@@ -159,7 +159,7 @@ If you made it this far thank you for reading. I encourage you to [build useless
 
 ## References
 
-- [AC Visitor Center](https://github.com/daithimorton/acvisitorcenter)
+- [AC Visitor Center](https://github.com/uxdxdev/acvisitorcenter)
 - [Firebase](https://firebase.google.com/)
 - [ReactJS](https://reactjs.org/)
 - [Material UI](https://material-ui.com/)

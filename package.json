@@ -1,11 +1,11 @@
 {
-  "name": "daithimorton.github.io",
+  "name": "uxdxdev.github.io",
   "private": true,
   "description": "Let's talk about that.",
   "version": "0.0.1",
   "author": "David Morton",
   "bugs": {
-    "url": "https://github.com/daithimorton/daithimorton.github.io/issues"
+    "url": "https://github.com/uxdxdev/uxdxdev.github.io/issues"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
@@ -45,20 +45,20 @@
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.19.0"
   },
-  "homepage": "https://github.com/daithimorton/daithimorton.github.io#readme",
+  "homepage": "https://github.com/uxdxdev/uxdxdev.github.io#readme",
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/daithimorton/daithimorton.github.io.git"
+    "url": "git+https://github.com/uxdxdev/uxdxdev.github.io.git"
   },
   "scripts": {
     "clean": "gatsby clean",
     "start": "yarn clean && gatsby develop",
     "build": "gatsby build",
-    "deploy": "yarn build && cp CNAME public/ && gh-pages -d public -b master -r https://${GITHUB_TOKEN}@github.com/daithimorton/daithimorton.github.io.git",
+    "deploy": "gh-pages -d public -b master -r https://${GITHUB_TOKEN}@github.com/uxdxdev/uxdxdev.github.io.git",
     "commit": "git commit -m \"blog updates\" && git push"
   }
 }

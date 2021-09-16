@@ -155,7 +155,7 @@ _Orca will download the users Reddit data once using it's default configuration_
 
 ## Implementation
 
-Based on the user stories documented above for this tool I will describe in this section the more interesting parts of the implementation, you can review all of the code on the GitHub repository [here](https://github.com/daithimorton/orca).
+Based on the user stories documented above for this tool I will describe in this section the more interesting parts of the implementation, you can review all of the code on the GitHub repository [here](https://github.com/uxdxdev/orca).
 
 ### Formatting
 
@@ -312,7 +312,7 @@ Most of these features will become apparent the more you talk to your users abou
 
 ## References
 
-- [Orca](https://github.com/daithimorton/orca)
+- [Orca](https://github.com/uxdxdev/orca)
 - [snoowrap](https://github.com/not-an-aardvark/snoowrap)
 - [Commander.js](https://github.com/tj/commander.js/)
 - [ora](https://github.com/sindresorhus/ora)

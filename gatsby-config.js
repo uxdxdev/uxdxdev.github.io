@@ -1,12 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: `davidmorton.dev`,
+    title: `uxdx.dev`,
     author: `David Morton`,
-    twitter: `daithimorton`,
-    description: `Come check out my experiences of being a software engineer and beyond.`,
-    siteUrl: `https://davidmorton.dev`,
+    twitter: `uxdxdev`,
+    description: `My experiences of being a software engineer.`,
+    siteUrl: `https://uxdx.dev`,
   },
-  plugins: [`gatsby-plugin-twitter`,
+  plugins: [
+    `gatsby-plugin-twitter`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -121,8 +122,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `davidmorton.dev`,
-        short_name: `davidmorton.dev`,
+        name: `uxdx.dev`,
+        short_name: `uxdx.dev`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#1a73e8`,

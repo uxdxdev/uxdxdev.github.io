@@ -11,7 +11,6 @@ const Bio = () => {
         const { author } = data.site.siteMetadata
 
         return (
-
           <div
             style={{
               display: 'flex',
@@ -40,25 +39,20 @@ const Bio = () => {
                 >
                   {author}
                 </h1>
-                    Software engineer interested in web technologies, UI design, a/b testing, user experience, developer
-                    experience, open source, business, and teaching.
-                </Link>
+                Software engineer interested in web technologies, UI design, a/b
+                testing, user experience, developer experience, open source,
+                business, and teaching.
+              </Link>
               <div>
-                <ExternalLink href="https://twitter.com/daithimorton">
+                <ExternalLink href="https://twitter.com/uxdxdev">
                   Twitter
-                  </ExternalLink>{' '}
-                <ExternalLink href="https://github.com/daithimorton">
+                </ExternalLink>{' '}
+                <ExternalLink href="https://github.com/uxdxdev">
                   GitHub
-                  </ExternalLink>{' '}
-                <ExternalLink href="https://www.npmjs.com/~mortond">
-                  NPM
-                  </ExternalLink>{' '}
-                <ExternalLink href="https://www.linkedin.com/in/daithimorton/">
+                </ExternalLink>{' '}
+                <ExternalLink href="https://www.linkedin.com/in/uxdx/">
                   LinkedIn
-                  </ExternalLink>{' '}
-                <ExternalLink href="https://stackoverflow.com/users/2600522/david?tab=profile">
-                  Stackoverflow
-                  </ExternalLink>
+                </ExternalLink>{' '}
               </div>
             </div>
             <Link
