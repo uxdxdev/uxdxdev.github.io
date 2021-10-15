@@ -114,10 +114,10 @@ Deployment nodes can be nested.
 
 | View type         | Scope              | Permitted elements                                                                                                                            |   |
 |-------------------|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|---|
-| 1. System Context | A software system. | Software systems People                                                                                                                       | ![system context diagram](./images/system-context-diagram.png) |
-| 2. Container      | A software system  | Software systems People Containers within the software system in scope                                                                        | ![container diagram](./images/container-diagram.png) |
+| 1. System Context | A software system. | Software systems People | <img src="./images/system-context-diagram.png"  alt="1" > |
+| 2. Container      | A software system  | Software systems People Containers within the software system in scope | ![container diagram](./images/container-diagram.png) |
 | 3. Component      | A container        | Software systems People Other containers within the parent software system of the container in scope Components within the container in scope | ![component diagram](./images/component-diagram.png) |
-| 4. Code           | A component        | Code elements (e.g. classes, interfaces, etc) that are used to implement the component in scope                                               | ![class diagram](./images/class-diagram.png) |
+| 4. Code           | A component        | Code elements (e.g. classes, interfaces, etc) that are used to implement the component in scope | ![class diagram](./images/class-diagram.png) |
 
 ## PlantUML, C4 Model, and VSCode
 
@@ -127,7 +127,7 @@ PlantUML is a tool for creating diagrams, there is a plugin for C4 Model diagram
 - Install the PlantUML extension for VSCode https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml
 - Update VSCode user settings to tell the PlantUML extension where to find the PlantUML server
 
-```
+```json
 {
     "plantuml.server": "http://localhost:8081",
     "plantuml.render": "PlantUMLServer"

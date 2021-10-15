@@ -53,6 +53,10 @@ pre.language-bash::after {
   content: 'bash';
 }
 
+pre.language-plantumlcode::after {
+  content: 'plantumlcode';
+}
+
 code[class*='language-'],
 pre[class*='language-'] {
   text-align: left;
