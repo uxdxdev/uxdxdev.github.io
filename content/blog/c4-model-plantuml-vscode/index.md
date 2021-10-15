@@ -97,13 +97,13 @@ Deployment nodes can be nested.
 
 #### Elements and relationships
 
-| Element type    | Parent            | Properties                                                                                                                 |   |   |
-|-----------------|-------------------|----------------------------------------------------------------------------------------------------------------------------|---|---|
-| Person          | None              | Name*, Description, Location (Internal or External)                                                                          |   |   |
-| Software System | None              | Name*, Description, Location (Internal or External), The set of containers that make up the software system                   |   |   |
-| Container       | A software system | Name*, Description, Technology, The set of components within the container                                                    |   |   |
-| Component       | A container       | Name*, Description, Technology, The set of code elements (e.g. classes, interfaces, etc) that the component is implemented by |   |   |
-| Code Element    | A component       | Name*, Description, Fully qualified type                                                                                     |   |   |
+| Element type    | Parent            | Properties                                                                                                                 |
+|-----------------|-------------------|----------------------------------------------------------------------------------------------------------------------------|
+| Person          | None              | Name*, Description, Location (Internal or External)                                                                          |
+| Software System | None              | Name*, Description, Location (Internal or External), The set of containers that make up the software system                   |
+| Container       | A software system | Name*, Description, Technology, The set of components within the container                                                    |
+| Component       | A container       | Name*, Description, Technology, The set of code elements (e.g. classes, interfaces, etc) that the component is implemented by |
+| Code Element    | A component       | Name*, Description, Fully qualified type                                                                                     |
 | Relationship**  |                   | Description, Technology   
 
 \* All elements in the model must have a name, and that name should be unique within the parent context (tooling may or may not choose to enforce this uniqueness).
@@ -113,8 +113,8 @@ Deployment nodes can be nested.
 #### Views
 
 | View type         | Scope              | Permitted elements                                                                                                                            |   |
-|-------------------|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|---|
-| 1. System Context | A software system. | Software systems People | <img src="./images/system-context-diagram.png"  alt="1" > |
+|-------------------|--------------------|----------------------------------------------------------------------------------------------------------|---|
+| 1. System Context | A software system. | Software systems People | <img src="./images/system-context-diagram.png"  alt="system context diagram"/> |
 | 2. Container      | A software system  | Software systems People Containers within the software system in scope | ![container diagram](./images/container-diagram.png) |
 | 3. Component      | A container        | Software systems People Other containers within the parent software system of the container in scope Components within the container in scope | ![component diagram](./images/component-diagram.png) |
 | 4. Code           | A component        | Code elements (e.g. classes, interfaces, etc) that are used to implement the component in scope | ![class diagram](./images/class-diagram.png) |
