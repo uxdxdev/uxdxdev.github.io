@@ -47,7 +47,7 @@ The C4 Model does not specify layout, shape, color, or style for diagrams or ele
 
 ![system context diagram](./images/system-context-diagram.png)
 
-***Image taken from https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/samples/C4CoreDiagrams.md***
+*Image taken from https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/samples/C4CoreDiagrams.md*
 
 ### Container diagram (Level 2)
 
@@ -55,7 +55,7 @@ The C4 Model does not specify layout, shape, color, or style for diagrams or ele
 
 ![container diagram](./images/container-diagram.png)
 
-***Image taken from https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/samples/C4CoreDiagrams.md***
+*Image taken from https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/samples/C4CoreDiagrams.md*
 
 ### Component diagram (Level 3)
 
@@ -63,7 +63,7 @@ The C4 Model does not specify layout, shape, color, or style for diagrams or ele
 
 ![component diagram](./images/component-diagram.png)
 
-***Image taken from https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/samples/C4CoreDiagrams.md***
+*Image taken from https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/samples/C4CoreDiagrams.md*
 
 ### Code diagram (Level 4)
 
@@ -79,7 +79,7 @@ At an Enterprise level many software systems may interact with each other, a Sys
 
 ![system landscape diagram](./images/system-landscape-diagram.png)
 
-***Image taken from https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/samples/C4CoreDiagrams.md***
+*Image taken from https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/samples/C4CoreDiagrams.md*
 
 
 ### Dynamic Diagram
@@ -88,7 +88,7 @@ At an Dynamic diagram is a System Landscape, System Context, or Container diagra
 
 ![dynamic diagram](./images/dynamic-diagram.png)
 
-***Image taken from https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/samples/C4CoreDiagrams.md***
+*Image taken from https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/samples/C4CoreDiagrams.md*
 
 ### Deployment Diagram
 
@@ -104,7 +104,7 @@ Deployment nodes can be nested.
 
 ![deployment diagram](./images/deployment-diagram.png)
 
-***Image taken from https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/samples/C4CoreDiagrams.md***
+*Image taken from https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/samples/C4CoreDiagrams.md*
 
 ### C4 Metamodel
 
