@@ -47,17 +47,23 @@ The C4 Model does not specify layout, shape, color, or style for diagrams or ele
 
 ![system context diagram](./images/system-context-diagram.png)
 
+***Image taken from https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/samples/C4CoreDiagrams.md***
+
 ### Container diagram (Level 2)
 
 > Containers are seperate deployable units, such as web applications, database, serverless functions, or even a bash script.
 
 ![container diagram](./images/container-diagram.png)
 
+***Image taken from https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/samples/C4CoreDiagrams.md***
+
 ### Component diagram (Level 3)
 
 > Components execute inside the same process space, they are interfaces to functionality, and are not seperate deployable units. They might be controller classes in an applications, or a facade to a legacy interface.
 
 ![component diagram](./images/component-diagram.png)
+
+***Image taken from https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/samples/C4CoreDiagrams.md***
 
 ### Code diagram (Level 4)
 
@@ -73,11 +79,16 @@ At an Enterprise level many software systems may interact with each other, a Sys
 
 ![system landscape diagram](./images/system-landscape-diagram.png)
 
+***Image taken from https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/samples/C4CoreDiagrams.md***
+
+
 ### Dynamic Diagram
 
 At an Dynamic diagram is a System Landscape, System Context, or Container diagram that shows communication flow in a system using numbered interactions.
 
 ![dynamic diagram](./images/dynamic-diagram.png)
+
+***Image taken from https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/samples/C4CoreDiagrams.md***
 
 ### Deployment Diagram
 
@@ -93,7 +104,11 @@ Deployment nodes can be nested.
 
 ![deployment diagram](./images/deployment-diagram.png)
 
+***Image taken from https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/samples/C4CoreDiagrams.md***
+
 ### C4 Metamodel
+
+Data taken from https://c4model.com/#Metamodel.
 
 #### Elements and relationships
 
