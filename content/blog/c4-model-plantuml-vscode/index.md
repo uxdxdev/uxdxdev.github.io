@@ -129,9 +129,9 @@ Data taken from https://c4model.com/#Metamodel.
 
 | View type         | Scope              | Permitted elements                                                                                       | Image  |
 |-------------------|--------------------|----------------------------------------------------------------------------------------------------------|--------|
-| 1. System Context | A software system. | Software systems People | ![system context diagram](./images/system-context-diagram.png) |
-| 2. Container      | A software system  | Software systems People Containers within the software system in scope | ![container diagram](./images/container-diagram.png) |
-| 3. Component      | A container        | Software systems People Other containers within the parent software system of the container in scope Components within the container in scope | ![component diagram](./images/component-diagram.png) |
+| 1. System Context | A software system. | Software systems, People | ![system context diagram](./images/system-context-diagram.png) |
+| 2. Container      | A software system  | Software systems, People, Containers within the software system in scope | ![container diagram](./images/container-diagram.png) |
+| 3. Component      | A container        | Software systems, People, Other containers within the parent software system of the container in scope, Components within the container in scope | ![component diagram](./images/component-diagram.png) |
 | 4. Code           | A component        | Code elements (e.g. classes, interfaces, etc) that are used to implement the component in scope | ![class diagram](./images/class-diagram.png) |
 
 ## PlantUML, C4 Model, and VSCode
