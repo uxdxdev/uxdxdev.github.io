@@ -84,7 +84,7 @@ At an Enterprise level many software systems may interact with each other, a Sys
 
 ### Dynamic Diagram
 
-At an Dynamic diagram is a System Landscape, System Context, or Container diagram that shows communication flow in a system using numbered interactions.
+A Dynamic diagram is simply a System Landscape, System Context, or Container diagram that shows communication flow in a system using numbered interactions.
 
 ![dynamic diagram](./images/dynamic-diagram.png)
 
