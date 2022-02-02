@@ -59,7 +59,7 @@ The C4 Model does not specify layout, shape, color, or style for diagrams or ele
 
 ### Component diagram (Level 3)
 
-> Components execute inside the same process space, they are interfaces to functionality, and are not seperate deployable units. They might be controller classes in an applications, or a facade to a legacy interface.
+> Components execute inside the same process space, they are interfaces to functionality, and are not seperate deployable units. They might be controller classes in an application, or a facade to a legacy interface.
 
 ![component diagram](./images/component-diagram.png)
 
@@ -68,6 +68,10 @@ The C4 Model does not specify layout, shape, color, or style for diagrams or ele
 ### Code diagram (Level 4)
 
 > Do not create Code (Level 4) diagrams. These diagrams should be generated from the code base. These diagrams may not use the C4 Model notation, but in fact may be UML diagrams, such as Class Diagrams.
+
+![system landscape diagram](./images/bigbankplc-Classes.png)
+
+*Image taken from https://c4model.com/#coreDiagrams*
 
 ## Supplementary Diagrams
 
@@ -113,7 +117,7 @@ Data taken from https://c4model.com/#Metamodel.
 #### Elements and relationships
 
 | Element type    | Parent            | Properties                                                                                                                 |
-|-----------------|-------------------|----------------------------------------------------------------------------------------------------------------------------|
+|-----------------|-------------------|------------------------------|
 | Person          | None              | Name*, Description, Location (Internal or External)                                                                          |
 | Software System | None              | Name*, Description, Location (Internal or External), The set of containers that make up the software system                   |
 | Container       | A software system | Name*, Description, Technology, The set of components within the container                                                    |
@@ -128,7 +132,7 @@ Data taken from https://c4model.com/#Metamodel.
 #### Views
 
 | View type         | Scope              | Permitted elements                                                                                       | Image  |
-|-------------------|--------------------|----------------------------------------------------------------------------------------------------------|--------|
+|-------------------|--------------------|------------------------|--------|
 | 1. System Context | A software system. | Software systems, People | ![system context diagram](./images/system-context-diagram.png) |
 | 2. Container      | A software system  | Software systems, People, Containers within the software system in scope | ![container diagram](./images/container-diagram.png) |
 | 3. Component      | A container        | Software systems, People, Other containers within the parent software system of the container in scope, Components within the container in scope | ![component diagram](./images/component-diagram.png) |
@@ -170,7 +174,7 @@ I use the C4 model to understand projects, practice my system design skills, and
 
 I like the C4 model because it presents software systems like a map, I like maps, and know how to use the zoom feature of digital maps to get more detail if needed. You can start at the highest level System Landscape diagram and zoom in to a System Context for more information. If I want more detail I can zoom in again to a Container, and then continue zooming in for more and more detail. In this way I get just the right amount of information and if I want more information I go deeper. 
 
-Another nice thing about the C4 model is that there are contraints on the number, types, and styling of elements you can use for a diagram. At a minimum the diagram should make sense without worrying about layout, shape, color, or style. Simple nested boxes with titles, labels, and descriptions, alongside a diagram title and legend, are enough to fully communicate a specific level of a software system.
+Another nice thing about the C4 model is that there are no contraints on the number, types, and styling of elements you can use for a diagram. At a minimum the diagram should make sense without worrying about layout, shape, color, or style. Simple nested boxes with titles, labels, and descriptions, alongside a diagram title and legend are enough to fully communicate a specific level of a software system.
 
 ## References
 
