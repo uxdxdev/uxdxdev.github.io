@@ -51,6 +51,9 @@ const Bio = () => {
                 <ExternalLink href="https://www.linkedin.com/in/uxdx/">
                   LinkedIn
                 </ExternalLink>{' '}
+                <ExternalLink href="/jsenv">
+                  JSEnv
+                </ExternalLink>{' '}
               </div>
             </div>
             <Link
