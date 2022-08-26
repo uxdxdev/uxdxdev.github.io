@@ -7,7 +7,7 @@ bannerCredit: 'Photo by Ben Mathis Seibel'
 bannerLink: 'https://unsplash.com/photos/OjrmUvnkMYs'
 # see src/pages/index.js for default keywords
 keywords: algorithms,data structures,puzzles,fun
-excerpt: There are N gas stations along a circular route, where the amount of gas at station **i** is A[i] and it cost B[i] in fuel to get to the next station. Where should I start my journey if I want to travel the full circular route?
+excerpt: There are N gas stations along a circular route, where the amount of gas at station i is A[i] and it cost B[i] in fuel to get to the next station. Where should I start my journey if I want to travel the full circular route?
 ---
 
 >If you’re thinking without writing, you only think you’re thinking - [Lesslie Lamport](https://en.wikipedia.org/wiki/Leslie_Lamport)
