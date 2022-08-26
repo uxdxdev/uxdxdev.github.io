@@ -22,14 +22,14 @@ Return the lowest starting station index that allows you to complete a full jour
 
 ## Example
 
-```
+```text
 A = [1, 1, 0, 2, 1, 5, 1];  
 B = [1, 1, 1, 1, 1, 3, 2];
 ```
 
 Given the arrays A and B, the lowest starting index that allows a complete circular journey is starting at station with index 3.
 
-```
+```text
 // lowest starting index
 3 -> 4 -> 5 -> 6 -> 0 -> 1 -> 2 -> 3
 

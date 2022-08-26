@@ -57,6 +57,10 @@ pre.language-plantumlcode::after {
   content: 'plantumlcode';
 }
 
+pre.language-text::after {
+  content: 'text';
+}
+
 code[class*='language-'],
 pre[class*='language-'] {
   text-align: left;
