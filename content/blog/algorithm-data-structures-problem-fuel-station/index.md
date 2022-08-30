@@ -12,7 +12,7 @@ excerpt: There are N fuel stations along a circular route, where the amount of f
 
 >If you’re thinking without writing, you only think you’re thinking - [Leslie Lamport](https://en.wikipedia.org/wiki/Leslie_Lamport)
 
-I'm writing this post in an attempt to build an intuition for solving algorithm and data structure coding problems. Hopefully this post makes sense when I'm done.
+I'm writing this post in an attempt to build intuition for solving algorithm and data structure coding problems. Hopefully you get something from it.
 
 ## Problem
 
@@ -68,7 +68,8 @@ var canCompleteCircuit = function (A, B) {
     // have we visited the max number of stations
     // possible in this circular journey?
     if (numStationsVisited >= totalNumberOfStations) {
-      // yes! return the station index that we started at
+      // yes! return the starting station index that
+      // is totalNumberOfStations back from where we currently are
       return (index + 1) % totalNumberOfStations;
     }
 
@@ -81,3 +82,13 @@ var canCompleteCircuit = function (A, B) {
   return -1;
 };
 ```
+
+Time complexity: O(N)  
+Space complexity: O(1)
+
+We use a single `for` loop to travel to each station while counting our visits, and there is no need for large storage data structures. 
+
+This solution uses the `% modulus` operator to find an array index that is within bounds, i.e. the index will loop around when it gets to the final element in the array. 
+
+
+
