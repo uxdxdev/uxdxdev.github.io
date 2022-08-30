@@ -90,5 +90,7 @@ We use a single `for` loop to travel to each station while counting our visits, 
 
 This solution uses the `% modulus` operator to find an array index that is within bounds, i.e. the index will loop around when it gets to the final element in the array. 
 
+## Related
 
+- [Algorithms and data structures: Binary search tree Inorder traversal](/blob/algorithm-data-structures-problem-binary-search-tree-inorder-traversal)
 
