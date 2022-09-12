@@ -39,7 +39,7 @@ const Bio = () => {
                 >
                   {author}
                 </h1>
-                Software engineer interested in web technologies, UI design, a/b testing, user experience, open source, and teaching.
+                Software engineer
               </Link>
               <div>
                 <ExternalLink href="https://twitter.com/uxdxdev">
