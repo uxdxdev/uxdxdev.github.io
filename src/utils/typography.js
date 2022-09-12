@@ -3,11 +3,11 @@ import Typography from 'typography'
 const typography = new Typography({
   baseFontSize: '18px',
   baseLineHeight: 1.75,
-  headerFontFamily: ['Inter'],
-  bodyFontFamily: ['Inter'],
+  headerFontFamily: ['Atkinson Hyperlegible'],
+  bodyFontFamily: ['Atkinson Hyperlegible'],
   googleFonts: [
     {
-      name: 'Inter',
+      name: 'Atkinson Hyperlegible',
       styles: ['400', '500', '700'],
     },
   ],
