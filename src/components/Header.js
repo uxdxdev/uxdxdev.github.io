@@ -9,7 +9,7 @@ const Header = () => {
       style={{
         marginLeft: `auto`,
         marginRight: `auto`,
-        maxWidth: rhythm(30),
+        maxWidth: rhythm(15),
         padding: rhythm(1 / 2),
         display: 'flex',
         alignItems: 'center',
