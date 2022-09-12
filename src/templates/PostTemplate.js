@@ -59,7 +59,7 @@ class PostTemplate extends React.Component {
               textAlign: 'center',
             }}
           >
-            <h1>{frontmatter.title}</h1>
+            <h2>{frontmatter.title}</h2>
             <p
               style={{
                 // ...scale(-1 / 5),
