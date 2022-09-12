@@ -3,8 +3,8 @@ date: '2022-08-26'
 title: 'Algorithms and data structures: Binary search tree inorder traversal'
 banner: './images/banner.jpg'
 imageAltText: 'maze made of bushes'
-bannerCredit: 'Photo by Ben Mathis Seibel'
-bannerLink: 'https://unsplash.com/photos/OjrmUvnkMYs'
+bannerCredit: 'Photo by Sigmund'
+bannerLink: 'https://unsplash.com/photos/B-x4VaIriRc'
 # see src/pages/index.js for default keywords
 keywords: algorithms,data structures,puzzles,fun
 excerpt: Given a binary search tree, return the inorder traversal of its nodes values.

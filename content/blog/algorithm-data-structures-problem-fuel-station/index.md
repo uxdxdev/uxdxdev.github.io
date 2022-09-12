@@ -92,5 +92,5 @@ This solution uses the `% modulus` operator to find an array index that is withi
 
 ## Related
 
-- [Algorithms and data structures: Binary search tree Inorder traversal](/blob/algorithm-data-structures-problem-binary-search-tree-inorder-traversal)
+- [Algorithms and data structures: Binary search tree Inorder traversal](/blog/algorithm-data-structures-problem-binary-search-tree-inorder-traversal)
 
