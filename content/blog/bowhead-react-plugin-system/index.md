@@ -93,7 +93,7 @@ The required modules here are `bowhead` and `bowhead-functions`. The CRA templat
 
 The **bowhead** package contains the core building blocks of this project. It provides a single ReactJS component `<Bowhead />` that developers can import and render in their application.
 
-```javascript
+```jsx
 import { Bowhead } from '@mortond/bowhead'
 
 const App = () => {
@@ -301,7 +301,7 @@ The account page displays some basic user information and also provides a button
 ![Stripe Customer Portal](./images/stripe-customer-portal.png)
 _Stripe subscription management portal_
 
-If a user clicks this `Manage subscription` button they are re-directed to a hosted Stipe customer portal where they can upgrade or cancel their subscription. Any changes here are reflected in updates to the Bowhead database which will update the UI.
+If a user clicks this `Manage subscription` button they are re-directed to a hosted Stripe customer portal where they can upgrade or cancel their subscription. Any changes here are reflected in updates to the Bowhead database which will update the UI.
 
 ## Challenges
 
@@ -327,7 +327,7 @@ routesAndMenuItems.forEach(plugin => {
 
 Users register their custom ReactJS components in there projects source code, e.g. `App.js`. In this case a `Projects` component is being injected with the route `/projects`. This will render at `/dashboard/projects` when the user is authenticated.
 
-```javascript
+```jsx
 // bowhead.js
 const authenticatedRoutes = pluginRegistry.getPluginsByType(PLUGIN_TYPES.ROUTE_AUTHENTICATED)
 
@@ -355,7 +355,7 @@ const DashboardWrapper = (props) => {
 
 In the Bowhead initialisation phase we grab the unauthenticated and/or authenticated routes and their ReactJS components. Then render those as children of the `Dashboard` component. We are ignoring the other types of components here like links in the side navigation and other customisations for brevity.
 
-```javascript
+```jsx
 // <Dashboard />
 
 <Switch>
@@ -414,7 +414,7 @@ export default projectSlice.reducer
 
 A developer can create a slice of state and register this slice as a `REDUCER` type plugin which will then be integrated into Bowheads state.
 
-```javascript
+```jsx
 // projects.js
 
 const Projects = () => {

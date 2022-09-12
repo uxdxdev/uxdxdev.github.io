@@ -22,7 +22,7 @@ Given a binary search tree, return the `inorder` traversal of its nodes values.
 
 Read the node values of the tree in the order; left, root, right.
 
-## IterativeSolution
+## Iterative Solution
 
 ### Input
 
