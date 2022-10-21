@@ -22,7 +22,7 @@ pre[class*='language-']::after {
 }
 
 /* if meta hide label and fix padding */
-pre.language-meta {
+div.gatsby-highlight > pre.language-meta {
   padding: 1em 1em;
 }
 
