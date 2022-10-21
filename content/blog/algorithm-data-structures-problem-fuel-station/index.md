@@ -22,14 +22,14 @@ Return the lowest starting station index that allows you to complete a full jour
 
 ## Example
 
-```text
+```meta
 A = [1, 1, 0, 2, 1, 5, 1];  
 B = [1, 1, 1, 1, 1, 3, 2];
 ```
 
 Given the arrays A and B, the lowest starting index that allows a complete circular journey is starting at station with index 3.
 
-```text
+```meta
 // lowest starting index
 3 -> 4 -> 5 -> 6 -> 0 -> 1 -> 2 -> 3
 
@@ -93,4 +93,5 @@ This solution uses the `% modulus` operator to find an array index that is withi
 ## Related
 
 - [Algorithms and data structures: Binary search tree Inorder traversal](/blog/algorithm-data-structures-problem-binary-search-tree-inorder-traversal)
-
+- [Algorithms and data structures: Fuel station](/blog/algorithm-data-structures-problem-fuel-station/)
+- [Algorithms and data structures: Two Sum](/blog/algorithm-data-structures-problem-two-sum)

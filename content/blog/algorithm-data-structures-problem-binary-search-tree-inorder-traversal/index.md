@@ -190,3 +190,5 @@ The outer `while` loop will then `pop()` the top element of the stack, collect t
 # Related
 
 - [Algorithms and data structures: Fuel station](/blog/algorithm-data-structures-problem-fuel-station/)
+- [Algorithms and data structures: Binary search tree Inorder traversal](/blog/algorithm-data-structures-problem-binary-search-tree-inorder-traversal)
+- [Algorithms and data structures: Two Sum](/blog/algorithm-data-structures-problem-two-sum)

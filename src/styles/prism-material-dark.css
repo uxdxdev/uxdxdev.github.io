@@ -21,8 +21,13 @@ pre[class*='language-']::after {
   padding: 0.1em 0.3em;
 }
 
+/* if meta hide label and fix padding */
+pre.language-meta {
+  padding: 1em 1em;
+}
+
 pre.language-meta::after {
-  content: 'meta';
+  display: none;  
 }
 
 pre.language-javascript::after {
@@ -55,10 +60,6 @@ pre.language-bash::after {
 
 pre.language-plantumlcode::after {
   content: 'plantumlcode';
-}
-
-pre.language-text::after {
-  content: 'text';
 }
 
 code[class*='language-'],
