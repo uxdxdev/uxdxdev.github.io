@@ -71,5 +71,5 @@ return [2, 3]
 
 ## Related
 
-- [Algorithms and data structures: Binary search tree Inorder traversal](/blog/algorithm-data-structures-problem-binary-search-tree-inorder-traversal)
+- [Algorithms and data structures: Binary search tree inorder traversal](/blog/algorithm-data-structures-problem-binary-search-tree-inorder-traversal)
 - [Algorithms and data structures: Fuel station](/blog/algorithm-data-structures-problem-fuel-station/)
