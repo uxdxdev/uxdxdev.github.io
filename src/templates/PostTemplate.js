@@ -32,7 +32,7 @@ class PostTemplate extends React.Component {
     const keywords = commonKeywords.concat(frontmatter.keywords?.split(`,`))
 
     const shareUrl = `${siteUrl}/blog${post.fields.slug}`
-    const postTitle = `I've published a new article! "${frontmatter.title}" read it here`
+    const postTitle = `"${frontmatter.title}"`
 
     const sharingIconSize = 48
 
