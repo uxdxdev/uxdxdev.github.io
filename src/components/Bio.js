@@ -42,9 +42,6 @@ const Bio = () => {
                 Software engineer
               </Link>
               <div>
-                <ExternalLink href="https://twitter.com/uxdxdev">
-                  Twitter
-                </ExternalLink>{' '}
                 <ExternalLink href="https://github.com/uxdxdev">
                   GitHub
                 </ExternalLink>{' '}

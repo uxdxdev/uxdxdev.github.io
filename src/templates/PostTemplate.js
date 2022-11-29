@@ -11,9 +11,7 @@ import {
   EmailShareButton,
   EmailIcon,
   LinkedinShareButton,
-  LinkedinIcon,
-  TwitterShareButton,
-  TwitterIcon,
+  LinkedinIcon,  
 } from 'react-share'
 import Header from '../components/Header'
 
@@ -91,10 +89,7 @@ class PostTemplate extends React.Component {
           <div>
             <LinkedinShareButton url={shareUrl} title={postTitle}>
               <LinkedinIcon size={sharingIconSize} round />
-            </LinkedinShareButton>
-            <TwitterShareButton url={shareUrl} title={postTitle}>
-              <TwitterIcon size={sharingIconSize} round />
-            </TwitterShareButton>
+            </LinkedinShareButton>            
             <EmailShareButton url={shareUrl} subject={postTitle}>
               <EmailIcon size={sharingIconSize} round />
             </EmailShareButton>

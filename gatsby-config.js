@@ -2,12 +2,10 @@ module.exports = {
   siteMetadata: {
     title: `uxdx.dev`,
     author: `David Morton`,
-    twitter: `uxdxdev`,
     description: `My experiences of being a software engineer.`,
     siteUrl: `https://uxdx.dev`,
   },
   plugins: [
-    `gatsby-plugin-twitter`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

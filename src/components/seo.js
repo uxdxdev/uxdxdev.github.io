@@ -40,27 +40,7 @@ function SEO({ description, lang, meta, keywords, title, image }) {
               {
                 name: `author`,
                 content: `Daithi Morton`,
-              },
-              {
-                name: `twitter:card`,
-                content: `summary_large_image`,
-              },
-              {
-                name: `twitter:image`,
-                content: image,
-              },
-              {
-                name: `twitter:creator`,
-                content: data.site.siteMetadata.twitter,
-              },
-              {
-                name: `twitter:title`,
-                content: title,
-              },
-              {
-                name: `twitter:description`,
-                content: metaDescription,
-              },
+              }              
             ]
               .concat(
                 keywords.length > 0
@@ -94,7 +74,6 @@ const detailsQuery = graphql`
         title
         description
         author
-        twitter
       }
     }
   }
