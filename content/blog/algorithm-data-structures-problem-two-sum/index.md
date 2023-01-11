@@ -10,8 +10,6 @@ keywords: algorithms,data structures,puzzles,fun
 excerpt: Given an array of integers and an integer target, return indices of the two numbers such that they add up to target.
 ---
 
->If you’re thinking without writing, you only think you’re thinking - [Leslie Lamport](https://en.wikipedia.org/wiki/Leslie_Lamport)
-
 I'm writing this post in an attempt to build intuition for solving algorithm and data structure coding problems. Hopefully you get something from it.
 
 ## Problem

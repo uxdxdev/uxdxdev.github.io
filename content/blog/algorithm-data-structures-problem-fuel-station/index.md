@@ -10,8 +10,6 @@ keywords: algorithms,data structures,puzzles,fun
 excerpt: There are N fuel stations along a circular route, where the amount of fuel at station i is A[i] and it cost B[i] in fuel to get to the next station. Where should I start my journey if I want to travel the full circular route?
 ---
 
->If you’re thinking without writing, you only think you’re thinking - [Leslie Lamport](https://en.wikipedia.org/wiki/Leslie_Lamport)
-
 I'm writing this post in an attempt to build intuition for solving algorithm and data structure coding problems. Hopefully you get something from it.
 
 ## Problem
