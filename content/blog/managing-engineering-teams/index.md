@@ -7,7 +7,7 @@ bannerCredit: 'Photo by Ben Blennerhassett'
 bannerLink: 'https://unsplash.com/photos/G8rRItjrwkA'
 # see src/pages/index.js for default keywords
 keywords: leadership,micromanaging,trust
-excerpt: Micromanaging Your Remote Workers? Own It, Then Fix It. A summary of a report by Gartner published in 2022.
+excerpt: Micromanaging your remote workers? Own it, then fix it. A summary of a report by Gartner published in 2022.
 ---
 
 Gartner published a [report in 2022 about remote work, micromanagment, and how to fix your approach](https://www.gartner.com/en/articles/micromanaging-your-remote-workers-own-it-then-fix-it?utm_medium=social&utm_source=linkedin&utm_campaign=SM_GB_YOY_GTR_SOC_SF1_SM-SWG&utm_content=&sf260479670=1). In this post I'm going to review the report, share my experiences, and provide a summary for myself for future reference.
@@ -35,7 +35,7 @@ The following are recommendations by Gartner on how to fix your approach to mana
   - Share Scrum Master and Tech Lead roles. Roles are a list of responsibilities, responsibilities can be shared, and they can be used to provide mentoring and learning opportunties for the whole team. Roles do NOT provide additional authority
 - Focus on outcomes. Don’t waste time obsessing over the time the team dedicates to getting the job done or how they do it. What matters is that they get results in the agreed-upon time frame.
   - Sprint demos allow teams to show what they have worked on. Product Manager/Project Manager/Scrum Master/Tech Lead/etc should NOT be the one to give the demo unless they actually worked on building it, let whoever brought it to life be the one to share it
-  - Measuring an individual's productivity is not important, people have busy and stressful lives. How quickly one person can learn and apply their skills is different to another. The team should be supporting it's memebers, no criticising or comparing them. This only creates a stressful environment
+  - Measuring an individual's productivity is not important, people have busy and stressful lives. How quickly one person can learn and apply their skills is different to another. The team should be supporting it's members, no criticising or comparing them. This only creates a stressful environment
   - Standups are for requesting support, not for tracking producitivity. Everyone on the team is busy, do not waste time telling everyone how busy you are. If someone needs help the standup is the perfect time to ask for help
 - Be flexible. Give people the opportunity to work when, where, and how they can be most creative and productive
   - Flexible working hours allow people to handle personal committments when it suits them best. This is crucially important for a well functioning, and happy team
