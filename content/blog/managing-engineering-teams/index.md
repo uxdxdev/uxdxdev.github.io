@@ -46,6 +46,8 @@ The following are recommendations by Gartner on how to fix your approach to mana
   - Win as a team, lose as a team. When you reward individuals for the work of the entire team you severly damage team morale and trust. Damaging team morale is costly to an organisation, people will leave, or they will "silently leave" which means they will do the bare minimum to get by instead of working for themselves and the fun of it
   - Do not escalate internal team issues without first discussing with specific team members. Encourage the team to talk to each other about issues, do not entertain personal opinions, and demand data for accusations. When you regurgitate opinions you look foolish, and you damage trust 
 
+In summary, managers should unblock the team not get in there way. Trust the team of professionals to know how to do their jobs in the best way for them. Set clear targets, try not to be condescending. And tell your team to take some personal time every now and again, they need it.
+
 ## References
 
 - [Gartner.com: Micromanaging Your Remote Workers? Own It, Then Fix It.](https://www.gartner.com/en/articles/micromanaging-your-remote-workers-own-it-then-fix-it?utm_medium=social&utm_source=linkedin&utm_campaign=SM_GB_YOY_GTR_SOC_SF1_SM-SWG&utm_content=&sf260479670=1)
