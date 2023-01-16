@@ -43,7 +43,7 @@ The following are recommendations by Gartner on how to fix your approach to mana
 - Plan for the worst case. This makes people feel trusted and confident in their ability to handle problems
   - When estimating work to fit in a sprint use the worst case estimate. If work turns out to be easier than expected its a win and will keep stress levels low. If the work turns out to take longer than expected then we get better at estimating and next time it'll be more accurate. Do not put pressure on your team, or individuals, humans don't work well under stress
 - Do not blame. Blame instantly crushes self-esteem and spoils the bonds of trust with your employees. Focus on lessons learned from failures. Let your team come up with the answer of what to do better next time
-  - Win as a team, lose as a team. When you reward individuals on a team for the work of the entire you severly damage team morale. Damaging team morale costly to an organisation, people will leave, or they will "silently leave" which means they will do the bare minimum to get by instead of working for them selves and the fun of it
+  - Win as a team, lose as a team. When you reward individuals for the work of the entire team you severly damage team morale and trust. Damaging team morale is costly to an organisation, people will leave, or they will "silently leave" which means they will do the bare minimum to get by instead of working for themselves and the fun of it
   - Do not escalate internal team issues without first discussing with specific team members. Encourage the team to talk to each other about issues, do not entertain personal opinions, and demand data for accusations. When you regurgitate opinions you look foolish, and you damage trust 
 
 ## References
