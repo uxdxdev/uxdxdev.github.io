@@ -46,7 +46,31 @@ The following are recommendations by Gartner on how to fix your approach to mana
   - Win as a team, lose as a team. When you reward individuals for the work of the entire team you severly damage team morale and trust. Damaging team morale is costly to an organisation, people will leave, or they will "silently leave" which means they will do the bare minimum to get by instead of working for themselves and the fun of it
   - Do not escalate internal team issues without first discussing with specific team members. Encourage the team to talk to each other about issues, do not entertain personal opinions, and demand data for accusations. When you regurgitate opinions you look foolish, and you damage trust 
 
-In summary, managers should unblock the team not get in there way. Trust the team of professionals to know how to do their jobs in the best way for them. Set clear targets, try not to be condescending. And tell your team to take some personal time every now and again, they need it.
+In summary, managers and tech leads should unblock the team, not get in there way. Trust the team of professionals to know how to do their jobs in the best way for them. Set clear targets, try not to be condescending. And tell your team to take some personal time every now and again, they need it.
+
+## A note on leadership
+
+Leadership is hard to define, but you know a leader when you meet one. They are approachable, empathetic, modest, and humble. 
+
+A "title" does not make you a leader and sometimes company titles such as "Director", "Senior Manager", "Senior Engineer", or "Tech Lead" give people a sense of superiority and smugness to the point where they consider themselves leaders. These company titles assign a collection of responsibilties to an individual and usually as your level of responsibility increases so does your compensation. You don't automatically become a leader when one of these roles are assigned to you. 
+
+I've known some amazing leaders in my career, of varying titles. And I've encountered some people who are not leaders, of varying titles. 
+
+In my experience leaders are:
+- Invovled in defining the **vision** and the **roadmap**
+  - Discovery (what should we do?) and feasibility (is it possible?) are the primary problems to solve here. Good leaders get stuck in and do the grunt work
+- Focused on **unblocking** the team
+  - The primary responsibility of a leader is to remove obstacles that block the team as they make their way towards the **vision** using the **roadmap**. They change the teams environment from "hiking uphill" to "jogging downhill"
+- Honest about their skill level in a particular context and are open to learning
+- Leaders DO NOT need the highest skill level on the team
+  - Being the best is not an attribute of a leader
+- Great leaders are modest and humble, they don't question your methods but try to understand them and fill any gaps. They use **how** instead of **why**, e.g. 
+  - **Why** have you not incorporated our security guidelines into your work? // bad
+  - **How** have you incorporated our security guidelines into your work? // good
+- NOT required to speak in every meeting
+  - Leaders are not always first to speak, they don't speak for prolonged periods of time, they don't repeat others while slightly changing the language used, or use terms like "Great job, well done!"
+
+
 
 ## References
 
