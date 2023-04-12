@@ -1,6 +1,6 @@
 ---
 date: '2023-04-12'
-title: 'Vite + React + Filter + Sorting + URL Syncing w/ filter & sorting'
+title: 'Vite + React + URL Syncing w/ filter & sorting'
 banner: './images/banner.jpg'
 imageAltText: 'table of numbers'
 bannerCredit: 'Photo by Mika Baumeister'
