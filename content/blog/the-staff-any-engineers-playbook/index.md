@@ -7,7 +7,7 @@ bannerCredit: 'Photo by Aron Visuals'
 bannerLink: 'https://unsplash.com/photos/3jBU9TbKW7o'
 # see src/pages/index.js for default keywords
 keywords: staff engineer,playbook,career,responsibilties
-excerpt: Every engineer should be allocating their time to execution, learning, planning, and support in different ratios. This post is a cognitive artefact outlining the responsibilty ratios of a Staff Engineer, adjust ratios to suit yourself.
+excerpt: Every engineer should be allocating their time to execution, learning, planning, and support in different ratios. This post is a cognitive artefact outlining the responsibility ratios of a Staff Engineer, adjust ratios to suit yourself.
 ---
 
 You've been promoted to Staff Engineer, now what? Reallocate your time.
