@@ -10,6 +10,8 @@ keywords: css,stylesheets,internal,external,inline
 excerpt: There are three main techniques to load Cascading Style Sheets (CSS) in your HTML pages; internal, external, and inline. Performance and maintainability, among other factors, can be impacted by your approach so choose wisely.
 ---
 
+> There are three main techniques to load Cascading Style Sheets (CSS) in your HTML pages; internal, external, and inline. Performance and maintainability, among other factors, can be impacted by your approach so choose wisely.
+
 The three main ways to load CSS in your HTML pages are:
 
 - Inline CSS - by using the `style` attribute inside HTML elements

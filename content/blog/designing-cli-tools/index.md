@@ -10,6 +10,8 @@ keywords: design,developer experience,cli
 excerpt: A Command-Line Interface (CLI) is a way to interact with a program installed on a computer through a terminal interface. Typically these programs receive input via lines of text and will run processes based on this input.
 ---
 
+> A Command-Line Interface (CLI) is a way to interact with a program installed on a computer through a terminal interface. Typically these programs receive input via lines of text and will run processes based on this input.
+
 With a Graphical User Interface (GUI) a user can interact with buttons, menus, dropdowns, radio buttons, etc. A Command-Line Interface (CLI) is different in that a user will typically type commands as lines of text into a terminal shell which are then interpreted to perform some action. Some examples of terminal shells are [Z Shell](https://en.wikipedia.org/wiki/Z_shell) or [Bash](<https://en.wikipedia.org/wiki/Bash_(Unix_shell)>), and some examples of CLI tools are [NPM](https://docs.npmjs.com/about-npm) or [Yarn](https://yarnpkg.com/).
 
 ## Orca

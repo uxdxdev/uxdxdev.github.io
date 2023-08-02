@@ -10,6 +10,8 @@ keywords: leadership,micromanaging,trust
 excerpt: Micromanaging your remote workers? Own it, then fix it. A summary of a report by Gartner published in 2022.
 ---
 
+> Micromanaging your remote workers? Own it, then fix it. A summary of a report by Gartner published in 2022.
+
 Gartner published a [report in 2022 about remote work, micromanagment, and how to fix your approach](https://www.gartner.com/en/articles/micromanaging-your-remote-workers-own-it-then-fix-it?utm_medium=social&utm_source=linkedin&utm_campaign=SM_GB_YOY_GTR_SOC_SF1_SM-SWG&utm_content=&sf260479670=1). In this post I'm going to review the report, share my experiences, and provide a summary for myself for future reference.
 
 ![Gartner: effects of micromanagement on your team](./images/micromanaging-your-remote-workers--act-now-to-stop-yourself--0.png)

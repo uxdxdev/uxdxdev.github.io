@@ -10,7 +10,7 @@ keywords: design,developer experience,react,table
 excerpt: A table written in JavaScript using React that has filtering, sorting, and URL syncing features
 ---
 
-A table written in JavaScript using React that has filtering, sorting, and URL syncing features
+> A table written in JavaScript using React that has filtering, sorting, and URL syncing features
 
 ![screenshot of table demo](./images/vite-react-table-demo.png)
 
