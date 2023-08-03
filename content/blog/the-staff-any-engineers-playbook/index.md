@@ -33,9 +33,9 @@ You've been promoted to Staff Engineer, now what? Reallocate your time.
     - Collaborates with other team members in agile processes
     - Relates openly and comfortably with diverse groups of people
 - 20% Support
-    - Answers questions from product and engineering teams
-    - Helps grow junior engineers by providing guidance on modern software development frameworks, and leading technical discussions
-    - Notes gaps on the team and provides suggestions for changes to make the team more productive
+    - Answers questions from product and engineering teams. Pre-empts questions with spikes, proof of concepts, technical feasibility research, and discoverability
+    - Helps grow junior engineers by providing technical and personal guidance based on real world experience. Admits when they have no relevant experience
+    - Notes gaps on the team and provides suggestions for changes to make the team more productive, e.g. workshops, conferences, strategies to improve autonomy, development process improvements, etc.
 
 
 ## Staff Engineer Archetypes
