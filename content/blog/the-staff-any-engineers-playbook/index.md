@@ -40,7 +40,7 @@ You've been promoted to Staff Engineer, now what? Reallocate your time.
 
 ## Staff Engineer Archetypes
 
-*The below archetypes and their descriptions are taken directly from [StaffEng.com](https://staffeng.com/guides/staff-archetypes/), to get a more in-depth explanation of each archetype and a bunch of other very useful stuff go a take a look at their site.*
+*The below archetypes and their descriptions are taken directly from [StaffEng.com](https://staffeng.com/guides/staff-archetypes/), to get a more in-depth explanation of each archetype and a bunch of other very useful stuff go take a look at their site.*
 
 
 ### Tech Lead
