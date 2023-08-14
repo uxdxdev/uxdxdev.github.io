@@ -17,25 +17,22 @@ You've been promoted to Staff Engineer, now what? Reallocate your time.
 ## Staff Engineer Responsibilities
 
 - 50% Delivery and Execution 
-    - Develops, tests, deploys, and maintains software, with a clear understanding of the value the software is to provide
+    - Develops, tests, deploys, and maintains software with a clear understanding of the value the software is to provide
     - Develops test suites (unit, integration, e2e, etc) to enable success and rapid deployment of code to production
-    - Takes on new opportunities and tough challenges with a sense of urgency, high energy and enthusiasm
-    - Consistently achieves results, even under tough circumstances
+    - Takes on new opportunities and tough challenges with a sense of urgency, high energy, and enthusiasm
 - 10% Learning
     - Actively seeks ways to grow and be challenged using both formal and informal development channels
     - Learns through successful and failed experimentation when tackling new problems
     - Identifies skill gaps and seeks out peers for mentoring and guidance to close these gaps
 - 20% Planning
-    - Creates new and better ways for the organisation to be successful
-    - Delivers multi-mode communications that convey a clear understanding of the unique needs of different audiences
-        - Diagrams, knowledge sharing videos, documentation, demos, etc.
+    - Creates strategies to help the organisation be more successful. How can teams / individuals make decisions in your absence?
+    - Delivers multi-mode communications that convey a clear understanding of the unique needs of different audiences, e.g. diagrams, knowledge sharing videos, documentation, demos, etc.
     - Works with the Product Team to ensure user stories are developer ready, easy to understand, and testable
-    - Collaborates with other team members in agile processes
-    - Relates openly and comfortably with diverse groups of people
+    - Collaborates with other team members in agile processes and relates comfortably with diverse groups of people
 - 20% Support
     - Answers questions from product and engineering teams. Pre-empts questions with spikes, proof of concepts, technical feasibility research, and discoverability
-    - Helps grow junior engineers by providing technical and personal guidance based on real world experience. Admits when they have no relevant experience
-    - Notes gaps on the team and provides suggestions for changes to make the team more productive, e.g. workshops, conferences, strategies to improve autonomy, development process improvements, etc.
+    - Helps grow other engineers by providing technical and personal guidance based on real world experience. Admits when they have no relevant experience
+    - Notes gaps on teams and provides suggestions for changes to make them more productive, e.g. workshops, conferences, strategies to improve autonomy, development process improvements, etc.
 
 
 ## Staff Engineer Archetypes
