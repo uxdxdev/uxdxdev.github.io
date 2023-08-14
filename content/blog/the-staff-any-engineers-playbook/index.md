@@ -31,7 +31,7 @@ You've been promoted to Staff Engineer, now what? Reallocate your time.
     - Collaborates with other team members in agile processes and relates comfortably with diverse groups of people
 - 20% Support
     - Answers questions from product and engineering teams. Pre-empts questions with spikes, proof of concepts, technical feasibility research, and discoverability
-    - Helps grow other engineers by providing technical and personal guidance based on real world experience. Admits when they have no relevant experience
+    - Developers other engineers through mentoring and sponsorhip. Delegate tasks to them to increase internal visibility and provide valuable experiences
     - Notes gaps on teams and provides suggestions for changes to make them more productive, e.g. workshops, conferences, strategies to improve autonomy, development process improvements, etc.
 
 
