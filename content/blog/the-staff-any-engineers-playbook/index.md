@@ -71,9 +71,7 @@ The Right Hand extends an executive's attention, borrowing their scope and autho
 
 ## Summary
 
-Staff engineers are expected to be a force multiplier for the organisation they are working with. You can only do that by getting out of the trees and seeing the forest. The first step to doing this is reducing your coding time and increasing your knowledge of the organisation, it's people, and the projects they are working on. Go talk to people about what they are doing! make friends.
-
-You need to have opinions now, you should be working on what you think will help teams and the business long term. Fight the urge to write code all day, set clear time boundaries for focus and diving deep. You will have people constantly tell you what you should be doing and how you should be spending your time, but you are the captain now. You are not an imposter. Good luck.
+Staff engineers are expected to be a force multiplier for the organisation they are working with. You can only do that by getting out of the trees and seeing the forest. The first step to doing this is reducing your coding time and increasing your knowledge of the organisation, it's people, and the projects they are working on. Go talk to people about what they are doing! make friends, shake off that imposter syndrome, we're all just making it up as we go along, good luck!.
 
 ## References
 
