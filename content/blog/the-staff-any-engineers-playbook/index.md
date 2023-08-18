@@ -1,20 +1,20 @@
 ---
 date: '2023-08-01'
-title: 'The Staff (Any) Engineers Playbook'
+title: 'The Staff+ Engineers Playbook'
 banner: './images/banner.jpg'
 imageAltText: 'hand holding a compass'
 bannerCredit: 'Photo by Aron Visuals'
 bannerLink: 'https://unsplash.com/photos/3jBU9TbKW7o'
 # see src/pages/index.js for default keywords
-keywords: staff engineer,playbook,career,responsibilties
-excerpt: Every engineer should be allocating their time to execution, learning, planning, and support in different ratios. This post is a cognitive artefact outlining the responsibility ratios of a Staff Engineer, adjust ratios to suit yourself.
+keywords: staff+ engineer,principal,playbook,career,responsibilties
+excerpt: Every engineer should be allocating their time to execution, learning, planning, and support in different ratios. This post is a cognitive artefact outlining the responsibility ratios of a Staff+ Engineer, adjust ratios to suit yourself.
 ---
 
-> Every engineer should be allocating their time to execution, learning, planning, and support in different ratios. This post is a cognitive artefact outlining the responsibility ratios of a Staff Engineer, adjust ratios to suit yourself
+> Every engineer should be allocating their time to execution, learning, planning, and support in different ratios. This post is a cognitive artefact outlining the responsibility ratios of a Staff+ Engineer, adjust ratios to suit yourself
 
-You've been promoted to Staff Engineer, now what? re-allocate your time.
+You've been promoted to Staff+ Engineer, now what? re-allocate your time.
 
-## Staff Engineer Responsibilities
+## Staff+ Engineer Responsibilities
 
 - 50% Delivery and Execution 
     - Develops, tests, deploys, and maintains software with a clear understanding of the value the software is to provide
@@ -35,7 +35,7 @@ You've been promoted to Staff Engineer, now what? re-allocate your time.
     - Notes gaps on teams and provides suggestions for changes to make them more productive, e.g. workshops, conferences, strategies to improve autonomy, development process improvements, etc.
 
 
-## Staff Engineer Archetypes
+## Staff+ Engineer Archetypes
 
 *The below archetypes and their descriptions are taken directly from [StaffEng.com](https://staffeng.com/guides/staff-archetypes/), to get a more in-depth explanation of each archetype and a bunch of other very useful stuff go take a look at their site.*
 
@@ -71,7 +71,7 @@ The Right Hand extends an executive's attention, borrowing their scope and autho
 
 ## Summary
 
-Staff engineers are expected to be a force multiplier for the organisation they are working with. You can only do that by getting out of the trees and seeing the forest. The first step to doing this is reducing your coding time and increasing your knowledge of the organisation, it's people, and the projects they are working on. Go talk to people about what they are doing! make friends, shake off that imposter syndrome, we're all just making it up as we go along, good luck!.
+Staff+ engineers are expected to be a force multiplier for the organisation they are working with. You can only do that by getting out of the trees and seeing the forest. The first step to doing this is reducing your coding time and increasing your knowledge of the organisation, it's people, and the projects they are working on. Go talk to people about what they are doing! make friends, shake off that imposter syndrome, we're all just making it up as we go along, good luck!.
 
 ## References
 
