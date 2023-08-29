@@ -27,11 +27,11 @@ You've been promoted to Staff+ Engineer, now what? re-allocate your time.
 - 20% Planning
     - Creates strategies to help the organisation be more successful and increase team/group autonomy. How can groups, teams, or individuals make decisions in your absence? 
     - Delivers multi-mode communications that convey a clear understanding of the unique needs of different audiences, e.g. diagrams, knowledge sharing videos, documentation, demos, etc.
-    - Works with Product, UX, and Engineering teams to ensure tasks are developer ready, easy to understand, and verifiable
+    - Works with Product, UX, Engineering, and Executive teams to ensure tasks are developer ready, easy to understand, and verifiable
     - Collaborates in agile processes and relates comfortably with diverse groups of people
 - 20% Support
-    - Answers questions from product, UX, engineering, and executive teams. Pre-empts questions with spikes, proof of concepts, technical feasibility research, and discoverability
-    - Mentors other engineers through sponsorhip and by example. Delegate tasks to increase internal visibility, provide networking opportunities, and lead by example
+    - Answers questions from Product, UX, Engineering, and Executive teams and pre-empts questions with spikes, proof of concepts, technical feasibility research, and discoverability
+    - Mentors other engineers through sponsorhip, delegation of tasks to increase visibility, introductions to provide networking opportunities, and leads by example
     - Notes gaps on teams and provides suggestions for changes to make them more productive, e.g. workshops, conferences, strategies to improve autonomy, development process improvements, etc.
 
 
