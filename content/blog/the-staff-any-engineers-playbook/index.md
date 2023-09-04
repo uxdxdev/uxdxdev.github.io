@@ -16,24 +16,26 @@ You've been promoted to Staff+ Engineer, now what? re-allocate your time.
 
 ## Staff+ Engineer Responsibilities
 
-- 50% Delivery and Execution 
-    - Develops, tests, deploys, and maintains software with a clear understanding of the value the software is to provide
-    - Develops test suites (unit, integration, e2e, etc) to enable success and rapid deployment of code to production
+- 50% Delivery and Execution (2.5 days)
+    - Develops, reviews, tests, deploys, maintains, and releases software with a clear understanding of the value the software is to provide
+    - Develops test suites (unit, integration, e2e, etc) to enable rapid, and successful, deployment of code to production
     - Takes on new opportunities and tough challenges with a sense of urgency, high energy, and enthusiasm
-- 10% Learning
-    - Actively seeks ways to grow and be challenged using both formal and informal development channels
-    - Learns through successful and failed experimentation when tackling new problems
-    - Identifies skill gaps and seeks out peers for mentoring and guidance to close these gaps
-- 20% Planning
+- 20% Support (1 day)
+    - Answers questions from Product, UX, Engineering, and Executive teams and pre-empts questions with spikes, proof of concepts, technical feasibility research, and discoverability
+    - Mentors other engineers through 1:1s, sponsorhips, delegation of tasks to increase visibility, pair programming sessions, and leads by example
+    - Notes gaps on teams and provides suggestions for changes to make them more productive, e.g. workshops, conferences, strategies to improve autonomy, development process improvements, etc.
+    - Improves the developer experience by introducing new developer tooling, creating templates for pull/change requests, automates code linting and formatting, etc.
+- 20% Planning (1 day)
     - Creates strategies to help the organisation be more successful and increase team/group autonomy. How can groups, teams, or individuals make decisions in your absence? 
     - Delivers multi-mode communications that convey a clear understanding of the unique needs of different audiences, e.g. diagrams, knowledge sharing videos, documentation, demos, etc.
     - Works with Product, UX, Engineering, and Executive teams to ensure tasks are developer ready, easy to understand, and verifiable
     - Collaborates in agile processes and relates comfortably with diverse groups of people
-- 20% Support
-    - Answers questions from Product, UX, Engineering, and Executive teams and pre-empts questions with spikes, proof of concepts, technical feasibility research, and discoverability
-    - Mentors other engineers through sponsorhip, delegation of tasks to increase visibility, introductions to provide networking opportunities, and leads by example
-    - Notes gaps on teams and provides suggestions for changes to make them more productive, e.g. workshops, conferences, strategies to improve autonomy, development process improvements, etc.
+- 10% Learning (0.5 day)
+    - Actively seeks ways to grow and be challenged using both formal and informal development channels
+    - Learns through successful and failed experimentation when tackling new problems
+    - Identifies skill gaps and seeks out peers for mentoring and guidance to close these gaps
 
+In my experience as you move closer to the principal engineer role the ratios between execution and support will change more so than planning and learning. As you become more familiar with the organisation you will need to provide more organisational wide support compared to writing code for a specific product. So for example, Principal Engineer ratios may look more like 20% execution, 50% support, 20% planning, and 10% learning.
 
 ## Staff+ Engineer Archetypes
 
