@@ -159,7 +159,9 @@ Technical Debt Assessment:
 
 ## Conclusion
 
-In this post, I've listed several engineering initiatives that may be relevant to your organisation and provided a high-level roadmap and execution guide for some of them. For each initiative, you must go deeper to identify the specific things you need to do to get them done. Working on these kinds of initiatives in your role as a Staff+ engineer will improve your organisational skills immensely. Have fun!
+In this post, I've listed several engineering initiatives that may be relevant to your organisation and provided a high-level roadmap and execution guide for some of them. For each initiative, you must go deeper to identify the specific things you need to do to get them done, refer to my post on [Staff+ engineering initiatives: How to](/blog/staff-plus-engineering-initiatives-how-to). 
+
+Working on these kinds of initiatives in your role as a Staff+ engineer will improve your organisational skills immensely. Try to setup an environment where you can fail safely as your working on engineering initiatives, your psychological safety will be tested, and have fun!
 
 
 ## References
