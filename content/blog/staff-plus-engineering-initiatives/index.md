@@ -7,10 +7,10 @@ bannerCredit: 'Photo by Glenn Carstens-Peters'
 bannerLink: 'https://unsplash.com/photos/RLw-UC03Gwc'
 # see src/pages/index.js for default keywords
 keywords: staff,principal,engineering,initiatives
-excerpt: Engineering initiatives are what Staff+ engineers will spend most of their time doing. It can be difficult to identify these initiatives if you are new to the role. Here is a list of initiatives to get you started.
+excerpt: Engineering initiatives are what Staff+ engineers will spend most of their time working on. It can be difficult to identify these initiatives if you are new to the role. Here is a list of initiatives to get you started.
 ---
 
-> Engineering initiatives are what Staff+ engineers will spend most of their time doing. It can be difficult to identify these initiatives if you are new to the role. Here is a list of initiatives to get you started.
+> Engineering initiatives are what Staff+ engineers will spend most of their time working on. It can be difficult to identify these initiatives if you are new to the role. Here is a list of initiatives to get you started.
 
 
 Doing this kind of work without the right support can harm your career progression so do your own research and make sure you and engineering management are aligned on your role expectations.
