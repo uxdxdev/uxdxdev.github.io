@@ -1,6 +1,6 @@
 ---
 date: '2022-12-12'
-title: 'Managing Engineering Teams'
+title: 'Managing engineering teams'
 banner: './images/banner.jpg'
 imageAltText: 'girl looking out window'
 bannerCredit: 'Photo by Ben Blennerhassett'

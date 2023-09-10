@@ -1,6 +1,6 @@
 ---
 date: '2021-04-22'
-title: 'Teaching Technology Tips and Tricks'
+title: 'Teaching technology tips and tricks'
 banner: './images/banner.jpeg'
 imageAltText: 'two laptops on a table with people sitting in front of each talking'
 bannerCredit: 'Photo by Scott Graham'
