@@ -51,21 +51,21 @@ The Tech Lead guides the approach and execution of a particular team. They partn
 
 ### Architect
 
-The Architect is responsible for the direction, quality, and approach within a critical area. They combine in-depth knowledge of technical constraints, user needs, and organization level leadership.
+The Architect is responsible for the direction, quality, and approach within a critical area. They combine in-depth knowledge of technical constraints, user needs, and organisation level leadership.
 
 ![](./images/ArchitectCalendar.png)
 [staffeng.com/guides/staff-archetypes/](https://staffeng.com/guides/staff-archetypes/)
 
 ### Solver
 
-The Solver digs deep into arbitrarily complex problems and finds an appropriate path forward. Some focus on a given area for long periods. Others bounce from hotspot to hotspot as guided by organizational leadership.
+The Solver digs deep into arbitrarily complex problems and finds an appropriate path forward. Some focus on a given area for long periods. Others bounce from hotspot to hotspot as guided by organisational leadership.
 
 ![](./images/SolverCalendar.png)
 [staffeng.com/guides/staff-archetypes/](https://staffeng.com/guides/staff-archetypes/)
 
 ### Right Hand
 
-The Right Hand extends an executive's attention, borrowing their scope and authority to operate particularly complex organizations. They provide additional leadership bandwidth to leaders of large-scale organizations.
+The Right Hand extends an executive's attention, borrowing their scope and authority to operate particularly complex organisations. They provide additional leadership bandwidth to leaders of large-scale organisations.
 
 ![](./images/RightHandCalendar.png)
 [staffeng.com/guides/staff-archetypes/](https://staffeng.com/guides/staff-archetypes/)
