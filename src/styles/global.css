@@ -12,6 +12,10 @@ li {
   margin-bottom: 0;
 }
 
+li *:last-child {
+  margin-bottom: 1.5rem;
+}
+
 .gatsby-highlight {
   box-shadow: 5px 5px #1a73e8;
   margin-bottom: 1.75rem;
