@@ -18,14 +18,14 @@ JSEnv is deployed as a static site to GitHub pages and can be accessed from the 
 
 ## Flowchart
 
-![](./images/jsenv%20flowchart.jpg)
+![flowchart of the overall jsenv project](./images/jsenv-flowchart.jpg)
 
 
 This flowchart shows how user code moves through the system and is rendered in the preview iframe. There are 3 main phases in this project; getting the users code, resolving dependencies and bundling, and rendering the output.
 
 ## Monaco editor
 
-![](./images/monaco%20editor.jpg)
+![flowchart image of monaco editor flow](./images/monaco-editor.jpg)
 
 Monaco editor is a browser based code editor. I'm using this in it's most basic form to allow users to enter JavaScript code which will then be sent to the bundler automatically after 2000ms of no activity, i.e. debounce. The editors configuration is below.
 
@@ -60,7 +60,7 @@ The editor content is sent to the esbuild WASM bundler so it can be processed to
 
 ## esbuild WASM bundler
 
-![](./images/esbuild%20WASM%20bundler.jpg)
+![flowchart of the esbuild wasm bundler flow](./images/esbuild-WASM-bundler.jpg)
 
 ```tsx
 const bundle = async (rawCode: string) => {
@@ -197,7 +197,7 @@ export const fetchPlugin = (inputCode: string) => {
 
 ## Preview iframe
 
-![](./images/preview%20iframe.jpg)
+![image of flowchart showing preview iframe flow](./images/preview-iframe.jpg)
 
 ```html
 <html>
