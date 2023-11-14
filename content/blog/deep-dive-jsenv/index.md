@@ -1,5 +1,5 @@
 ---
-date: '2020-01-01'
+date: '2023-11-14'
 title: 'JSEnv Deep Dive'
 banner: './images/banner.jpg'
 imageAltText: 'Broadcast engineer maintains camera circuitry'
