@@ -51,6 +51,9 @@ const Bio = () => {
                 <ExternalLink href="/jsenv">
                   JSEnv
                 </ExternalLink>{' '}
+                <ExternalLink href="/codingpractice">
+                  Coding Practice
+                </ExternalLink>{' '}
               </div>
             </div>
             <Link
