@@ -7,10 +7,10 @@ bannerCredit: 'Photo by ThisisEngineering RAEng'
 bannerLink: 'https://unsplash.com/photos/person-holding-green-and-black-circuit-board-32PpagSzeGs'
 # see src/pages/index.js for default keywords
 keywords: deep dive,javascript,bundler,esbuild,wasm,playground
-excerpt: JSEnv is a simple in-browser JavaScript playground. It automatically downloads dependencies from unpkg.com, it uses the WASM build of esbuild to bundle your code, and renders output to an iframe. Let's talk about how it works.
+excerpt: JSEnv is a simple in-browser JavaScript playground. It automatically downloads dependencies from unpkg.com, it uses esbuild WASM to bundle your code, and renders output to an iframe. Let's talk about how it works.
 ---
 
-> JSEnv is a simple in-browser JavaScript playground. It automatically downloads dependencies from unpkg.com, it uses the WASM build of esbuild to bundle your code, and renders output to an iframe. Let's talk about how it works.
+> JSEnv is a simple in-browser JavaScript playground. It automatically downloads dependencies from unpkg.com, it uses esbuild WASM to bundle your code, and renders output to an iframe. Let's talk about how it works.
 
 In this post I'm going to document a deep dive into how the JSEnv project works. We'll talk about the Monaco editors configuration. Then we'll take a look at `esbuild WASM` and the plugins written to fetch code dependencies and resolve modules during the bundling phase. Finally we'll see how the output is rendered in an iframe and console output shown to the user.
 
