@@ -25,7 +25,7 @@ Not sure whether you’re prone to micromanaging in the world of remote work? As
 - Do I find myself limiting others’ authority to keep myself engaged with initiatives?
 - Do I find it difficult to delegate tasks because I don’t trust they will get done?
 
-If you answered yes to any of these questions, then you’re likely a micromanager.
+If you answered yes to any of these questions, then you’re likely a micromanager.  
 [Gartner.com: Micromanaging Your Remote Workers? Own It, Then Fix It.](https://www.gartner.com/en/articles/micromanaging-your-remote-workers-own-it-then-fix-it)
 
 ## How to fix your approach to manangement
