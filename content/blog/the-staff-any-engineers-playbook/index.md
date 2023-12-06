@@ -23,7 +23,7 @@ You've been promoted to Staff+ Engineer, now what? re-allocate your time.
 
 20% Support (1 day)
 - Answers questions from Product, UX, Engineering, and Executive teams and pre-empts questions with spikes, proof of concepts, technical feasibility research, and discoverability
-- Mentors other engineers through 1:1s, sponsorhips, delegation of tasks to increase visibility, pair programming sessions, and leads by example
+- Mentors other engineers through 1:1s, sponsorships, delegation of tasks to increase visibility, pair programming sessions, and leads by example
 - Notes gaps on teams and provides suggestions for changes to make them more productive, e.g. workshops, conferences, strategies to improve autonomy, development process improvements, etc.
 - Improves the developer experience by introducing new developer tooling, creating templates for pull/change requests, automates code linting and formatting, etc.
 
