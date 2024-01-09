@@ -76,7 +76,7 @@ The Right Hand extends an executive's attention, borrowing their scope and autho
 
 ## Summary
 
-Staff+ engineers are expected to be a force multiplier for the organisation they are working with. You can only do that by getting out of the trees and seeing the forest. The first step to doing this is reducing your coding time and increasing your knowledge of the organisation, it's people, and the projects they are working on. Go talk to people about what they are doing! make friends, shake off that imposter syndrome, we're all just making it up as we go along, good luck!.
+Staff+ engineers are expected to be a force multiplier for the organisation they are working with. You can only do that by getting out of the trees and seeing the forest. The first step to doing this is reducing your coding time and increasing your knowledge of the organisation, it's people, and the projects they are working on. Go talk to people about what they are doing! make friends, and shake off that imposter syndrome.
 
 ## References
 
