@@ -57,6 +57,9 @@ const Bio = () => {
                 <ExternalLink href="/codingpractice">
                   Coding Practice
                 </ExternalLink>{' '}
+                <ExternalLink href="https://docs.google.com/document/d/1BKZhAV0XMM0RK7i7JEuZUlCD_ayLJ3jjxq7ojZokJR0/edit?usp=sharing">
+                  Résumé
+                </ExternalLink>{' '}
               </div>
             </div>
             <Link
