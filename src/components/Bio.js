@@ -45,9 +45,6 @@ const Bio = () => {
                 <ExternalLink href="https://github.com/uxdxdev">
                   GitHub
                 </ExternalLink>{' '}
-                <ExternalLink href="https://www.linkedin.com/in/uxdx/">
-                  LinkedIn
-                </ExternalLink>{' '}
                 <ExternalLink href="https://www.npmjs.com/~uxdx">
                   NPM
                 </ExternalLink>{' '}
@@ -56,9 +53,6 @@ const Bio = () => {
                 </ExternalLink>{' '}
                 <ExternalLink href="/codingpractice">
                   Coding Practice
-                </ExternalLink>{' '}
-                <ExternalLink href="https://bit.ly/david-morton-resume">
-                  Résumé
                 </ExternalLink>{' '}
               </div>
             </div>
